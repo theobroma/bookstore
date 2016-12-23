@@ -2,12 +2,12 @@
 Приложение для отображения книг
 
 # Описание задания
-[Описание задания](task.md). Оригинал взят от [сюда](https://gist.github.com/geksilla/72a0cb882d2b7d8b4336)
+[Описание задания](task.md). Оригинал взят [отсюда](https://gist.github.com/geksilla/72a0cb882d2b7d8b4336)
 
 ## REST API
 
 
-| HTTP Method | URL           | Action                   |
+| HTTP Method | URL           | Action                       |
 | ------------|:-------------:| ----------------------------:|
 | GET         | /api/books    | Retrieve all books           |
 | GET         | /api/books/10 | Retrieve book with id == 10  |
