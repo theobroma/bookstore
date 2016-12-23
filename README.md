@@ -1,6 +1,12 @@
 # BookStore
 Приложение для отображения книг
 
+<<<<<<< 30a97c8c6ff2255410040d41cda7b2497e1825a9
+=======
+# Описание задания
+[Описание задания](awesome.md). Оригинал взят от [сюда](https://gist.github.com/geksilla/72a0cb882d2b7d8b4336)
+
+>>>>>>> add task.md and REST API description
 ## REST API
 
 
