@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <title>welcome to book store</title>
+  </head>
+  <body>
+    <ul>
+        {% for item in items %}
+          {% include "item.html" %}
+        {% endfor %}
+    </ul>
+  </body>
+</html>
