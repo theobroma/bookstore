@@ -22,12 +22,20 @@ nunjucks.configure('views', {
 var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 
-app.get('/', function(req, res) {
-  res.render('index.html', {
-    title : 'My First Nunjucks Page',
-    items : data
-  });
+app.get('/api/books', function(req, res) {
+  res.send(data);
 });
+
+
+app.get('/*', function(req, res) {
+  res.render('index.html');
+});
+
+
+
+
+
+
 
 
 
