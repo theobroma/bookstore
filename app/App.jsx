@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Book from './Book';
+import Layout from './Layout';
 
 export default class App extends React.Component {
   static propTypes = {
@@ -23,16 +24,18 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="text-left">
-          {this.state.items.map((item)=>{
-                return (<Book key = {item.id} item = {item} /> )
-            }
-          )}
-          {this.props.children}
-          {/*<pre>{JSON.stringify(this.state,"", 4)}</pre>*/}
+        <div>
+            <div className="container">
+                <div className="text-left">
+                  {this.state.items.map((item)=>{
+                        return (<Book key = {item.id} item = {item} /> )
+                    }
+                  )}
+                  {this.props.children}
+                </div>
+            </div>}
+                {/*<pre>{JSON.stringify(this.state,"", 4)}</pre>*/}
         </div>
-      </div>
     );
   }
 }
