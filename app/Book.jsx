@@ -8,7 +8,7 @@ export default class Book extends Component {
         return (
             <div className="card">
                 <p><Link to={`/books/${id}`}>{title}</Link></p>
-                <p>{author}</p>
+                <p><Link to={`/author/${author}`}>{author}</Link></p>
                 <p><img src={`/images/${thumbnail}`} alt=""/></p>
                 <p><Link to={`/genre/${genre}`}>{genre}</Link></p>
             </div>

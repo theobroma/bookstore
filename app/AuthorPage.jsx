@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import BookSingle from './BookSingle';
+import AuthorSingle from './AuthorSingle';
 import $ from 'jquery';
 import _ from 'lodash';
 
-export default class BookPage extends Component {
+
+export default class AuthorPage extends Component {
+
 
     constructor(props) {
         super(props);
@@ -14,8 +16,8 @@ export default class BookPage extends Component {
     componentDidMount() {
         $.getJSON(`http://localhost:8080/api/books`)
             .then(result=> {
-                let id = Number(this.props.params.book);
-                let res =_.filter(result, { 'id': id });
+                let author = this.props.params.author;
+                let res =_.filter(result, { 'author': author });
                 this.setState({items:res});
             });
     }
@@ -23,11 +25,11 @@ export default class BookPage extends Component {
     render() {
         return (
             <div className="card">
-            <p>BookPage</p>
-             {this.state.items.map((item,index)=>{
-                    return (<BookSingle key = {index} item = {item} /> )
-                }
-            )}
+                <p>Книги автора : {this.props.params.author}</p>
+                {this.state.items.map((item,index)=>{
+                        return (<AuthorSingle key = {index} item = {item} /> )
+                    }
+                )}
             </div>
         );
     }
