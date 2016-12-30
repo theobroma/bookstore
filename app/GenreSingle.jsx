@@ -7,8 +7,7 @@ export default class GenreSingle extends Component {
         const {id,title,genre,author,thumbnail,description} = this.props.item;
         return (
             <div className="card">
-                <p>{title}</p>
-
+                <p><Link to={`/books/${id}`}>{title}</Link></p>
             </div>
         );
     }

@@ -22,12 +22,12 @@ export default class BookPage extends Component {
 
     render() {
         return (
-            <div className="card">
-            <p>BookPage</p>
-             {this.state.items.map((item,index)=>{
-                    return (<BookSingle key = {index} item = {item} /> )
-                }
-            )}
+            <div className="container">
+                <p>BookPage</p>
+                 {this.state.items.map((item,index)=>{
+                        return (<BookSingle key = {index} item = {item} /> )
+                    }
+                )}
             </div>
         );
     }

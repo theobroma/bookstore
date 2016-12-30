@@ -6,13 +6,15 @@ export default class BookSingle extends Component {
     render() {
         const {id,title,genre,author,thumbnail,description} = this.props.item;
         return (
-            <div className="card">
-                <p>{title}</p>
-                <p>{author}</p>
-                <p><img src={`/images/${thumbnail}`} alt=""/></p>
-                <p><Link to={`/genre/${genre}`}>{genre}</Link></p>
+            <div className="book-single-item">
+                <img src={`/images/${thumbnail}`} alt=""/>
+                <span className="book-title">{title}</span>
+                <Link className="book-author"to={`/author/${author}`}>{author}</Link>
+                <Link to={`/genre/${genre}`}>{genre}</Link>
+                <div className="book-sinlge-description">
+                    {description}
+                </div>
             </div>
-
         );
     }
 }

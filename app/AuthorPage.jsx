@@ -24,7 +24,7 @@ export default class AuthorPage extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="container">
                 <p>Книги автора : {this.props.params.author}</p>
                 {this.state.items.map((item,index)=>{
                         return (<AuthorSingle key = {index} item = {item} /> )

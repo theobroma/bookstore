@@ -24,13 +24,15 @@ export default class GenrePage extends Component {
     render() {
         return (
             <div>
-                <div className="columns">
-                    <div className="column">
-                        <p>Книги жанра : {this.props.params.genre}</p>
-                            {this.state.items.map((item,index)=>{
-                                return (<GenreSingle key = {index} item = {item} /> )
-                            }
-                        )}
+                <div className="container">
+                    <div className="columns">
+                        <div className="column">
+                            <p>Книги жанра : {this.props.params.genre}</p>
+                                {this.state.items.map((item,index)=>{
+                                    return (<GenreSingle key = {index} item = {item} /> )
+                                }
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
