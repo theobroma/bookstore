@@ -1,3 +1,13 @@
+@import url('../node_modules/bulma/css/bulma.css');
+@import url('../node_modules/font-awesome/css/font-awesome.css');
+
+$c-orange : #ff6600;
+
+body {
+    color:$c-orange;
+}
+
+
 .book-list {
     display:flex;
     flex-direction: column;

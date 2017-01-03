@@ -10,6 +10,7 @@ import GenrePage from './GenrePage';
 import GenreList from './GenreList';
 import AuthorPage from './AuthorPage';
 import AuthorList from './AuthorList';
+import LoginPage from './LoginPage';
 import NotFound from './NotFound';
 
 export const routes = (
@@ -21,6 +22,7 @@ export const routes = (
             <Route path='/genre/:genre' component={GenrePage} ></Route>
             <Route path='/author' component={AuthorList} ></Route>
             <Route path='/author/:author' component={AuthorPage} ></Route>
+            <Route path='/login' component={LoginPage} ></Route>
         </Route>
         {/* для всех остальных роутов: показывай NotFound */}
         <Route path='*' component={NotFound} />
