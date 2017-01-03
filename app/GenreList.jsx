@@ -27,7 +27,7 @@ export default class GenreList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="columns">
                     <div className="column">
                         {this.state.items.map((item,index)=>{

@@ -4,8 +4,10 @@ var nunjucks  = require('nunjucks');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var jsonfile = require('jsonfile');
+var mongoose = require('mongoose');
 var app = express();
 
+mongoose.connect('mongodb://localhost/test');
 
 var port = 8080;
 

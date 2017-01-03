@@ -8,22 +8,25 @@ export default class Header extends Component {
             <div>
                 <nav className="nav">
                     <div className="container">
-                        <div className="nav-left nav-menu">
+                        <div className="nav-right nav-menu">
                             <Link className="nav-item" to={`/books`}>Книги</Link>
                             <Link className="nav-item" to={`/author`}>Авторы</Link>
                             <Link className="nav-item" to={`/genre`}>Жанры</Link>
                              <span className="nav-item">
                                   <a className="button" >
                                     <span className="icon">
-                                      <i className="fa fa-twitter"></i>
+                                      <i className="fa fa-shopping-cart"></i>
                                     </span>
-                                    <span>Tweet</span>
+                                    <span>Shoping Cart</span>
                                   </a>
                                   <a className="button is-primary" href="#">
                                     <span className="icon">
-                                      <i className="fa fa-download"></i>
+                                      <i className="fa fa-user"></i>
                                     </span>
-                                    <span>Download</span>
+                                    <span>User Menagment</span>
+                                    <span className="icon">
+                                      <i className="fa fa-sort-down"></i>
+                                    </span>
                                   </a>
                                 </span>
                         </div>

@@ -26479,7 +26479,7 @@
 	                        { className: 'container' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'nav-left nav-menu' },
+	                            { className: 'nav-right nav-menu' },
 	                            _react2.default.createElement(
 	                                _reactRouter.Link,
 	                                { className: 'nav-item', to: '/books' },
@@ -26504,12 +26504,12 @@
 	                                    _react2.default.createElement(
 	                                        'span',
 	                                        { className: 'icon' },
-	                                        _react2.default.createElement('i', { className: 'fa fa-twitter' })
+	                                        _react2.default.createElement('i', { className: 'fa fa-shopping-cart' })
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'span',
 	                                        null,
-	                                        'Tweet'
+	                                        'Shoping Cart'
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
@@ -26518,12 +26518,17 @@
 	                                    _react2.default.createElement(
 	                                        'span',
 	                                        { className: 'icon' },
-	                                        _react2.default.createElement('i', { className: 'fa fa-download' })
+	                                        _react2.default.createElement('i', { className: 'fa fa-user' })
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'span',
 	                                        null,
-	                                        'Download'
+	                                        'User Menagment'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'icon' },
+	                                        _react2.default.createElement('i', { className: 'fa fa-sort-down' })
 	                                    )
 	                                )
 	                            )
@@ -54482,7 +54487,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'columns' },
@@ -54789,7 +54794,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'columns' },
