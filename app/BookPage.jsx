@@ -14,8 +14,8 @@ export default class BookPage extends Component {
     componentDidMount() {
         $.getJSON(`http://localhost:8080/api/books`)
             .then(result=> {
-                let id = Number(this.props.params.book);
-                let res =_.filter(result, { 'id': id });
+                let id = this.props.params.book;
+                let res =_.filter(result, { '_id': id });
                 this.setState({items:res});
             });
     }

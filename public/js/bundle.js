@@ -26674,7 +26674,12 @@
 	            })
 	          )
 	        ),
-	        '}'
+	        '}',
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          JSON.stringify(this.state, "", 4)
+	        )
 	      );
 	    }
 	  }]);
@@ -36952,12 +36957,13 @@
 	        key: 'render',
 	        value: function render() {
 	            var _props$item = this.props.item,
-	                id = _props$item.id,
+	                _id = _props$item._id,
 	                title = _props$item.title,
 	                genre = _props$item.genre,
 	                author = _props$item.author,
 	                thumbnail = _props$item.thumbnail,
-	                description = _props$item.description;
+	                description = _props$item.description,
+	                price = _props$item.price;
 
 	            return _react2.default.createElement(
 	                'div',
@@ -36965,7 +36971,7 @@
 	                _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
 	                _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { className: 'book-title', to: '/books/' + id },
+	                    { className: 'book-title', to: '/books/' + _id },
 	                    title
 	                ),
 	                _react2.default.createElement(
@@ -36977,6 +36983,12 @@
 	                    _reactRouter.Link,
 	                    { to: '/genre/' + genre },
 	                    genre
+	                ),
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'book-price' },
+	                    '$',
+	                    price
 	                )
 	            );
 	        }
@@ -37043,8 +37055,8 @@
 	            var _this2 = this;
 
 	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
-	                var id = Number(_this2.props.params.book);
-	                var res = _lodash2.default.filter(result, { 'id': id });
+	                var id = _this2.props.params.book;
+	                var res = _lodash2.default.filter(result, { '_id': id });
 	                _this2.setState({ items: res });
 	            });
 	        }
@@ -54975,7 +54987,7 @@
 	exports.i(__webpack_require__(257), "");
 
 	// module
-	exports.push([module.id, ".book-list {\n    display:flex;\n    flex-direction: column;\n}\n\n.book-item {\n    display:flex;\n    color:#e3e3e3;\n    border-bottom: solid 1px #e4e4e3;\n    padding:10px;\n    overflow:hidden;\n    align-items:center;\n    justify-content:space-between;\n}\n.book-title {\n    color: #333;\n    font-weight: 700;\n}\n.book-title:hover {\n    color: #c25c60;\n}\n.book-author {\n    padding-bottom: 1px;\n    border-bottom: 1px solid #d8d8d8;\n    color: #999;\n    font-weight: 400;\n}\n.book-author:hover {\n    border-bottom-color: #8088b1;\n    color: #5a6499;\n}\n.book-single-item {\n    border: 1px solid #ffdd57;\n}", ""]);
+	exports.push([module.id, ".book-list {\n    display:flex;\n    flex-direction: column;\n}\n\n.book-item {\n    display:flex;\n    color:#e3e3e3;\n    border-bottom: solid 1px #e4e4e3;\n    padding:10px;\n    overflow:hidden;\n    align-items:center;\n    justify-content:space-between;\n}\n.book-title {\n    color: #333;\n    font-weight: 700;\n}\n.book-title:hover {\n    color: #c25c60;\n}\n.book-author {\n    padding-bottom: 1px;\n    border-bottom: 1px solid #d8d8d8;\n    color: #999;\n    font-weight: 400;\n}\n.book-price{\n    color:#ffdd57;\n}\n\n.book-author:hover {\n    border-bottom-color: #8088b1;\n    color: #5a6499;\n}\n.book-single-item {\n    border: 1px solid #ffdd57;\n}", ""]);
 
 	// exports
 

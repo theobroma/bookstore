@@ -33,7 +33,7 @@ export default class App extends React.Component {
                   )}
                 </div>
             </div>}
-                {/*<pre>{JSON.stringify(this.state,"", 4)}</pre>*/}
+                {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
         </div>
     );
   }

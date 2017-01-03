@@ -28,6 +28,10 @@
     color: #999;
     font-weight: 400;
 }
+.book-price{
+    color:#ffdd57;
+}
+
 .book-author:hover {
     border-bottom-color: #8088b1;
     color: #5a6499;
