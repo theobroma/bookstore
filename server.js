@@ -1,16 +1,16 @@
-var path = require('path');
-var express = require('express');
-var nunjucks  = require('nunjucks');
-var bodyParser = require('body-parser');
-var favicon = require('serve-favicon');
-var jsonfile = require('jsonfile');
-var mongoose = require('mongoose');
-
-var Product  =  require ('./models/product');
+import path from 'path';
+import express from 'express';
+import nunjucks from 'nunjucks';
+import bodyParser from 'body-parser';
+import favicon from 'serve-favicon';
+import jsonfile from 'jsonfile';
+import mongoose from 'mongoose';
+import config from './etc/config.json';
+import Product from './models/product';
 
 var app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/bookstore');
+mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 
 var port = 8080;
 app.use( bodyParser.json() );
@@ -27,21 +27,18 @@ nunjucks.configure('views', {
 var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 //
-
-app.get('/api/books', function(req, res) {
-    Product.find().then(function (data) {
+app.get('/api/books', (req, res) => {
+    Product.find().then((data) => {
         res.send(data);
     });
 });
 
-
-app.get('/*', function(req, res) {
+app.get('/*', (req, res) => {
   res.render('index.html');
 });
 
-
-app.listen(port, function() {
-  console.log('app listening on port ' + port);
+app.listen(port, ()=> {
+  console.log(`app listening on port ${port}`);
 });
 
 

@@ -54403,7 +54403,7 @@
 	        key: 'render',
 	        value: function render() {
 	            var _props$item = this.props.item,
-	                id = _props$item.id,
+	                _id = _props$item._id,
 	                title = _props$item.title,
 	                genre = _props$item.genre,
 	                author = _props$item.author,
@@ -54418,7 +54418,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
-	                        { to: '/books/' + id },
+	                        { to: '/books/' + _id },
 	                        title
 	                    )
 	                )
@@ -54710,7 +54710,7 @@
 	        key: 'render',
 	        value: function render() {
 	            var _props$item = this.props.item,
-	                id = _props$item.id,
+	                _id = _props$item._id,
 	                title = _props$item.title,
 	                genre = _props$item.genre,
 	                author = _props$item.author,
@@ -54725,7 +54725,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
-	                        { to: '/books/' + id },
+	                        { to: '/books/' + _id },
 	                        title
 	                    )
 	                )
