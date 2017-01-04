@@ -8,8 +8,10 @@ export default class Layout extends Component {
         return(
             <div>
                 <Header/>
-                <div className="container">
-                    {this.props.children}
+                <div className="site-content">
+                    <div className="container">
+                        {this.props.children}
+                    </div>
                 </div>
                 <Footer/>
             </div>

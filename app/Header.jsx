@@ -5,7 +5,7 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div className = "header">
                 <nav className="nav">
                     <div className="container">
                         <div className="nav-right nav-menu">

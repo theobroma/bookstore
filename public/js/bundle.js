@@ -26426,8 +26426,12 @@
 	                _react2.default.createElement(_Header2.default, null),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'container' },
-	                    this.props.children
+	                    { className: 'site-content' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'container' },
+	                        this.props.children
+	                    )
 	                ),
 	                _react2.default.createElement(_Footer2.default, null)
 	            );
@@ -26479,7 +26483,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'header' },
 	                _react2.default.createElement(
 	                    'nav',
 	                    { className: 'nav' },
@@ -26598,11 +26602,15 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'container' },
+	                { className: 'footer' },
 	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    'My awesome footer'
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'My awesome footer'
+	                    )
 	                )
 	            );
 	        }
@@ -54666,16 +54674,23 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'container' },
+	                null,
 	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    '\u041A\u043D\u0438\u0433\u0438 \u0430\u0432\u0442\u043E\u0440\u0430 : ',
-	                    this.props.params.author
+	                    'div',
+	                    { className: 'contributor-info' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        { className: 'contributor-title' },
+	                        this.props.params.author
+	                    )
 	                ),
-	                this.state.items.map(function (item, index) {
-	                    return _react2.default.createElement(_AuthorSingle2.default, { key: index, item: item });
-	                })
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'coninious-list' },
+	                    this.state.items.map(function (item, index) {
+	                        return _react2.default.createElement(_AuthorSingle2.default, { key: index, item: item });
+	                    })
+	                )
 	            );
 	        }
 	    }]);
@@ -54733,15 +54748,17 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'card' },
+	                { className: 'coninious-item' },
+	                _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
 	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/books/' + _id },
-	                        title
-	                    )
+	                    _reactRouter.Link,
+	                    { className: 'book-title', to: '/books/' + _id },
+	                    title
+	                ),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { className: 'book-author', to: '/author/' + author },
+	                    author
 	                )
 	            );
 	        }
@@ -54820,21 +54837,17 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'container' },
+	                { className: 'columns' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'columns' },
+	                    { className: 'column' },
+	                    this.state.items.map(function (item, index) {
+	                        return _react2.default.createElement(_AuthorListItem2.default, { key: index, item: item });
+	                    }),
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'column' },
-	                        this.state.items.map(function (item, index) {
-	                            return _react2.default.createElement(_AuthorListItem2.default, { key: index, item: item });
-	                        }),
-	                        _react2.default.createElement(
-	                            'pre',
-	                            null,
-	                            JSON.stringify(this.state, "", 4)
-	                        )
+	                        'pre',
+	                        null,
+	                        JSON.stringify(this.state, "", 4)
 	                    )
 	                )
 	            );
@@ -55077,7 +55090,7 @@
 	exports.i(__webpack_require__(258), "");
 
 	// module
-	exports.push([module.id, "body {\n  color: #ff6600; }\n\n.book-list {\n  display: flex;\n  flex-direction: column; }\n\n.book-item {\n  display: flex;\n  color: #e3e3e3;\n  border-bottom: solid 1px #e4e4e3;\n  padding: 10px;\n  overflow: hidden;\n  align-items: center;\n  justify-content: space-between; }\n\n.book-title {\n  color: #333;\n  font-weight: 700; }\n\n.book-title:hover {\n  color: #c25c60; }\n\n.book-author {\n  padding-bottom: 1px;\n  border-bottom: 1px solid #d8d8d8;\n  color: #999;\n  font-weight: 400; }\n\n.book-price {\n  color: #ffdd57; }\n\n.book-author:hover {\n  border-bottom-color: #8088b1;\n  color: #5a6499; }\n\n.book-single-item {\n  border: 1px solid #ffdd57; }\n", ""]);
+	exports.push([module.id, "body {\n  color: #ff6600; }\n\n.book-list {\n  display: flex;\n  flex-direction: column; }\n\n.book-item {\n  display: flex;\n  color: #e3e3e3;\n  border-bottom: solid 1px #e4e4e3;\n  padding: 10px;\n  overflow: hidden;\n  align-items: center;\n  justify-content: space-between; }\n\n.book-title {\n  color: #333;\n  font-weight: 700; }\n\n.book-title:hover {\n  color: #c25c60; }\n\n.book-author {\n  padding-bottom: 1px;\n  border-bottom: 1px solid #d8d8d8;\n  color: #999;\n  font-weight: 400; }\n\n.book-price {\n  color: #ffdd57; }\n\n.book-author:hover {\n  border-bottom-color: #8088b1;\n  color: #5a6499; }\n\n.book-single-item {\n  border: 1px solid #ffdd57; }\n\n.contributor-info {\n  padding: 20px 0 60px 0;\n  border-bottom: 1px solid #e1e1e1;\n  margin-bottom: 20px;\n  display: flex;\n  flex-flow: row wrap; }\n\n.contributor-title {\n  color: #a0a0a0;\n  font-weight: 700;\n  font-size: 135%;\n  margin-bottom: 0;\n  padding-bottom: 0;\n  padding-top: 15px; }\n\n.coninious-list {\n  display: flex;\n  flex-flow: row nowrap; }\n\n.coninious-item {\n  display: flex;\n  flex-flow: column nowrap;\n  padding: 0 23px 30px 0; }\n", ""]);
 
 	// exports
 

@@ -27,18 +27,15 @@ export default class AuthorList extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="columns">
-                    <div className="column">
-                        {this.state.items.map((item,index)=>{
-                                return (<AuthorListItem key = {index} item = {item} /> )
-                            }
-                        )}
-                        <pre>{JSON.stringify(this.state,"", 4)}</pre>
-                    </div>
+            <div className="columns">
+                <div className="column">
+                    {this.state.items.map((item,index)=>{
+                            return (<AuthorListItem key = {index} item = {item} /> )
+                        }
+                    )}
+                    <pre>{JSON.stringify(this.state,"", 4)}</pre>
                 </div>
             </div>
-
         );
     }
 }

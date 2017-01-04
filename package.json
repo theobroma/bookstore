@@ -29,6 +29,7 @@
     "jsonfile": "^2.4.0",
     "node-sass": "^4.1.1",
     "nunjucks": "^3.0.0",
+    "postcss-loader": "^1.2.1",
     "react-router": "^3.0.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",

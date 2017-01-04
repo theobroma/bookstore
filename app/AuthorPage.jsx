@@ -24,12 +24,16 @@ export default class AuthorPage extends Component {
 
     render() {
         return (
-            <div className="container">
-                <p>Книги автора : {this.props.params.author}</p>
-                {this.state.items.map((item,index)=>{
-                        return (<AuthorSingle key = {index} item = {item} /> )
-                    }
-                )}
+            <div>
+                <div className="contributor-info">
+                   <h1 className = "contributor-title">{this.props.params.author}</h1>
+                </div>
+                <div className="coninious-list">
+                    {this.state.items.map((item,index)=>{
+                            return (<AuthorSingle key = {index} item = {item} /> )
+                        }
+                    )}
+                </div>
             </div>
         );
     }
