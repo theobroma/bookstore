@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import AuthorSingle from './AuthorSingle';
 import $ from 'jquery';
 import _ from 'lodash';
+import api from './api';
 
 
 export default class AuthorPage extends Component {
@@ -14,12 +15,11 @@ export default class AuthorPage extends Component {
     }
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-                let author = this.props.params.author;
-                let res =_.filter(result, { 'author': author });
-                this.setState({items:res});
-            });
+        api.listBooks().then(result=> {
+            let author = this.props.params.author;
+            let res =_.filter(result.data, { 'author': author });
+            this.setState({items:res});
+        });
     }
 
     render() {

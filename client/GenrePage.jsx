@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GenreSingle from './GenreSingle';
 import $ from 'jquery';
 import _ from 'lodash';
+import api from './api';
 
 export default class GenrePage extends Component {
 
@@ -12,12 +13,11 @@ export default class GenrePage extends Component {
     }
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-                let genre = this.props.params.genre;
-                let res =_.filter(result, { 'genre': genre });
-                this.setState({items:res});
-            });
+        api.listBooks().then(result=> {
+            let genre = this.props.params.genre;
+            let res =_.filter(result.data, { 'genre': genre });
+            this.setState({items:res});
+        });
     }
 
 

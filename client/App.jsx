@@ -2,7 +2,6 @@ import React from 'react';
 import $ from 'jquery';
 import Book from './Book';
 import Layout from './Layout';
-import axios from 'axios';
 import api from './api';
 
 
@@ -19,7 +18,6 @@ export default class App extends React.Component {
 
     componentDidMount() {
         api.listBooks().then(result=> {
-            console.log(result);
             this.setState({items:result.data});
         });
     }

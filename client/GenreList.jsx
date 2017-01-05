@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import GenreListItem from './GenreListItem';
 import $ from 'jquery';
 import _ from 'lodash';
+import api from './api';
+
 
 export default class GenreList extends Component {
 
@@ -12,16 +14,15 @@ export default class GenreList extends Component {
     }
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-                let res=[];
-                _.forEach(result, function(item) {
-                    let obj = _.pick(item, ['genre']);
-                    res.push(obj);
-                });
-                res = _.uniqBy(res, 'genre');
-                this.setState({items:res});
+        api.listBooks().then(result=> {
+            let res=[];
+            _.forEach(result.data, function(item) {
+                let obj = _.pick(item, ['genre']);
+                res.push(obj);
             });
+            res = _.uniqBy(res, 'genre');
+            this.setState({items:res});
+        });
     }
 
 

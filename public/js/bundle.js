@@ -26654,10 +26654,6 @@
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _axios = __webpack_require__(240);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
 	var _api = __webpack_require__(265);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -26688,7 +26684,6 @@
 	      var _this2 = this;
 
 	      _api2.default.listBooks().then(function (result) {
-	        console.log(result);
 	        _this2.setState({ items: result.data });
 	      });
 	    }
@@ -38591,6 +38586,10 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _api = __webpack_require__(265);
+
+	var _api2 = _interopRequireDefault(_api);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38616,9 +38615,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
+	            _api2.default.listBooks().then(function (result) {
 	                var id = _this2.props.params.book;
-	                var res = _lodash2.default.filter(result, { '_id': id });
+	                var res = _lodash2.default.filter(result.data, { '_id': id });
 	                _this2.setState({ items: res });
 	            });
 	        }
@@ -55859,6 +55858,10 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _api = __webpack_require__(265);
+
+	var _api2 = _interopRequireDefault(_api);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55884,9 +55887,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
+	            _api2.default.listBooks().then(function (result) {
 	                var genre = _this2.props.params.genre;
-	                var res = _lodash2.default.filter(result, { 'genre': genre });
+	                var res = _lodash2.default.filter(result.data, { 'genre': genre });
 	                _this2.setState({ items: res });
 	            });
 	        }
@@ -56021,6 +56024,10 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _api = __webpack_require__(265);
+
+	var _api2 = _interopRequireDefault(_api);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56046,9 +56053,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
+	            _api2.default.listBooks().then(function (result) {
 	                var res = [];
-	                _lodash2.default.forEach(result, function (item) {
+	                _lodash2.default.forEach(result.data, function (item) {
 	                    var obj = _lodash2.default.pick(item, ['genre']);
 	                    res.push(obj);
 	                });
@@ -56178,6 +56185,10 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _api = __webpack_require__(265);
+
+	var _api2 = _interopRequireDefault(_api);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56203,9 +56214,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
+	            _api2.default.listBooks().then(function (result) {
 	                var author = _this2.props.params.author;
-	                var res = _lodash2.default.filter(result, { 'author': author });
+	                var res = _lodash2.default.filter(result.data, { 'author': author });
 	                _this2.setState({ items: res });
 	            });
 	        }
@@ -56337,6 +56348,10 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _api = __webpack_require__(265);
+
+	var _api2 = _interopRequireDefault(_api);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56362,9 +56377,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _jquery2.default.getJSON('http://localhost:8080/api/books').then(function (result) {
+	            _api2.default.listBooks().then(function (result) {
 	                var res = [];
-	                _lodash2.default.forEach(result, function (item) {
+	                _lodash2.default.forEach(result.data, function (item) {
 	                    var obj = _lodash2.default.pick(item, ['author']);
 	                    res.push(obj);
 	                });

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import BookSingle from './BookSingle';
 import $ from 'jquery';
 import _ from 'lodash';
+import api from './api';
 
 export default class BookPage extends Component {
 
@@ -12,12 +13,11 @@ export default class BookPage extends Component {
     }
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-                let id = this.props.params.book;
-                let res =_.filter(result, { '_id': id });
-                this.setState({items:res});
-            });
+        api.listBooks().then(result=> {
+            let id = this.props.params.book;
+            let res =_.filter(result.data, { '_id': id });
+            this.setState({items:res});
+        });
     }
 
     render() {

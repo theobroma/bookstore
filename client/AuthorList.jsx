@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthorListItem from './AuthorListItem';
 import $ from 'jquery';
 import _ from 'lodash';
+import api from './api';
 
 export default class AuthorList extends Component {
 
@@ -12,16 +13,15 @@ export default class AuthorList extends Component {
     }
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-                let res=[];
-                _.forEach(result, function(item) {
-                    let obj = _.pick(item, ['author']);
-                    res.push(obj);
-                });
-                res = _.uniqBy(res, 'author');
-                this.setState({items:res});
+        api.listBooks().then(result=> {
+            let res=[];
+            _.forEach(result.data, function(item) {
+                let obj = _.pick(item, ['author']);
+                res.push(obj);
             });
+            res = _.uniqBy(res, 'author');
+            this.setState({items:res});
+        });
     }
 
 
