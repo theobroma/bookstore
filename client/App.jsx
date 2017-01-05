@@ -2,6 +2,9 @@ import React from 'react';
 import $ from 'jquery';
 import Book from './Book';
 import Layout from './Layout';
+import axios from 'axios';
+import api from './api';
+
 
 export default class App extends React.Component {
   static propTypes = {
@@ -15,11 +18,10 @@ export default class App extends React.Component {
 
 
     componentDidMount() {
-        $.getJSON(`http://localhost:8080/api/books`)
-            .then(result=> {
-
-                this.setState({items:result});
-            });
+        api.listBooks().then(result=> {
+            console.log(result);
+            this.setState({items:result.data});
+        });
     }
 
   render() {
@@ -28,7 +30,7 @@ export default class App extends React.Component {
             <div className="container">
                 <div className="text-left book-list">
                   {this.state.items.map((item)=>{
-                        return (<Book key = {item.id} item = {item} /> )
+                        return (<Book key = {item._id} item = {item} /> )
                     }
                   )}
                 </div>

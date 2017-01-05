@@ -9,6 +9,7 @@ export default class Header extends Component {
                 <nav className="nav">
                     <div className="container">
                         <div className="nav-right nav-menu">
+                            <Link className="nav-item" to={`/`}>Главная</Link>
                             <Link className="nav-item" to={`/books`}>Книги</Link>
                             <Link className="nav-item" to={`/author`}>Авторы</Link>
                             <Link className="nav-item" to={`/genre`}>Жанры</Link>

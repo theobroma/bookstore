@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./app/index",
+    entry: "./client/index",
     output: {
         path: "./public/js",
         filename: "bundle.js"
@@ -33,6 +33,9 @@ module.exports = {
         },{
             test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
             loader: "url?limit=10000&mimetype=image/svg+xml"
+        },{
+                test: /\.json$/,
+                loader: "json-loader"
         }]
     },
     resolve: {
