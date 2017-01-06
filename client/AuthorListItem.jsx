@@ -4,11 +4,24 @@ import { Link } from 'react-router';
 export default class AuthorListItem extends Component {
 
     render() {
-        const {author} = this.props.item;
+        const {name,photo} = this.props.item;
         return (
-            <div className="card">
-                <p>Hello from AuthorListItem</p>
-                <p><Link to={`/author/${author}`}>{author}</Link></p>
+            <div>
+                {/*<p>Hello from AuthorListItem</p>*/}
+                <div className="box">
+                    <article className="media">
+                        <div className="media-left">
+                            <figure className="image">
+                                <img src={`/images/${photo}`} alt=""/>
+                            </figure>
+                        </div>
+                        <div className="media-content">
+                            <div className="content">
+                                <Link to={`/author/${name}`}>{name}</Link>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Author  =  require ('./author');
 
 var schema = new Schema ({
     title : {type: String, required:true},

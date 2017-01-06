@@ -16,23 +16,14 @@ module.exports = {
             exclude: [/node_modules/, /public/]
         },{
             test: [/\.jsx?$/, /\.es6$/],
-            exclude: /node_modules/,
+            exclude: [/node_modules/, /bower_components/],
             loader: 'babel-loader'
         },{
-            test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/font-woff"
+            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'url-loader?limit=10000',
         },{
-            test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/font-woff"
-        },{
-            test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=application/octet-stream"
-        },{
-            test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "file"
-        },{
-            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url?limit=10000&mimetype=image/svg+xml"
+            test: /\.(eot|ttf|wav|mp3|pdf)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'file-loader',
         },{
             test: /\.json$/,
             loader: "json-loader"

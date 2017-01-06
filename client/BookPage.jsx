@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import BookSingle from './BookSingle';
+import BookPageItem from './BookPageItem';
 import $ from 'jquery';
 import _ from 'lodash';
 import api from './api';
@@ -22,10 +22,10 @@ export default class BookPage extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <p>BookPage</p>
                  {this.state.items.map((item,index)=>{
-                        return (<BookSingle key = {index} item = {item} /> )
+                        return (<BookPageItem key = {index} item = {item} /> )
                     }
                 )}
             </div>

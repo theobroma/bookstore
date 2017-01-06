@@ -10,7 +10,9 @@ export default class Layout extends Component {
                 <Header/>
                 <div className="site-content">
                     <div className="container">
-                        {this.props.children}
+                        <div className="main-wrap">
+                            {this.props.children}
+                        </div>
                     </div>
                 </div>
                 <Footer/>

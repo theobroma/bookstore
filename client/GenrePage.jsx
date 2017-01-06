@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import GenreSingle from './GenreSingle';
+import GenrePageItem from './GenrePageItem';
 import $ from 'jquery';
 import _ from 'lodash';
 import api from './api';
 
 export default class GenrePage extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = { items: [] };
@@ -20,23 +18,18 @@ export default class GenrePage extends Component {
         });
     }
 
-
     render() {
         return (
             <div>
-                <div className="container">
-                    <div className="columns">
-                        <div className="column">
-                            <p>Книги жанра : {this.props.params.genre}</p>
-                                {this.state.items.map((item,index)=>{
-                                    return (<GenreSingle key = {index} item = {item} /> )
-                                }
-                            )}
-                        </div>
-                    </div>
+                <div className="contributor-info">
+                   <h1 className = "contributor-title">Жанр : {this.props.params.genre}</h1>
+                </div>
+                <div className="coninious-list">
+                    {this.state.items.map((item,index)=>{
+                        return (<GenrePageItem key = {index} item = {item} /> )
+                    })}
                 </div>
             </div>
-
         );
     }
 }
