@@ -1,15 +1,15 @@
-var Author  =  require ('../models/user');
+var User =  require ('../models/user');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/bookstore');
 
 var users = [
     new User ({
-        "name":"Рей Бредбери",
-        "photo":"bradbury.jpg"
+        "email":"admin@example.com",
+        "password":"admin"
     }),
     new User ({
-        "name":"Михаил Афанасьевич Булгаков",
-        "photo":"bulgakov.jpg"
+        "email":"test@example.com",
+        "password":"test"
     })
 ];
 
