@@ -36,6 +36,8 @@
     "morgan": "^1.7.0",
     "node-sass": "^4.1.1",
     "nunjucks": "^3.0.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "postcss-loader": "^1.2.1",
     "react-router": "^3.0.0",
     "resolve-url-loader": "^1.6.1",
@@ -45,7 +47,7 @@
   },
   "scripts": {
     "webpack": "start http://localhost:8080/webpack-dev-server/ & webpack-dev-server",
-    "dev": "nodemon --exec babel-node ./server.js localhost 8080"
+    "dev": "nodemon --exec babel-node -- server.js localhost 8080"
   },
   "repository": {
     "type": "git",

@@ -13,7 +13,8 @@ export default class Header extends Component {
                             <Link className="nav-item" to={`/books`}>Книги</Link>
                             <Link className="nav-item" to={`/author`}>Авторы</Link>
                             <Link className="nav-item" to={`/genre`}>Жанры</Link>
-                            <Link className="nav-item" to={`/login`}>Логин</Link>
+                            <Link className="nav-item" to={`/signup`}>Signup</Link>
+                            <Link className="nav-item" to={`/login`}>Login</Link>
                              <span className="nav-item">
                                   <a className="button" >
                                     <span className="icon">

@@ -4,11 +4,11 @@ mongoose.connect('mongodb://localhost/bookstore');
 
 var users = [
     new User ({
-        "email":"admin@example.com",
+        "username":"admin@example.com",
         "password":"admin"
     }),
     new User ({
-        "email":"test@example.com",
+        "username":"test@example.com",
         "password":"test"
     })
 ];
