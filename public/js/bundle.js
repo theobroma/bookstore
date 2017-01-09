@@ -59312,6 +59312,10 @@
 
 	var _reactRouter = __webpack_require__(178);
 
+	var _classnames = __webpack_require__(333);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -59331,8 +59335,10 @@
 	        var _this = _possibleConstructorReturn(this, (SignupForm.__proto__ || Object.getPrototypeOf(SignupForm)).call(this, props));
 
 	        _this.state = {
-	            "username": "",
-	            "password": ""
+	            username: '',
+	            password: '',
+	            passwordConfirm: '',
+	            errors: {}
 	        };
 	        _this.onChange = _this.onChange.bind(_this);
 	        _this.onSubmit = _this.onSubmit.bind(_this);
@@ -59347,12 +59353,19 @@
 	    }, {
 	        key: 'onSubmit',
 	        value: function onSubmit(e) {
+	            var _this2 = this;
+
+	            this.setState({ errors: {} });
 	            e.preventDefault();
-	            this.props.userSignupRequest(this.state);
+	            this.props.userSignupRequest(this.state).then(function () {}, function (err) {
+	                return _this2.setState({ errors: err.response.data });
+	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var errors = this.state.errors;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -59374,7 +59387,7 @@
 	                                'p',
 	                                { className: 'control has-icon' },
 	                                _react2.default.createElement('input', {
-	                                    className: 'input',
+	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.username }),
 	                                    type: 'email',
 	                                    placeholder: 'Email',
 	                                    name: 'username',
@@ -59385,13 +59398,18 @@
 	                                    'span',
 	                                    { className: 'icon is-small' },
 	                                    _react2.default.createElement('i', { className: 'fa fa-envelope' })
+	                                ),
+	                                errors.username && _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'help is-danger' },
+	                                    errors.username
 	                                )
 	                            ),
 	                            _react2.default.createElement(
 	                                'p',
 	                                { className: 'control has-icon' },
 	                                _react2.default.createElement('input', {
-	                                    className: 'input',
+	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.password }),
 	                                    type: 'password',
 	                                    placeholder: 'Password',
 	                                    name: 'password',
@@ -59402,6 +59420,33 @@
 	                                    'span',
 	                                    { className: 'icon is-small' },
 	                                    _react2.default.createElement('i', { className: 'fa fa-lock' })
+	                                ),
+	                                errors.password && _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'help is-danger' },
+	                                    errors.password
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'p',
+	                                { className: 'control has-icon' },
+	                                _react2.default.createElement('input', {
+	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.passwordConfirm }),
+	                                    type: 'password',
+	                                    placeholder: 'Password Confirm',
+	                                    name: 'passwordConfirm',
+	                                    value: this.state.passwordConfirm,
+	                                    onChange: this.onChange
+	                                }),
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'icon is-small' },
+	                                    _react2.default.createElement('i', { className: 'fa fa-lock' })
+	                                ),
+	                                errors.passwordConfirm && _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'help is-danger' },
+	                                    errors.passwordConfirm
 	                                )
 	                            ),
 	                            _react2.default.createElement(
@@ -59465,6 +59510,61 @@
 	    return _axios2.default.post('/api/users', userData);
 	  };
 	}
+
+/***/ },
+/* 332 */,
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
 
 /***/ }
 /******/ ]);

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 
 export default class SignupForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            "username" : "",
-            "password" : ""
+            username : '',
+            password : '',
+            passwordConfirm:'',
+            errors : {}
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -19,11 +22,16 @@ export default class SignupForm extends Component {
 
 
     onSubmit(e) {
+        this.setState({errors: {} });
         e.preventDefault();
-        this.props.userSignupRequest(this.state);
+        this.props.userSignupRequest(this.state).then(
+            () => {},
+            (err) => this.setState({errors: err.response.data})
+        );
     }
 
     render() {
+        const {errors} = this.state
         return (
             <div>
                 <div className= "columns" >
@@ -32,7 +40,7 @@ export default class SignupForm extends Component {
                         <form action="/login" method="post" onSubmit={this.onSubmit}>
                             <p className="control has-icon">
                                 <input
-                                    className="input"
+                                    className={classNames('input', {'is-danger': errors.username})}
                                     type="email"
                                     placeholder="Email"
                                     name = "username"
@@ -42,10 +50,11 @@ export default class SignupForm extends Component {
                                 <span className="icon is-small">
                                     <i className="fa fa-envelope"></i>
                                 </span>
+                                { errors.username && <span className="help is-danger">{errors.username}</span>}
                             </p>
                            <p className="control has-icon">
                                <input
-                                    className="input"
+                                    className={classNames('input', {'is-danger': errors.password})}
                                     type="password"
                                     placeholder="Password"
                                     name = "password"
@@ -55,7 +64,23 @@ export default class SignupForm extends Component {
                                <span className="icon is-small">
                                     <i className="fa fa-lock"></i>
                                </span>
+                               { errors.password && <span className="help is-danger">{errors.password}</span>}
                            </p>
+                            <p className="control has-icon">
+                               <input
+                                    className={classNames('input', {'is-danger': errors.passwordConfirm})}
+                                    type="password"
+                                    placeholder="Password Confirm"
+                                    name = "passwordConfirm"
+                                    value={this.state.passwordConfirm}
+                                    onChange={this.onChange}
+                                />
+                               <span className="icon is-small">
+                                    <i className="fa fa-lock"></i>
+                               </span>
+                               { errors.passwordConfirm && <span className="help is-danger">{errors.passwordConfirm}</span>}
+                           </p>
+
                            <p className="control">
                                 <button className="button is-success" >
                                     Login
