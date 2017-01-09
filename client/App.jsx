@@ -25,14 +25,12 @@ export default class App extends React.Component {
   render() {
     return (
         <div>
-            <div className="container">
-                <div className="text-left book-list">
-                  {this.state.items.map((item)=>{
-                        return (<Book key = {item._id} item = {item} /> )
-                    }
-                  )}
-                </div>
-            </div>}
+            <div className="text-left book-list">
+              {this.state.items.map((item)=>{
+                    return (<Book key = {item._id} item = {item} /> )
+                }
+              )}
+            </div>
                 {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
         </div>
     );

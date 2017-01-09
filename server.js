@@ -16,8 +16,13 @@ myFunc(passport);
 import Product from './models/product';
 import Author from './models/author';
 import User from './models/user';
+//server routes
+import users from './routes/users';
 
 var app = express();
+
+
+
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 
@@ -48,6 +53,7 @@ nunjucks.configure('views', {
 var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 //All routes in the end
+app.use ('/api/users',users);
 app.get('/api/books', (req, res) => {
     Product.find().then((data) => {
         res.send(data);
@@ -60,32 +66,8 @@ app.get('/api/authors', (req, res) => {
     });
 });
 
-
-app.get('/api/login/:email/:password', (req, res) => {
-    let newUser = new User();
-    newUser.email = req.params.email;
-    newUser.password = req.params.password;
-    newUser.save();
-    res.send("Success");
-});
-
-app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
-        failureRedirect: '/signup',
-        failureFlash: true
-}));
-
-app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/profile',
-    failureRedirect: '/login',
-    failureFlash: true
-}));
-
-
-
-
 app.get('/*', (req, res) => {
-  res.render('index.html');
+  res.sendFile(path.join(__dirname,'./views/index.html'));
 /*  console.log(req.cookies);
   console.log(req.session);*/
 });

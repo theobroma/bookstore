@@ -4,18 +4,25 @@ import { Link } from 'react-router';
 export default class LoginPage extends Component {
     render() {
         return (
-            <div className="form">
+            <div>
                 <form action="/login" method="post">
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input type="text" className="form-control" name="email"/>
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input type="password" className="form-control" name="password"/>
-                    </div>
-
-                    <button type="submit" className="btn btn-warning btn-lg">Login</button>
+                    <p className="control has-icon">
+                        <input className="input" type="email" placeholder="Email"/>
+                        <span className="icon is-small">
+                            <i className="fa fa-envelope"></i>
+                        </span>
+                    </p>
+                   <p className="control has-icon">
+                       <input className="input" type="password" placeholder="Password"/>
+                       <span className="icon is-small">
+                            <i className="fa fa-lock"></i>
+                       </span>
+                   </p>
+                   <p className="control">
+                        <button className="button is-success">
+                            Login
+                        </button>
+                   </p>
                 </form>
             </div>
         );
