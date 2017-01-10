@@ -58754,6 +58754,10 @@
 
 	var _signup2 = _interopRequireDefault(_signup);
 
+	var _TextFieldGroup = __webpack_require__(428);
+
+	var _TextFieldGroup2 = _interopRequireDefault(_TextFieldGroup);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -58819,7 +58823,12 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var errors = this.state.errors;
+	            var _state = this.state,
+	                username = _state.username,
+	                password = _state.password,
+	                passwordConfirm = _state.passwordConfirm,
+	                errors = _state.errors,
+	                isLoading = _state.isLoading;
 
 	            return _react2.default.createElement(
 	                'div',
@@ -58838,80 +58847,33 @@
 	                        _react2.default.createElement(
 	                            'form',
 	                            { action: '/login', method: 'post', onSubmit: this.onSubmit },
-	                            _react2.default.createElement(
-	                                'p',
-	                                { className: 'control has-icon' },
-	                                _react2.default.createElement('input', {
-	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.username }),
-	                                    type: 'email',
-	                                    placeholder: 'Email',
-	                                    name: 'username',
-	                                    value: this.state.username,
-	                                    onChange: this.onChange
-	                                }),
-	                                _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'icon is-small' },
-	                                    _react2.default.createElement('i', { className: 'fa fa-envelope' })
-	                                ),
-	                                errors.username && _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'help is-danger' },
-	                                    errors.username
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                { className: 'control has-icon' },
-	                                _react2.default.createElement('input', {
-	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.password }),
-	                                    type: 'password',
-	                                    placeholder: 'Password',
-	                                    name: 'password',
-	                                    value: this.state.password,
-	                                    onChange: this.onChange
-	                                }),
-	                                _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'icon is-small' },
-	                                    _react2.default.createElement('i', { className: 'fa fa-lock' })
-	                                ),
-	                                errors.password && _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'help is-danger' },
-	                                    errors.password
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                { className: 'control has-icon' },
-	                                _react2.default.createElement('input', {
-	                                    className: (0, _classnames2.default)('input', { 'is-danger': errors.passwordConfirm }),
-	                                    type: 'password',
-	                                    placeholder: 'Password Confirm',
-	                                    name: 'passwordConfirm',
-	                                    value: this.state.passwordConfirm,
-	                                    onChange: this.onChange
-	                                }),
-	                                _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'icon is-small' },
-	                                    _react2.default.createElement('i', { className: 'fa fa-lock' })
-	                                ),
-	                                errors.passwordConfirm && _react2.default.createElement(
-	                                    'span',
-	                                    { className: 'help is-danger' },
-	                                    errors.passwordConfirm
-	                                )
-	                            ),
+	                            _react2.default.createElement(_TextFieldGroup2.default, {
+	                                field: 'username',
+	                                label: 'Username / Email',
+	                                value: username,
+	                                error: errors.username,
+	                                onChange: this.onChange
+	                            }),
+	                            _react2.default.createElement(_TextFieldGroup2.default, {
+	                                field: 'password',
+	                                label: 'Password',
+	                                value: password,
+	                                error: errors.password,
+	                                onChange: this.onChange
+	                            }),
+	                            _react2.default.createElement(_TextFieldGroup2.default, {
+	                                field: 'passwordConfirm',
+	                                label: 'Password Confirmation',
+	                                value: passwordConfirm,
+	                                error: errors.passwordConfirm,
+	                                onChange: this.onChange
+	                            }),
 	                            _react2.default.createElement(
 	                                'p',
 	                                { className: 'control' },
 	                                _react2.default.createElement(
 	                                    'button',
-	                                    {
-	                                        className: (0, _classnames2.default)('button', 'is-success', { 'is-loading': this.state.isLoading })
-	                                    },
+	                                    { className: (0, _classnames2.default)('button', 'is-success', { 'is-loading': this.state.isLoading }) },
 	                                    'Login'
 	                                )
 	                            )
@@ -63355,6 +63317,69 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 428 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(318);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TextFieldGroup = function TextFieldGroup(_ref) {
+	  var field = _ref.field,
+	      value = _ref.value,
+	      label = _ref.label,
+	      error = _ref.error,
+	      type = _ref.type,
+	      onChange = _ref.onChange;
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'label',
+	      { className: 'label' },
+	      label
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      { className: 'control has-icon' },
+	      _react2.default.createElement('input', {
+	        className: (0, _classnames2.default)('input', { 'is-danger': error }),
+	        type: type,
+	        placeholder: label,
+	        name: field,
+	        value: value,
+	        onChange: onChange
+	      }),
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'icon is-small' },
+	        _react2.default.createElement('i', { className: 'fa fa-envelope' })
+	      ),
+	      error && _react2.default.createElement(
+	        'span',
+	        { className: 'help is-danger' },
+	        error
+	      )
+	    )
+	  );
+	};
+
+	exports.default = TextFieldGroup;
 
 /***/ }
 /******/ ]);

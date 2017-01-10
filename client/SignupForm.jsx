@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import classNames from 'classnames';
 import validateInput from '../shared/validations/signup';
+import TextFieldGroup from './common/TextFieldGroup';
 
 export default class SignupForm extends Component {
 
@@ -44,60 +45,37 @@ export default class SignupForm extends Component {
     }
 
     render() {
-        const {errors} = this.state
+        const {username,password,passwordConfirm,errors,isLoading} = this.state
         return (
             <div>
                 <div className= "columns" >
                      <div className= "column is-6 is-offset-3">
                         <h4 className="subtitle">Sign Up</h4>
                         <form action="/login" method="post" onSubmit={this.onSubmit}>
-                            <p className="control has-icon">
-                                <input
-                                    className={classNames('input', {'is-danger': errors.username})}
-                                    type="email"
-                                    placeholder="Email"
-                                    name = "username"
-                                    value={this.state.username}
-                                    onChange={this.onChange}
-                                />
-                                <span className="icon is-small">
-                                    <i className="fa fa-envelope"></i>
-                                </span>
-                                { errors.username && <span className="help is-danger">{errors.username}</span>}
-                            </p>
-                           <p className="control has-icon">
-                               <input
-                                    className={classNames('input', {'is-danger': errors.password})}
-                                    type="password"
-                                    placeholder="Password"
-                                    name = "password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                />
-                               <span className="icon is-small">
-                                    <i className="fa fa-lock"></i>
-                               </span>
-                               { errors.password && <span className="help is-danger">{errors.password}</span>}
-                           </p>
-                            <p className="control has-icon">
-                               <input
-                                    className={classNames('input', {'is-danger': errors.passwordConfirm})}
-                                    type="password"
-                                    placeholder="Password Confirm"
-                                    name = "passwordConfirm"
-                                    value={this.state.passwordConfirm}
-                                    onChange={this.onChange}
-                                />
-                               <span className="icon is-small">
-                                    <i className="fa fa-lock"></i>
-                               </span>
-                               { errors.passwordConfirm && <span className="help is-danger">{errors.passwordConfirm}</span>}
-                           </p>
 
+                            <TextFieldGroup
+                                field="username"
+                                label="Username / Email"
+                                value={username}
+                                error={errors.username}
+                                onChange={this.onChange}
+                            />
+                            <TextFieldGroup
+                                field="password"
+                                label="Password"
+                                value={password}
+                                error={errors.password}
+                                onChange={this.onChange}
+                            />
+                            <TextFieldGroup
+                                field="passwordConfirm"
+                                label="Password Confirmation"
+                                value={passwordConfirm}
+                                error={errors.passwordConfirm}
+                                onChange={this.onChange}
+                            />
                            <p className="control">
-                                <button
-                                    className={classNames('button','is-success', {'is-loading': this.state.isLoading})}
-                                >
+                                <button className={classNames('button','is-success', {'is-loading': this.state.isLoading})}>
                                     Login
                                 </button>
                            </p>
