@@ -1,3 +1,5 @@
+var path = require("path");
+
 module.exports = {
     entry: "./client/index",
     output: {
@@ -16,6 +18,10 @@ module.exports = {
             exclude: [/node_modules/, /public/]
         },{
             test: [/\.jsx?$/, /\.es6$/],
+            include: [
+                path.join(__dirname, 'client'),
+                path.join(__dirname, 'shared')
+            ],
             exclude: [/node_modules/, /bower_components/],
             loader: 'babel-loader'
         },{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import classNames from 'classnames';
+import validateInput from '../shared/validations/signup';
 
 export default class SignupForm extends Component {
 
@@ -10,7 +11,8 @@ export default class SignupForm extends Component {
             username : '',
             password : '',
             passwordConfirm:'',
-            errors : {}
+            errors : {},
+            isLoading:false
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -20,14 +22,25 @@ export default class SignupForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    isValid() {
+        const { errors, isValid } = validateInput(this.state);
+        if (!isValid) {
+            this.setState({ errors });
+        }
+        return isValid;
+    }
 
     onSubmit(e) {
-        this.setState({errors: {} });
         e.preventDefault();
-        this.props.userSignupRequest(this.state).then(
-            () => {},
-            (err) => this.setState({errors: err.response.data})
-        );
+        if(this.isValid()) {
+            this.setState({errors: {}, isLoading:true });
+            this.props.userSignupRequest(this.state).then(
+                () => {
+                    this.context.router.push('/');
+                },
+                (err) => this.setState({errors: err.response.data,isLoading:false})
+            );
+        }
     }
 
     render() {
@@ -82,7 +95,9 @@ export default class SignupForm extends Component {
                            </p>
 
                            <p className="control">
-                                <button className="button is-success" >
+                                <button
+                                    className={classNames('button','is-success', {'is-loading': this.state.isLoading})}
+                                >
                                     Login
                                 </button>
                            </p>
@@ -102,4 +117,8 @@ export default class SignupForm extends Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
