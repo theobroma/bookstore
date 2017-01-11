@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import validateInput from '../shared/validations/signup';
 import TextFieldGroup from './common/TextFieldGroup';
 
@@ -79,7 +79,7 @@ export default class SignupForm extends Component {
                                 onChange={this.onChange}
                             />
                            <p className="control">
-                                <button className={classNames('button','is-success', {'is-loading': this.state.isLoading})}>
+                                <button className={classnames('button','is-success', {'is-loading': this.state.isLoading})}>
                                     Login
                                 </button>
                            </p>

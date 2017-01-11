@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 const TextFieldGroup = ({ field, value, label, error, type, onChange }) => {
   return (
@@ -7,7 +7,7 @@ const TextFieldGroup = ({ field, value, label, error, type, onChange }) => {
       <label className="label">{label}</label>
       <p className="control has-icon">
         <input
-          className={classNames('input', {'is-danger': error})}
+          className={classnames('input', {'is-danger': error})}
           type={type}
           placeholder={label}
           name={field}
