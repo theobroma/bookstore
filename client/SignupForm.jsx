@@ -37,6 +37,10 @@ export default class SignupForm extends Component {
             this.setState({errors: {}, isLoading:true });
             this.props.userSignupRequest(this.state).then(
                 () => {
+                    this.props.addFlashMessage({
+                        type: "success",
+                        text : "You signed up successfully. Welcome!"
+                    })
                     this.context.router.push('/');
                 },
                 (err) => this.setState({errors: err.response.data,isLoading:false})
@@ -94,7 +98,8 @@ export default class SignupForm extends Component {
 
 
 SignupForm.propTypes = {
-  userSignupRequest: React.PropTypes.func.isRequired
+  userSignupRequest: React.PropTypes.func.isRequired,
+  addFlashMessage: React.PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {
