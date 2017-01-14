@@ -18,6 +18,7 @@ import Author from './models/author';
 import User from './models/user';
 //server routes
 import books from './routes/books';
+import genres from './routes/genres';
 import users from './routes/users';
 import authors from './routes/authors';
 
@@ -56,6 +57,7 @@ var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 //All routes in the end
 app.use ('/api/books',books);
+app.use ('/api/genres',genres);
 app.use ('/api/users',users);
 app.use ('/api/authors',authors);
 

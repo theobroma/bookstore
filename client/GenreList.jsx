@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import GenreListItem from './GenreListItem';
-import $ from 'jquery';
-import _ from 'lodash';
 import api from './api';
 
 
 export default class GenreList extends Component {
-
 
     constructor(props) {
         super(props);
@@ -14,17 +11,10 @@ export default class GenreList extends Component {
     }
 
     componentDidMount() {
-        api.listBooks().then(result=> {
-            let res=[];
-            _.forEach(result.data, function(item) {
-                let obj = _.pick(item, ['genre']);
-                res.push(obj);
-            });
-            res = _.uniqBy(res, 'genre');
-            this.setState({items:res});
+        api.listGenres().then(result=> {
+            this.setState({items:result.data});
         });
     }
-
 
     render() {
         return (

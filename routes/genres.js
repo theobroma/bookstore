@@ -3,14 +3,14 @@ import Product from '../models/product';
 let router = express.Router();
 
 router.get('/', (req,res)=> {
-    Product.find().distinct( "author" ).then((data) => {
+    Product.find().distinct( "genre" ).then((data) => {
         res.send(data);
     });
 });
 
-router.get('/:author', (req,res)=> {
-    let author = req.params.author;
-    Product.find({ "author.name": author }).then((data) => {
+router.get('/:genre', (req,res)=> {
+    let genre = req.params.genre;
+    Product.find({ "genre": genre }).then((data) => {
         res.send(data);
     });
 });

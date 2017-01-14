@@ -1,6 +1,5 @@
 import express from 'express';
 import Product from '../models/product';
-import Author from '../models/author';
 let router = express.Router();
 
 router.get('/', (req,res)=> {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import GenrePageItem from './GenrePageItem';
-import $ from 'jquery';
-import _ from 'lodash';
 import api from './api';
 
 export default class GenrePage extends Component {
@@ -11,10 +9,9 @@ export default class GenrePage extends Component {
     }
 
     componentDidMount() {
-        api.listBooks().then(result=> {
-            let genre = this.props.params.genre;
-            let res =_.filter(result.data, { 'genre': genre });
-            this.setState({items:res});
+        let genreName = this.props.params.genre;
+        api.genreByName(genreName).then(result=> {
+            this.setState({items:result.data});
         });
     }
 

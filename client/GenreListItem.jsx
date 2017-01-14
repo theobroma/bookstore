@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default class GenreListItem extends Component {
 
     render() {
-        const {genre} = this.props.item;
+        const genre = this.props.item;
         return (
             <li className="genre-item">
                 <Link to={`/genres/${genre}`}>{genre}</Link>

@@ -43609,6 +43609,12 @@
 	    bookByID: function bookByID(bookID) {
 	        return _axios2.default.get(_config.apiPrefix + '/books/' + bookID);
 	    },
+	    listGenres: function listGenres() {
+	        return _axios2.default.get(_config.apiPrefix + '/genres');
+	    },
+	    genreByName: function genreByName(genreName) {
+	        return _axios2.default.get(_config.apiPrefix + '/genres/' + genreName);
+	    },
 	    listAuthors: function listAuthors() {
 	        return _axios2.default.get(_config.apiPrefix + '/authors');
 	    },
@@ -62406,14 +62412,6 @@
 
 	var _GenrePageItem2 = _interopRequireDefault(_GenrePageItem);
 
-	var _jquery = __webpack_require__(402);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _lodash = __webpack_require__(433);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _api = __webpack_require__(404);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -62443,10 +62441,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _api2.default.listBooks().then(function (result) {
-	                var genre = _this2.props.params.genre;
-	                var res = _lodash2.default.filter(result.data, { 'genre': genre });
-	                _this2.setState({ items: res });
+	            var genreName = this.props.params.genre;
+	            _api2.default.genreByName(genreName).then(function (result) {
+	                _this2.setState({ items: result.data });
 	            });
 	        }
 	    }, {
@@ -62570,14 +62567,6 @@
 
 	var _GenreListItem2 = _interopRequireDefault(_GenreListItem);
 
-	var _jquery = __webpack_require__(402);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _lodash = __webpack_require__(433);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
 	var _api = __webpack_require__(404);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -62607,14 +62596,8 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _api2.default.listBooks().then(function (result) {
-	                var res = [];
-	                _lodash2.default.forEach(result.data, function (item) {
-	                    var obj = _lodash2.default.pick(item, ['genre']);
-	                    res.push(obj);
-	                });
-	                res = _lodash2.default.uniqBy(res, 'genre');
-	                _this2.setState({ items: res });
+	            _api2.default.listGenres().then(function (result) {
+	                _this2.setState({ items: result.data });
 	            });
 	        }
 	    }, {
@@ -62677,8 +62660,7 @@
 	    _createClass(GenreListItem, [{
 	        key: 'render',
 	        value: function render() {
-	            var genre = this.props.item.genre;
-
+	            var genre = this.props.item;
 	            return _react2.default.createElement(
 	                'li',
 	                { className: 'genre-item' },
