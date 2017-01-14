@@ -13,6 +13,7 @@ import AuthorList from './AuthorList';
 import SignupPage from './SignupPage';
 import LoginPage from './LoginPage';
 import ProfilePage from './ProfilePage';
+import ShoppingCartPage from './ShoppingCartPage';
 import NotFound from './NotFound';
 
 export const routes = (
@@ -24,6 +25,7 @@ export const routes = (
             <Route path='/genres/:genre' component={GenrePage} ></Route>
             <Route path='/authors' component={AuthorList} ></Route>
             <Route path='/authors/:author' component={AuthorPage} ></Route>
+            <Route path='/cart' component={ShoppingCartPage} ></Route>
             <Route path='/signup' component={SignupPage} ></Route>
             <Route path='/login' component={LoginPage} ></Route>
             <Route path='/profile' component={ProfilePage} ></Route>

@@ -1,25 +1,20 @@
 import React from 'react';
-import $ from 'jquery';
 import Book from './Book';
 import Layout from './Layout';
 import api from './api';
 
 
-export default class App extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
+export default class ShoppingCartPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { items: [] };
   }
 
-    componentDidMount() {
-        api.listBooks().then(result=> {
-            this.setState({items:result.data});
-        });
-    }
+  componentDidMount() {
+      api.listBooks().then(result=> {
+          this.setState({items:result.data});
+      });
+  }
 
   render() {
     return (

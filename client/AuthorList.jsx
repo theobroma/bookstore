@@ -5,8 +5,8 @@ import _ from 'lodash';
 import api from './api';
 
 export default class AuthorList extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = { items: [] };
     }
 

@@ -32676,6 +32676,10 @@
 
 	var _ProfilePage2 = _interopRequireDefault(_ProfilePage);
 
+	var _ShoppingCartPage = __webpack_require__(527);
+
+	var _ShoppingCartPage2 = _interopRequireDefault(_ShoppingCartPage);
+
 	var _NotFound = __webpack_require__(515);
 
 	var _NotFound2 = _interopRequireDefault(_NotFound);
@@ -32695,6 +32699,7 @@
 	        _react2.default.createElement(_reactRouter.Route, { path: '/genres/:genre', component: _GenrePage2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/authors', component: _AuthorList2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/authors/:author', component: _AuthorPage2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/cart', component: _ShoppingCartPage2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _SignupPage2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _LoginPage2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _ProfilePage2.default })
@@ -32849,6 +32854,11 @@
 	                                _reactRouter.Link,
 	                                { className: 'nav-item', to: '/genres' },
 	                                '\u0416\u0430\u043D\u0440\u044B'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { className: 'nav-item', to: '/cart' },
+	                                '\u041A\u043E\u0440\u0437\u0438\u043D\u0430'
 	                            ),
 	                            _react2.default.createElement(
 	                                _reactRouter.Link,
@@ -62728,7 +62738,10 @@
 
 	        var _this = _possibleConstructorReturn(this, (AuthorPage.__proto__ || Object.getPrototypeOf(AuthorPage)).call(this, props));
 
-	        _this.state = { items: [] };
+	        _this.state = {
+	            items: [],
+	            author: []
+	        };
 	        return _this;
 	    }
 
@@ -62739,23 +62752,28 @@
 
 	            var authorName = this.props.params.author;
 	            _api2.default.authorByName(authorName).then(function (result) {
-	                _this2.setState({ items: result.data });
+	                _this2.setState({ items: result.data, author: result.data[0].author });
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _state$author = this.state.author,
+	                name = _state$author.name,
+	                photo = _state$author.photo;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'contributor-info' },
+	                    _react2.default.createElement('img', { src: '/images/' + photo, alt: '' }),
 	                    _react2.default.createElement(
 	                        'h1',
 	                        { className: 'contributor-title' },
 	                        '\u0410\u0432\u0442\u043E\u0440: ',
-	                        this.props.params.author
+	                        name
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -62886,10 +62904,10 @@
 	var AuthorList = function (_Component) {
 	    _inherits(AuthorList, _Component);
 
-	    function AuthorList(props) {
+	    function AuthorList() {
 	        _classCallCheck(this, AuthorList);
 
-	        var _this = _possibleConstructorReturn(this, (AuthorList.__proto__ || Object.getPrototypeOf(AuthorList)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (AuthorList.__proto__ || Object.getPrototypeOf(AuthorList)).call(this));
 
 	        _this.state = { items: [] };
 	        return _this;
@@ -66868,6 +66886,90 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 527 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Book = __webpack_require__(403);
+
+	var _Book2 = _interopRequireDefault(_Book);
+
+	var _Layout = __webpack_require__(394);
+
+	var _Layout2 = _interopRequireDefault(_Layout);
+
+	var _api = __webpack_require__(404);
+
+	var _api2 = _interopRequireDefault(_api);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ShoppingCartPage = function (_React$Component) {
+	  _inherits(ShoppingCartPage, _React$Component);
+
+	  function ShoppingCartPage(props) {
+	    _classCallCheck(this, ShoppingCartPage);
+
+	    var _this = _possibleConstructorReturn(this, (ShoppingCartPage.__proto__ || Object.getPrototypeOf(ShoppingCartPage)).call(this, props));
+
+	    _this.state = { items: [] };
+	    return _this;
+	  }
+
+	  _createClass(ShoppingCartPage, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      _api2.default.listBooks().then(function (result) {
+	        _this2.setState({ items: result.data });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'text-left book-list' },
+	          this.state.items.map(function (item) {
+	            return _react2.default.createElement(_Book2.default, { key: item._id, item: item });
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          JSON.stringify(this.state, "", 4)
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ShoppingCartPage;
+	}(_react2.default.Component);
+
+	exports.default = ShoppingCartPage;
 
 /***/ }
 /******/ ]);
