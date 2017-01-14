@@ -6,6 +6,9 @@ export default {
     listBooks() {
         return axios.get(`${apiPrefix}/books`);
     },
+    bookByID(bookID) {
+        return axios.get(`${apiPrefix}/books/${bookID}`);
+    },
     listAuthors() {
         return axios.get(`${apiPrefix}/authors`);
     },

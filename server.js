@@ -17,6 +17,7 @@ import Product from './models/product';
 import Author from './models/author';
 import User from './models/user';
 //server routes
+import books from './routes/books';
 import users from './routes/users';
 import authors from './routes/authors';
 
@@ -54,14 +55,9 @@ nunjucks.configure('views', {
 var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 //All routes in the end
+app.use ('/api/books',books);
 app.use ('/api/users',users);
 app.use ('/api/authors',authors);
-
-app.get('/api/books', (req, res) => {
-    Product.find().then((data) => {
-        res.send(data);
-    });
-});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'./views/index.html'));

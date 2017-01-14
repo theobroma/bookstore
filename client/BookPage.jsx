@@ -13,10 +13,9 @@ export default class BookPage extends Component {
     }
 
     componentDidMount() {
-        api.listBooks().then(result=> {
-            let id = this.props.params.book;
-            let res =_.filter(result.data, { '_id': id });
-            this.setState({items:res});
+        let bookID = this.props.params.book;
+        api.bookByID(bookID).then(result=> {
+            this.setState({items:result.data});
         });
     }
 

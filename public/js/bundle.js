@@ -43606,6 +43606,9 @@
 	    listBooks: function listBooks() {
 	        return _axios2.default.get(_config.apiPrefix + '/books');
 	    },
+	    bookByID: function bookByID(bookID) {
+	        return _axios2.default.get(_config.apiPrefix + '/books/' + bookID);
+	    },
 	    listAuthors: function listAuthors() {
 	        return _axios2.default.get(_config.apiPrefix + '/authors');
 	    },
@@ -45176,10 +45179,9 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _api2.default.listBooks().then(function (result) {
-	                var id = _this2.props.params.book;
-	                var res = _lodash2.default.filter(result.data, { '_id': id });
-	                _this2.setState({ items: res });
+	            var bookID = this.props.params.book;
+	            _api2.default.bookByID(bookID).then(function (result) {
+	                _this2.setState({ items: result.data });
 	            });
 	        }
 	    }, {
@@ -62926,8 +62928,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                this.state.items.map(function (item) {
-	                    return _react2.default.createElement(_AuthorListItem2.default, { key: item._id, item: item });
+	                this.state.items.map(function (item, index) {
+	                    return _react2.default.createElement(_AuthorListItem2.default, { key: index, item: item });
 	                }),
 	                _react2.default.createElement(
 	                    'pre',
