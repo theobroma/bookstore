@@ -10,8 +10,8 @@ export default class BookPageItem extends Component {
                 <div className="book-single-info">
                     <img src={`/images/${thumbnail}`} alt=""/>
                     <span className="book-single-title">{title}</span>
-                    <Link className="book-author"to={`/author/${author}`}>{author}</Link>
-                    <Link to={`/genre/${genre}`}>{genre}</Link>
+                    <Link className="book-author"to={`/authors/${author.name}`}>{author.name}</Link>
+                    <Link to={`/genres/${genre}`}>{genre}</Link>
                 </div>
                 <div className="book-single-description">
                     <div className="description-title">Описание</div>

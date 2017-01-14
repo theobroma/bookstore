@@ -9,8 +9,8 @@ export default class Book extends Component {
             <div className="book-item">
                 <img src={`/images/${thumbnail}`} alt=""/>
                 <Link className="book-title" to={`/books/${_id}`}>{title}</Link>
-                <Link className="book-author" to={`/author/${author}`}>{author}</Link>
-                <Link to={`/genre/${genre}`}>{genre}</Link>
+                <Link className="book-author" to={`/authors/${author.name}`}>{author.name}</Link>
+                <Link to={`/genres/${genre}`}>{genre}</Link>
                 <span className="book-price">${price}</span>
             </div>
         );

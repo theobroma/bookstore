@@ -7,7 +7,7 @@ export default class GenreListItem extends Component {
         const {genre} = this.props.item;
         return (
             <li className="genre-item">
-                <Link to={`/genre/${genre}`}>{genre}</Link>
+                <Link to={`/genres/${genre}`}>{genre}</Link>
             </li>
         );
     }

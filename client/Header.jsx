@@ -11,8 +11,8 @@ export default class Header extends Component {
                         <div className="nav-right nav-menu">
                             <Link className="nav-item" to={`/`}>Главная</Link>
                             <Link className="nav-item" to={`/books`}>Книги</Link>
-                            <Link className="nav-item" to={`/author`}>Авторы</Link>
-                            <Link className="nav-item" to={`/genre`}>Жанры</Link>
+                            <Link className="nav-item" to={`/authors`}>Авторы</Link>
+                            <Link className="nav-item" to={`/genres`}>Жанры</Link>
                             <Link className="nav-item" to={`/signup`}>Signup</Link>
                             <Link className="nav-item" to={`/login`}>Login</Link>
                              <span className="nav-item">

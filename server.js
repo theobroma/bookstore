@@ -18,6 +18,7 @@ import Author from './models/author';
 import User from './models/user';
 //server routes
 import users from './routes/users';
+import authors from './routes/authors';
 
 var app = express();
 
@@ -54,14 +55,10 @@ var file = 'data/data.json';
 var data = jsonfile.readFileSync(file);
 //All routes in the end
 app.use ('/api/users',users);
+app.use ('/api/authors',authors);
+
 app.get('/api/books', (req, res) => {
     Product.find().then((data) => {
-        res.send(data);
-    });
-});
-
-app.get('/api/authors', (req, res) => {
-    Author.find().then((data) => {
         res.send(data);
     });
 });

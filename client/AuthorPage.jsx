@@ -15,10 +15,9 @@ export default class AuthorPage extends Component {
     }
 
     componentDidMount() {
-        api.listBooks().then(result=> {
-            let author = this.props.params.author;
-            let res =_.filter(result.data, { 'author': author });
-            this.setState({items:res});
+        let authorName = this.props.params.author;
+        api.authorByName(authorName).then(result=> {
+            this.setState({items:result.data});
         });
     }
 

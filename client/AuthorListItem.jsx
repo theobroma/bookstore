@@ -17,7 +17,7 @@ export default class AuthorListItem extends Component {
                         </div>
                         <div className="media-content">
                             <div className="content">
-                                <Link to={`/author/${name}`}>{name}</Link>
+                                <Link to={`/authors/${name}`}>{name}</Link>
                             </div>
                         </div>
                     </article>

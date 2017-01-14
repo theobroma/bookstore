@@ -20,10 +20,10 @@ export const routes = (
         <Route path='/' component={Layout}>
             <Route path='/books' component={App}></Route>
             <Route path='/books/:book' component={BookPage}></Route>
-            <Route path='/genre' component={GenreList} ></Route>
-            <Route path='/genre/:genre' component={GenrePage} ></Route>
-            <Route path='/author' component={AuthorList} ></Route>
-            <Route path='/author/:author' component={AuthorPage} ></Route>
+            <Route path='/genres' component={GenreList} ></Route>
+            <Route path='/genres/:genre' component={GenrePage} ></Route>
+            <Route path='/authors' component={AuthorList} ></Route>
+            <Route path='/authors/:author' component={AuthorPage} ></Route>
             <Route path='/signup' component={SignupPage} ></Route>
             <Route path='/login' component={LoginPage} ></Route>
             <Route path='/profile' component={ProfilePage} ></Route>

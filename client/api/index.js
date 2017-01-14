@@ -8,5 +8,8 @@ export default {
     },
     listAuthors() {
         return axios.get(`${apiPrefix}/authors`);
+    },
+    authorByName(authorName) {
+        return axios.get(`${apiPrefix}/authors/${authorName}`);
     }
 }

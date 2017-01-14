@@ -9,7 +9,7 @@ export default class GenrePageItem extends Component {
             <div className="coninious-item">
                 <img src={`/images/${thumbnail}`} alt=""/>
                 <Link className="book-title" to={`/books/${_id}`}>{title}</Link>
-                <Link className="book-author"to={`/author/${author}`}>{author}</Link>
+                <Link className="book-author"to={`/authors/${author.name}`}>{author.name}</Link>
             </div>
         );
     }
