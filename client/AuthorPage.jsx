@@ -32,7 +32,7 @@ export default class AuthorPage extends Component {
                    <img src={`/images/${photo}`} alt=""/>
                    <h1 className = "contributor-title">Автор: {name}</h1>
                 </div>
-                <div className="coninious-list">
+                <div className="continious-list">
                     {this.state.items.map((item,index)=>{
                             return (<AuthorPageItem key = {index} item = {item} /> )
                         }

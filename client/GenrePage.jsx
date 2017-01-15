@@ -21,7 +21,7 @@ export default class GenrePage extends Component {
                 <div className="contributor-info">
                    <h1 className = "contributor-title">Жанр : {this.props.params.genre}</h1>
                 </div>
-                <div className="coninious-list">
+                <div className="continious-list">
                     {this.state.items.map((item,index)=>{
                         return (<GenrePageItem key = {index} item = {item} /> )
                     })}

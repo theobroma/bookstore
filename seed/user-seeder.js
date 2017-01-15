@@ -5,11 +5,13 @@ mongoose.connect('mongodb://localhost/bookstore');
 var users = [
     new User ({
         "username":"admin@example.com",
-        "password":"admin"
+        "password":"admin",
+        "createdAt": new Date()
     }),
     new User ({
         "username":"test@example.com",
-        "password":"test"
+        "password":"test",
+        "createdAt": new Date()
     })
 ];
 
