@@ -55,7 +55,7 @@ export default class SignupForm extends Component {
                 <div className= "columns" >
                      <div className= "column is-6 is-offset-3">
                         <h4 className="subtitle">Sign Up</h4>
-                        <form action="/login" method="post" onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit}>
 
                             <TextFieldGroup
                                 field="username"
