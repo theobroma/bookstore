@@ -1,32 +1,31 @@
 import React from 'react';
-import Book from './Book';
-import Layout from './Layout';
+import { connect } from 'react-redux';
+import ShoppingCartItem from './ShoppingCartItem';
 import api from './api';
 
 
-export default class ShoppingCartPage extends React.Component {
+class ShoppingCartPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [] };
-  }
-
-  componentDidMount() {
-      api.listBooks().then(result=> {
-          this.setState({items:result.data});
-      });
   }
 
   render() {
     return (
         <div>
-            <div className="text-left book-list">
-              {this.state.items.map((item)=>{
-                    return (<Book key = {item._id} item = {item} /> )
-                }
-              )}
+            <div className="cartItemList">
+
             </div>
-                {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
+                {<pre>{JSON.stringify(this.props.shoppingCart,"", 4)}</pre>}
         </div>
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    shoppingCart: state.shoppingCart
+  }
+}
+
+export default connect(mapStateToProps)(ShoppingCartPage);

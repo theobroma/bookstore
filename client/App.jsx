@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Book from './Book';
-import Layout from './Layout';
 import api from './api';
 
 import { fetchProducts } from './actions/productsActions';
