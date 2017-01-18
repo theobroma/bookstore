@@ -14,7 +14,6 @@ import './index.scss';
 
 const logger = createLogger();
 
-
 const store = createStore(
   rootReducer,
   compose(
@@ -22,6 +21,10 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
+
+store.subscribe( () => {
+    console.log('Store changed', store.getState());
+})
 
 ReactDOM.render(
     <Provider store = {store}>
