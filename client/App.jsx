@@ -5,6 +5,7 @@ import Layout from './Layout';
 import api from './api';
 
 import { fetchProducts } from './actions/productsActions';
+import { onAddToCart } from './actions/shoppingCartActions';
 
 class App extends React.Component {
 
@@ -14,7 +15,7 @@ class App extends React.Component {
 
     render() {
         const productsList = this.props.products.map( (item) =>
-            <Book key = {item._id} item = {item} />
+            <Book key = {item._id} item = {item} onAddToCart = {this.props.onAddToCart} />
         );
 
         return (
@@ -22,6 +23,7 @@ class App extends React.Component {
                 <div className="text-left book-list">
                     {productsList}
                 </div>
+                    <p>this.state</p>
                     {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
                     <p>this.props</p>
                     {<pre>{JSON.stringify(this.props.products,"", 4)}</pre>}
@@ -36,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps,{fetchProducts})(App);
+export default connect(mapStateToProps,{fetchProducts,onAddToCart})(App);
