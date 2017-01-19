@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+import bcrypt from 'bcryptjs';
+
+
 var UserSchema = new mongoose.Schema({
     username : {
         type: String,
@@ -9,8 +12,17 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    createdAt: { type: Date }
+    createdAt: { type: Date, default: Date.now }
 })
+
+UserSchema.pre('save', function(next) {
+    if(this.password) {
+        var salt = bcrypt.genSaltSync(10)
+        this.password  = bcrypt.hashSync(this.password, salt)
+    }
+    next()
+})
+
 
 module.exports = mongoose.model('User', UserSchema);
 

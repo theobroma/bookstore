@@ -31,12 +31,9 @@ router.post('/', (req,res) => {
     validateInput(req.body, commonValidations).then( ({ errors, isValid }) => {
         if(isValid){
             const {username,password} = req.body;
-            const password_digest = bcrypt.hashSync('password', 10);
-            const date = new Date();
             const newUser = new User({
                username: username,
-               password:password_digest,
-               createdAt: date
+               password:password
             });
             newUser.save()
                 .then( user => res.json({success:true}) )
