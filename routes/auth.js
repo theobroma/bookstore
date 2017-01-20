@@ -7,10 +7,6 @@ let router = express.Router();
 
 router.post('/', (req, res) => {
   const { identifier, password } = req.body;
-/*  const result = bcrypt.compareSync('111', '$2a$10$dqZw/1BvITf.BmCfsQcKcOlKz8sMLEl3/tNI1QRJNidosVwAHoche');
-  res.send(result);*/
-
-
   User.find({ "username": identifier }).then((data) => {
     let userId = data[0]._id;
     let userName = data[0].username;
@@ -24,10 +20,10 @@ router.post('/', (req, res) => {
         },'somesecretkeyforjsonwebtoken');
         res.json({ token });
       } else {
-        res.status(401).json({ errors: { form: 'Invalid Credentials1' } });
+        res.status(401).json({ errors: { form: 'Invalid Credentials' } });
       }
     } else {
-      res.status(401).json({ errors: { form: 'Invalid Credentials2' } });
+      res.status(401).json({ errors: { form: 'Invalid Credentials' } });
     }
 
   });

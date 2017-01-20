@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import jwtDecode from 'jwt-decode';
 import { Router, browserHistory } from 'react-router';
 
 import { Provider } from 'react-redux';
@@ -10,6 +11,8 @@ import createLogger from 'redux-logger';
 
 import rootReducer from './rootReducer';
 import { routes } from './routes';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import { setCurrentUser } from './actions/authActions';
 import './index.scss';
 
 const logger = createLogger();
@@ -25,6 +28,12 @@ const store = createStore(
 store.subscribe( () => {
     console.log('Store changed', store.getState());
 })
+
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+}
 
 ReactDOM.render(
     <Provider store = {store}>

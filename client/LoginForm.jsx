@@ -55,6 +55,9 @@ class LoginForm extends Component {
                         <h4 className="subtitle">Sign Up</h4>
                        <form onSubmit={this.onSubmit}>
                         <h1>Login</h1>
+
+                         { errors.form && <div className="notification is-danger">{errors.form}</div> }
+
                         <TextFieldGroup
                           field="identifier"
                           label="Username / Email"

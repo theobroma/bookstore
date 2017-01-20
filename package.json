@@ -40,6 +40,7 @@
     "json-loader": "^0.5.4",
     "jsonfile": "^2.4.0",
     "jsonwebtoken": "^7.2.1",
+    "jwt-decode": "^2.1.0",
     "morgan": "^1.7.0",
     "node-sass": "^4.1.1",
     "nunjucks": "^3.0.0",
