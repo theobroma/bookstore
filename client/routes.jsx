@@ -16,6 +16,8 @@ import ProfilePage from './ProfilePage';
 import ShoppingCartPage from './ShoppingCartPage';
 import NotFound from './NotFound';
 
+import requireAuth from './utils/requireAuth';
+
 export const routes = (
     <div>
         <Route path='/' component={Layout}>
@@ -25,10 +27,10 @@ export const routes = (
             <Route path='/genres/:genre' component={GenrePage} ></Route>
             <Route path='/authors' component={AuthorList} ></Route>
             <Route path='/authors/:author' component={AuthorPage} ></Route>
-            <Route path='/cart' component={ShoppingCartPage} ></Route>
+            <Route path='/cart' component={requireAuth(ShoppingCartPage)}></Route>
             <Route path='/signup' component={SignupPage} ></Route>
             <Route path='/login' component={LoginPage} ></Route>
-            <Route path='/profile' component={ProfilePage} ></Route>
+            <Route path='/profile' component={requireAuth(ProfilePage)} ></Route>
         </Route>
         {/* для всех остальных роутов: показывай NotFound */}
         <Route path='*' component={NotFound} />

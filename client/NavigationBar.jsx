@@ -9,13 +9,13 @@ class NavigationBar extends Component {
     this.props.logout();
   }
 
-
   render() {
     const { isAuthenticated } = this.props.auth;
 
     const userLinks = (
       <div className="nav-right nav-menu">
         <Link className="nav-item" to={`/cart`}>Корзина</Link>
+        <Link className="nav-item" to={`/profile`}>Профиль</Link>
         <a href="#" className="nav-item" onClick={this.logout.bind(this)}>Logout</a>
       </div>
     );
@@ -26,7 +26,6 @@ class NavigationBar extends Component {
         <Link className="nav-item" to={`/login`}>Login</Link>
       </div>
     );
-
 
     return (
       <nav className="nav">
