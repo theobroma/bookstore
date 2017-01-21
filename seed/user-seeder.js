@@ -1,17 +1,20 @@
-var User =  require ('../models/user');
-var mongoose = require('mongoose');
+import User from '../models/user';
+import mongoose from 'mongoose';
+
 mongoose.connect('mongodb://localhost/bookstore');
 
 var users = [
     new User ({
         "username":"admin@example.com",
-        "password":"admin",
-        "createdAt": new Date()
+        "password":"111",
+        "firstName":"Sasha",
+        "lastName" : "Siryj"
     }),
     new User ({
         "username":"test@example.com",
-        "password":"test",
-        "createdAt": new Date()
+        "password":"111",
+        "firstName":"Sasha",
+        "lastName" : "Siryj"
     })
 ];
 

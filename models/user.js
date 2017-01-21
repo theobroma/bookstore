@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 
@@ -12,7 +12,15 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    firstName : {
+        type: String,
+        default: ""
+    },
+    lastName : {
+        type: String,
+        default: ""
+    }
 })
 
 UserSchema.pre('save', function(next) {

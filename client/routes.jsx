@@ -12,7 +12,7 @@ import AuthorPage from './AuthorPage';
 import AuthorList from './AuthorList';
 import SignupPage from './SignupPage';
 import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
+import UserProfilePage from './UserProfilePage';
 import ShoppingCartPage from './ShoppingCartPage';
 import NotFound from './NotFound';
 
@@ -30,7 +30,7 @@ export const routes = (
             <Route path='/cart' component={requireAuth(ShoppingCartPage)}></Route>
             <Route path='/signup' component={SignupPage} ></Route>
             <Route path='/login' component={LoginPage} ></Route>
-            <Route path='/profile' component={requireAuth(ProfilePage)} ></Route>
+            <Route path='/profile' component={requireAuth(UserProfilePage)} ></Route>
         </Route>
         {/* для всех остальных роутов: показывай NotFound */}
         <Route path='*' component={NotFound} />

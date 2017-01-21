@@ -22,6 +22,7 @@ import genres from './routes/genres';
 import users from './routes/users';
 import authors from './routes/authors';
 import auth from './routes/auth';
+import profile from './routes/profile';
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use ('/api/genres',genres);
 app.use ('/api/users',users);
 app.use ('/api/authors',authors);
 app.use ('/api/auth',auth);
+app.use ('/api/profile',profile);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'./views/index.html'));
