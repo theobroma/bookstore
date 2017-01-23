@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+const Schema = mongoose.Schema;
 
 
-var UserSchema = new mongoose.Schema({
+var UserSchema = new Schema({
     username : {
         type: String,
         unique: true,
@@ -20,6 +21,10 @@ var UserSchema = new mongoose.Schema({
     lastName : {
         type: String,
         default: ""
+    },
+    cart : {
+        addedIds: [String],
+        quantityById : [Schema.Types.Mixed]
     }
 })
 
