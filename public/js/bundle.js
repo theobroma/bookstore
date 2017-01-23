@@ -36669,17 +36669,44 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { className: 'nav-item', to: '/cart' },
-	          '\u041A\u043E\u0440\u0437\u0438\u043D\u0430'
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon' },
+	            _react2.default.createElement('i', { className: 'fa fa-shopping-cart' })
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            '\u041A\u043E\u0440\u0437\u0438\u043D\u0430'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { className: 'nav-item', to: '/profile' },
-	          '\u041F\u0440\u043E\u0444\u0438\u043B\u044C'
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon' },
+	            _react2.default.createElement('i', { className: 'fa fa-user' })
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            '\u041F\u0440\u043E\u0444\u0438\u043B\u044C'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'a',
 	          { href: '#', className: 'nav-item', onClick: this.logout.bind(this) },
-	          'Logout'
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon' },
+	            _react2.default.createElement('i', { className: 'fa fa-sign-out' })
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Logout'
+	          )
 	        )
 	      );
 
@@ -36694,7 +36721,16 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { className: 'nav-item', to: '/login' },
-	          'Login'
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon' },
+	            _react2.default.createElement('i', { className: 'fa fa-sign-in' })
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Login'
+	          )
 	        )
 	      );
 

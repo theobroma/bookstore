@@ -60,7 +60,8 @@
   },
   "scripts": {
     "webpack": "start http://localhost:8080/webpack-dev-server/ & webpack-dev-server",
-    "dev": "nodemon --exec babel-node -- server.js localhost 8080"
+    "dev": "nodemon --exec babel-node -- server.js localhost 8080",
+    "server": "supervisor --exec babel-node -- server.js localhost 8080"
   },
   "repository": {
     "type": "git",

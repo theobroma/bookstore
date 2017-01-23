@@ -15,6 +15,12 @@ var users = [
         "password":"111",
         "firstName":"Sasha",
         "lastName" : "Siryj"
+    }),
+    new User ({
+        "username":"taladaciza@yahoo.com",
+        "password":"111",
+        "firstName":"Sasha",
+        "lastName" : "Siryj"
     })
 ];
 

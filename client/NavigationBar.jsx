@@ -14,16 +14,36 @@ class NavigationBar extends Component {
 
     const userLinks = (
       <div className="nav-right nav-menu">
-        <Link className="nav-item" to={`/cart`}>Корзина</Link>
-        <Link className="nav-item" to={`/profile`}>Профиль</Link>
-        <a href="#" className="nav-item" onClick={this.logout.bind(this)}>Logout</a>
+        <Link className="nav-item" to={`/cart`}>
+            <span className="icon">
+                <i className="fa fa-shopping-cart"></i>
+            </span>
+            <span>Корзина</span>
+        </Link>
+        <Link className="nav-item" to={`/profile`}>
+            <span className="icon">
+                <i className="fa fa-user"></i>
+            </span>
+            <span>Профиль</span>
+        </Link>
+        <a href="#" className="nav-item" onClick={this.logout.bind(this)}>
+            <span className="icon">
+                <i className="fa fa-sign-out"></i>
+            </span>
+            <span>Logout</span>
+        </a>
       </div>
     );
 
     const guestLinks = (
       <div className="nav-right nav-menu">
         <Link className="nav-item" to={`/signup`}>Signup</Link>
-        <Link className="nav-item" to={`/login`}>Login</Link>
+        <Link className="nav-item" to={`/login`}>
+            <span className="icon">
+                <i className="fa fa-sign-in"></i>
+            </span>
+            <span>Login</span>
+        </Link>
       </div>
     );
 
