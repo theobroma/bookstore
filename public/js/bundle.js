@@ -35190,6 +35190,8 @@
 
 	var _setAuthorizationToken = __webpack_require__(444);
 
+	var _setAuthorizationToken2 = _interopRequireDefault(_setAuthorizationToken);
+
 	var _types = __webpack_require__(288);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -35204,7 +35206,7 @@
 	function logout() {
 	  return function (dispatch) {
 	    localStorage.removeItem('jwtToken');
-	    (0, _setAuthorizationToken.setAuthorizationToken)(false);
+	    (0, _setAuthorizationToken2.default)(false);
 	    dispatch(setCurrentUser({}));
 	  };
 	}
@@ -35214,7 +35216,7 @@
 	    return _axios2.default.post('/api/auth', data).then(function (res) {
 	      var token = res.data.token;
 	      localStorage.setItem('jwtToken', token);
-	      (0, _setAuthorizationToken.setAuthorizationToken)(token);
+	      (0, _setAuthorizationToken2.default)(token);
 	      dispatch(setCurrentUser((0, _jwtDecode2.default)(token)));
 	    });
 	  };
@@ -41368,7 +41370,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -41404,126 +41406,133 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var LoginForm = function (_Component) {
-	    _inherits(LoginForm, _Component);
+	  _inherits(LoginForm, _Component);
 
-	    function LoginForm(props) {
-	        _classCallCheck(this, LoginForm);
+	  function LoginForm(props) {
+	    _classCallCheck(this, LoginForm);
 
-	        var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
-	        _this.state = {
-	            identifier: '',
-	            password: '',
-	            errors: {},
-	            isLoading: false
-	        };
-	        _this.onSubmit = _this.onSubmit.bind(_this);
-	        _this.onChange = _this.onChange.bind(_this);
-	        return _this;
+	    _this.state = {
+	      identifier: '',
+	      password: '',
+	      errors: {},
+	      isLoading: false
+	    };
+	    _this.onSubmit = _this.onSubmit.bind(_this);
+	    _this.onChange = _this.onChange.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(LoginForm, [{
+	    key: 'isValid',
+	    value: function isValid() {
+	      var _validateInput = (0, _login2.default)(this.state),
+	          errors = _validateInput.errors,
+	          isValid = _validateInput.isValid;
+
+	      if (!isValid) {
+	        this.setState({ errors: errors });
+	      }
+	      return isValid;
 	    }
+	  }, {
+	    key: 'onSubmit',
+	    value: function onSubmit(e) {
+	      var _this2 = this;
 
-	    _createClass(LoginForm, [{
-	        key: 'isValid',
-	        value: function isValid() {
-	            var _validateInput = (0, _login2.default)(this.state),
-	                errors = _validateInput.errors,
-	                isValid = _validateInput.isValid;
+	      e.preventDefault();
+	      if (this.isValid()) {
+	        this.setState({ errors: {}, isLoading: true });
+	        this.props.login(this.state).then(function (res) {
+	          return _this2.context.router.push('/');
+	        }, function (err) {
+	          return _this2.setState({ errors: err.response.data.errors, isLoading: false });
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'onChange',
+	    value: function onChange(e) {
+	      this.setState(_defineProperty({}, e.target.name, e.target.value));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _state = this.state,
+	          errors = _state.errors,
+	          identifier = _state.identifier,
+	          password = _state.password,
+	          isLoading = _state.isLoading;
 
-	            if (!isValid) {
-	                this.setState({ errors: errors });
-	            }
-
-	            return isValid;
-	        }
-	    }, {
-	        key: 'onSubmit',
-	        value: function onSubmit(e) {
-	            var _this2 = this;
-
-	            e.preventDefault();
-	            if (this.isValid()) {
-	                this.setState({ errors: {}, isLoading: true });
-	                this.props.login(this.state).then(function (res) {
-	                    return _this2.context.router.push('/');
-	                }, function (err) {
-	                    return _this2.setState({ errors: err.response.data.errors, isLoading: false });
-	                });
-	            }
-	        }
-	    }, {
-	        key: 'onChange',
-	        value: function onChange(e) {
-	            this.setState(_defineProperty({}, e.target.name, e.target.value));
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _state = this.state,
-	                errors = _state.errors,
-	                identifier = _state.identifier,
-	                password = _state.password,
-	                isLoading = _state.isLoading;
-
-	            return _react2.default.createElement(
-	                'div',
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'columns' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'column is-6 is-offset-3' },
+	            _react2.default.createElement(
+	              'h4',
+	              { className: 'subtitle' },
+	              'Log in'
+	            ),
+	            _react2.default.createElement(
+	              'form',
+	              { onSubmit: this.onSubmit },
+	              _react2.default.createElement(
+	                'h1',
 	                null,
+	                'Login'
+	              ),
+	              errors.form && _react2.default.createElement(
+	                'div',
+	                { className: 'notification is-danger' },
+	                errors.form
+	              ),
+	              _react2.default.createElement(_TextFieldGroup2.default, {
+	                field: 'identifier',
+	                label: 'Username / Email',
+	                value: identifier,
+	                error: errors.identifier,
+	                onChange: this.onChange
+	              }),
+	              _react2.default.createElement(_TextFieldGroup2.default, {
+	                field: 'password',
+	                label: 'Password',
+	                value: password,
+	                error: errors.password,
+	                onChange: this.onChange,
+	                type: 'password'
+	              }),
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'control' },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'columns' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'column is-6 is-offset-3' },
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: 'subtitle' },
-	                            'Sign Up'
-	                        ),
-	                        _react2.default.createElement(
-	                            'form',
-	                            { onSubmit: this.onSubmit },
-	                            _react2.default.createElement(
-	                                'h1',
-	                                null,
-	                                'Login'
-	                            ),
-	                            errors.form && _react2.default.createElement(
-	                                'div',
-	                                { className: 'notification is-danger' },
-	                                errors.form
-	                            ),
-	                            _react2.default.createElement(_TextFieldGroup2.default, {
-	                                field: 'identifier',
-	                                label: 'Username / Email',
-	                                value: identifier,
-	                                error: errors.identifier,
-	                                onChange: this.onChange
-	                            }),
-	                            _react2.default.createElement(_TextFieldGroup2.default, {
-	                                field: 'password',
-	                                label: 'Password',
-	                                value: password,
-	                                error: errors.password,
-	                                onChange: this.onChange,
-	                                type: 'password'
-	                            }),
-	                            _react2.default.createElement(
-	                                'p',
-	                                { className: 'control' },
-	                                _react2.default.createElement(
-	                                    'button',
-	                                    { className: (0, _classnames2.default)('button', 'is-success'), disabled: isLoading },
-	                                    'Login'
-	                                )
-	                            )
-	                        )
-	                    )
+	                  'button',
+	                  { className: (0, _classnames2.default)('button', 'is-success'), disabled: isLoading },
+	                  'Login'
 	                )
-	            );
-	        }
-	    }]);
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
 
-	    return LoginForm;
+	  return LoginForm;
 	}(_react.Component);
+
+	LoginForm.propTypes = {
+	  login: _react2.default.PropTypes.func.isRequired
+	};
+
+	LoginForm.contextTypes = {
+	  router: _react2.default.PropTypes.object.isRequired
+	};
 
 	exports.default = (0, _reactRedux.connect)(null, { login: _authActions.login })(LoginForm);
 
