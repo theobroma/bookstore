@@ -13,7 +13,7 @@ export default class Book extends Component {
   }
 
   render() {
-    const {_id,title,genre,author,thumbnail,description,price} = this.props.item;
+    const {_id, title, genre, author, thumbnail, description, price} = this.props.item;
     return (
       <div className="book-item">
         <img src={`/images/${thumbnail}`} alt=""/>

@@ -23,7 +23,7 @@ module.exports = {
                 path.join(__dirname, 'shared')
             ],
             exclude: [/node_modules/, /bower_components/],
-           /* loaders: ["babel-loader", "eslint-loader"]*/
+            /*loaders: ["babel-loader", "eslint-loader"]*/
             loader: 'babel-loader'
         },{
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

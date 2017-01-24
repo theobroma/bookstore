@@ -10,6 +10,7 @@
     "express": "^4.14.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
+    "jwt-decode": "^2.1.0",
     "lodash": "^4.17.3",
     "mongoose": "^4.7.5",
     "passport": "^0.3.2",
@@ -24,6 +25,7 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "serve-favicon": "^2.3.2",
+    "shortid": "^2.2.6",
     "validator": "^6.2.1",
     "classnames": "^2.2.5"
   },
@@ -53,7 +55,6 @@
     "json-loader": "^0.5.4",
     "jsonfile": "^2.4.0",
     "jsonwebtoken": "^7.2.1",
-    "jwt-decode": "^2.1.0",
     "morgan": "^1.7.0",
     "node-sass": "^4.1.1",
     "nunjucks": "^3.0.0",
@@ -62,7 +63,6 @@
     "postcss-loader": "^1.2.1",
     "resolve-url-loader": "^1.6.1",
     "sass-loader": "^4.1.1",
-    "shortid": "^2.2.6",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   },

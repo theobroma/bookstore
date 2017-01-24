@@ -38,7 +38,7 @@ export default class SignupForm extends Component {
         () => {
           this.props.addFlashMessage({
             type: "success",
-            text : "You signed up successfully. Welcome!"
+            text : "You signed up successfully. Welcome!",
           })
           this.context.router.push('/');
         },
@@ -48,7 +48,7 @@ export default class SignupForm extends Component {
   }
 
   render() {
-    const {username,password,passwordConfirm,errors,isLoading} = this.state
+    const { username, password, passwordConfirm, errors, isLoading } = this.state
     return (
       <div>
         <div className= "columns" >
@@ -56,25 +56,25 @@ export default class SignupForm extends Component {
             <h4 className="subtitle">Sign Up</h4>
             <form onSubmit={this.onSubmit}>
               <TextFieldGroup
-                  field="username"
-                  label="Username / Email"
-                  value={username}
-                  error={errors.username}
-                  onChange={this.onChange}
+                field="username"
+                label="Username / Email"
+                value={username}
+                error={errors.username}
+                onChange={this.onChange}
               />
               <TextFieldGroup
-                  field="password"
-                  label="Password"
-                  value={password}
-                  error={errors.password}
-                  onChange={this.onChange}
+                field="password"
+                label="Password"
+                value={password}
+                error={errors.password}
+                onChange={this.onChange}
               />
               <TextFieldGroup
-                  field="passwordConfirm"
-                  label="Password Confirmation"
-                  value={passwordConfirm}
-                  error={errors.passwordConfirm}
-                  onChange={this.onChange}
+                field="passwordConfirm"
+                label="Password Confirmation"
+                value={passwordConfirm}
+                error={errors.passwordConfirm}
+                onChange={this.onChange}
               />
              <p className="control">
                 <button className={classnames('button','is-success', {'is-loading': this.state.isLoading})}>
