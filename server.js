@@ -23,10 +23,9 @@ import users from './routes/users';
 import authors from './routes/authors';
 import auth from './routes/auth';
 import profile from './routes/profile';
+import cart from './routes/cart';
 
 var app = express();
-
-
 
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
@@ -64,6 +63,7 @@ app.use ('/api/users',users);
 app.use ('/api/authors',authors);
 app.use ('/api/auth',auth);
 app.use ('/api/profile',profile);
+app.use ('/api/cart',cart);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'./views/index.html'));

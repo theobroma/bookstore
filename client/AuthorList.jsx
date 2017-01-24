@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import AuthorListItem from './AuthorListItem';
-import $ from 'jquery';
-import _ from 'lodash';
 import api from './api';
 
 export default class AuthorList extends Component {

@@ -7,7 +7,7 @@ const TextFieldGroup = ({ field, value, label, error, type, onChange }) => {
       <label className="label">{label}</label>
       <p className="control has-icon">
         <input
-          className={classnames('input', {'is-danger': error})}
+          className={ classnames('input', {'is-danger': error}) }
           type={type}
           placeholder={label}
           name={field}
@@ -15,12 +15,12 @@ const TextFieldGroup = ({ field, value, label, error, type, onChange }) => {
           onChange={onChange}
         />
         <span className="icon is-small">
-            <i className="fa fa-envelope"></i>
+          <i className="fa fa-envelope"/>
         </span>
         { error && <span className="help is-danger">{error}</span>}
       </p>
     </div>
   );
-}
+};
 
 export default TextFieldGroup;

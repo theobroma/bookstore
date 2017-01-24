@@ -7,5 +7,6 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 //SHOPPING CART
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const SET_CART = 'SET_CART';
 //PROFILE
 export const SET_PROFILE = 'SET_PROFILE';

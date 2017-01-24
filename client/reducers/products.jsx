@@ -1,4 +1,3 @@
-import api from '../api';
 import { apiPrefix } from '../../etc/config.json';
 import { SET_PRODUCTS } from '../actions/types';
 
