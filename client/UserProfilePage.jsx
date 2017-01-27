@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserProfileForm from './UserProfileForm';
 
-export default class ProfilePage extends Component {
+export default class UserProfilePage extends Component {
   render() {
     return (
       <div className="form">

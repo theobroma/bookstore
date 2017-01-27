@@ -5,28 +5,28 @@ import ShoppingCartItem from './ShoppingCartItem';
 import Book from './Book';
 
 class ShoppingCartPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    componentDidMount() {
-        this.props.fetchCart();
-    }
+  componentDidMount() {
+    this.props.fetchCart();
+  }
 
   render() {
     const cartList = this.props.shoppingCart.map( (item) =>
-        <ShoppingCartItem key = {item._id} item = {item} onAddToCart = {this.props.onAddToCart} />
+      <ShoppingCartItem key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
     );
     return (
-        <div>
-            <div className="cartItemList">
-                {cartList}
-            </div>
-            <div className="cartFooter">
-                <div className="cartTotal"></div>
-            </div>
-                {<pre>{JSON.stringify(this.props.shoppingCart,"", 4)}</pre>}
+      <div>
+        <div className="cartItemList">
+          {cartList}
         </div>
+        <div className="cartFooter">
+          <div className="cartTotal"></div>
+        </div>
+          <pre>{JSON.stringify(this.props.shoppingCart, "", 4)}</pre>
+      </div>
     );
   }
 }
@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps,{fetchCart})(ShoppingCartPage);
+export default connect(mapStateToProps, { fetchCart })(ShoppingCartPage);

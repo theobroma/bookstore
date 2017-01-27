@@ -3,7 +3,7 @@ import { apiPrefix } from '../../etc/config.json';
 import { SET_PROFILE } from '../actions/types';
 
 export function fetchProfile() {
-  return function(dispatch) {
+  return dispatch => {
     axios.get(`${apiPrefix}/profile`)
     .then(response => {
       dispatch({
@@ -13,6 +13,6 @@ export function fetchProfile() {
     })
     .catch((error) => {
       console.log(error);
-    })
-  }
+    });
+  };
 }

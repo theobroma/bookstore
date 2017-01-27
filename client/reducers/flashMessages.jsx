@@ -10,8 +10,8 @@ export default (state = [], action = {}) => {
         {
           id: shortid.generate(),
           type: action.message.type,
-          text: action.message.text,
-        },
+          text: action.message.text
+        }
       ];
     }
     case DELETE_FLASH_MESSAGE: {
@@ -19,7 +19,7 @@ export default (state = [], action = {}) => {
       if (index >= 0) {
         return [
           ...state.slice(0, index),
-          ...state.slice(index + 1),
+          ...state.slice(index + 1)
         ];
       }
       return state;

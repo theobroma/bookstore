@@ -10,6 +10,7 @@ import AuthorList from './AuthorList';
 import SignupPage from './SignupPage';
 import LoginPage from './LoginPage';
 import UserProfilePage from './UserProfilePage';
+import UserProfilePage2 from './UserProfilePage2';
 import ShoppingCartPage from './ShoppingCartPage';
 import NotFound from './NotFound';
 
@@ -28,6 +29,7 @@ export const routes = (
       <Route path="/signup" component={SignupPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/profile" component={requireAuth(UserProfilePage)} />
+      <Route path="/profile2" component={requireAuth(UserProfilePage2)} />
     </Route>
     {/* для всех остальных роутов: показывай NotFound */}
     <Route path="*" component={NotFound} />

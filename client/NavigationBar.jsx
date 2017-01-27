@@ -26,6 +26,12 @@ class NavigationBar extends Component {
           </span>
           <span>Профиль</span>
         </Link>
+        <Link className="nav-item" to={'/profile2'}>
+          <span className="icon">
+            <i className="fa fa-android" />
+          </span>
+          <span>Профиль</span>
+        </Link>
         <a href="#" className="nav-item" onClick={this.logout.bind(this)}>
           <span className="icon">
             <i className="fa fa-sign-out" />

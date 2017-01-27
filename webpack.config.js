@@ -26,11 +26,9 @@ module.exports = {
             /*loaders: ["babel-loader", "eslint-loader"]*/
             loader: 'babel-loader'
         },{
-            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader?limit=10000',
+            test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/, loader: 'url?limit=10000'
         },{
-            test: /\.(eot|ttf|wav|mp3|pdf)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'file-loader',
+            test: /\.((ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot)$/, loader: 'file'
         },{
             test: /\.json$/,
             loader: "json-loader"

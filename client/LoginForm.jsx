@@ -19,14 +19,6 @@ class LoginForm extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  isValid() {
-    const { errors, isValid } = validateInput(this.state);
-    if (!isValid) {
-      this.setState({ errors });
-    }
-    return isValid;
-  }
-
   onSubmit(e) {
     e.preventDefault();
     if (this.isValid()) {
@@ -41,6 +33,15 @@ class LoginForm extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  isValid() {
+    const { errors, isValid } = validateInput(this.state);
+    if (!isValid) {
+      this.setState({ errors });
+    }
+    return isValid;
+  }
+
     render() {
       const { errors, identifier, password, isLoading } = this.state;
       return (

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { apiPrefix } from '../../etc/config.json';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { SET_CURRENT_USER } from '../actions/types';
@@ -21,7 +22,7 @@ export function logout() {
 
 export function login(data) {
   return dispatch => {
-    return axios.post('/api/auth', data).then(res => {
+    return axios.post(`${apiPrefix}/auth`, data).then(res => {
       const token = res.data.token;
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);

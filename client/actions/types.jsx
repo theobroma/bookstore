@@ -10,3 +10,4 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const SET_CART = 'SET_CART';
 // PROFILE
 export const SET_PROFILE = 'SET_PROFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';

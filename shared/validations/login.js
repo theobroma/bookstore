@@ -14,6 +14,6 @@ export default function validateInput(data) {
 
   return {
     errors,
-    isValid: _isEmpty(errors),
+    isValid: _isEmpty(errors)
   };
 }

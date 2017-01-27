@@ -25,9 +25,9 @@ const store = createStore(
   )
 );
 
-store.subscribe( () => {
-    console.log('Store changed', store.getState());
-})
+/*store.subscribe(() => {
+  console.log('Store changed', store.getState());
+});*/
 
 
 if (localStorage.jwtToken) {
@@ -36,8 +36,8 @@ if (localStorage.jwtToken) {
 }
 
 ReactDOM.render(
-    <Provider store = {store}>
-        <Router history={browserHistory} routes={routes}/>
-    </Provider>,
-    document.getElementById('root')
-)
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
+  document.getElementById('root')
+);

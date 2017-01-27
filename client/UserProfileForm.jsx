@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import TextFieldGroup from './common/TextFieldGroup';
 import { fetchProfile } from './actions/profileActions';
 
-
 class UserProfileForm extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +36,7 @@ class UserProfileForm extends Component {
         <div className= "columns" >
           <div className= "column is-6 is-offset-3">
             <h4 className="subtitle">Настройки профиля</h4>
-           <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}>
 
             { errors.form && <div className="notification is-danger">{errors.form}</div> }
 
@@ -57,9 +56,9 @@ class UserProfileForm extends Component {
               type="text"
             />
             <p className="control">
-                <button className={classnames('button','is-success')} disabled={isLoading}>
-                    Сохранить изменения
-                </button>
+              <button className={classnames('button','is-success')} disabled={isLoading}>
+                Сохранить изменения
+              </button>
            </p>
           </form>
           {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
@@ -77,5 +76,4 @@ function mapStateToProps(state) {
   }
 }
 
-
-export default connect(mapStateToProps,{fetchProfile})(UserProfileForm);
+export default connect(mapStateToProps, { fetchProfile })(UserProfileForm);
