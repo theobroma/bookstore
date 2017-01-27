@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { ADD_TO_CART,SET_CART } from './types';
+import { ADD_TO_CART, SET_CART } from './types';
 
 export function onAddToCart(productId) {
-  return {
-    type: ADD_TO_CART,
-    productId
+  return dispatch => {
+    return axios.post(`${apiPrefix}/cart`, {productId});
   }
 }
 

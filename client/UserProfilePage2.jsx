@@ -25,9 +25,11 @@ class UserProfilePage2 extends Component {
 
   render() {
     return (
-      <div className="form">
-        <p>Hello from profile page2</p>
-        <InitializeFromStateForm onSubmit={this.handleSubmit} />
+      <div className= "columns" >
+        <div className= "column is-6 is-offset-3">
+          <h4 className="subtitle">Настройки профиля</h4>
+          <InitializeFromStateForm onSubmit={this.handleSubmit} />
+        </div>
       </div>
     );
   }

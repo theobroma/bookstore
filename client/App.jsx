@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchProducts,onAddToCart })(App);
+export default connect(mapStateToProps, { fetchProducts, onAddToCart })(App);

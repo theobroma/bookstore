@@ -38,9 +38,9 @@ export default class SignupForm extends Component {
         () => {
           this.props.addFlashMessage({
             type: "success",
-            text : "You signed up successfully. Welcome!",
+            text : "You signed up successfully. Welcome! Now, log in.",
           })
-          this.context.router.push('/');
+          this.context.router.push('/login');
         },
         (err) => this.setState({errors: err.response.data,isLoading:false})
       );

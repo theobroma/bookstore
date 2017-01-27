@@ -23,6 +23,7 @@ class ShoppingCartPage extends React.Component {
           {cartList}
         </div>
         <div className="cartFooter">
+          <h4>Итоговая сумма </h4>
           <div className="cartTotal"></div>
         </div>
           <pre>{JSON.stringify(this.props.shoppingCart, "", 4)}</pre>
