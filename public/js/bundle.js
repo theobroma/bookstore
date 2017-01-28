@@ -44094,12 +44094,6 @@
 	  _createClass(Book, [{
 	    key: 'onClick',
 	    value: function onClick() {
-	      this.props.onAddToCart(this.props.item._id);
-	      console.log("item _id", this.props.item._id);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
 	      var _props$item = this.props.item,
 	          _id = _props$item._id,
 	          title = _props$item.title,
@@ -44108,6 +44102,21 @@
 	          thumbnail = _props$item.thumbnail,
 	          description = _props$item.description,
 	          price = _props$item.price;
+
+	      this.props.onAddToCart({ productId: _id, title: title, thumbnail: thumbnail, price: price });
+	      console.log("item _id", this.props.item._id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props$item2 = this.props.item,
+	          _id = _props$item2._id,
+	          title = _props$item2.title,
+	          genre = _props$item2.genre,
+	          author = _props$item2.author,
+	          thumbnail = _props$item2.thumbnail,
+	          description = _props$item2.description,
+	          price = _props$item2.price;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -44208,9 +44217,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function onAddToCart(productId) {
+	function onAddToCart(data) {
 	  return function (dispatch) {
-	    return _axios2.default.post(_config.apiPrefix + '/cart', { productId: productId });
+	    return _axios2.default.post(_config.apiPrefix + '/cart', data);
 	  };
 	}
 

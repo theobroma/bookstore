@@ -10,8 +10,18 @@ var users = [
         "firstName":"Sasha",
         "lastName" : "Siryj",
         "cart" : [
-          {productId: "587a68ddb33d051a0c7c03d8"},
-          {productId: "587a68ddb33d051a0c7c03d9"}
+          {
+            "productId": "587a68ddb33d051a0c7c03d8",
+            "title":"Марсианские хроники",
+            "thumbnail":"marsianskie-khroniki.jpg",
+            "price" : 9.99
+          },
+          {
+            "productId": "587a68ddb33d051a0c7c03d9",
+            "title":"Мастер и Маргарита",
+            "thumbnail":"master-i-margarita.jpg",
+            "price" : 9.99
+          }
         ]
     }),
     new User ({
@@ -20,8 +30,18 @@ var users = [
         "firstName":"Sasha",
         "lastName" : "Siryj",
         "cart" : [
-          {productId: "587a68ddb33d051a0c7c03d8"},
-          {productId: "587a68ddb33d051a0c7c03d9"}
+          {
+            "productId": "587a68ddb33d051a0c7c03d8",
+            "title":"Марсианские хроники",
+            "thumbnail":"marsianskie-khroniki.jpg",
+            "price" : 9.99
+          },
+          {
+            "productId": "587a68ddb33d051a0c7c03d9",
+            "title":"Мастер и Маргарита",
+            "thumbnail":"master-i-margarita.jpg",
+            "price" : 9.99
+          }
         ]
     }),
     new User ({
@@ -30,8 +50,18 @@ var users = [
         "firstName":"Sasha",
         "lastName" : "Siryj",
         "cart" : [
-          {productId: "587a68ddb33d051a0c7c03d8"},
-          {productId: "587a68ddb33d051a0c7c03d9"}
+          {
+            "productId": "587a68ddb33d051a0c7c03d8",
+            "title":"Марсианские хроники",
+            "thumbnail":"marsianskie-khroniki.jpg",
+            "price" : 9.99
+          },
+          {
+            "productId": "587a68ddb33d051a0c7c03d9",
+            "title":"Мастер и Маргарита",
+            "thumbnail":"master-i-margarita.jpg",
+            "price" : 9.99
+          }
         ]
     })
 ];

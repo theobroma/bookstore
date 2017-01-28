@@ -8,7 +8,8 @@ export default class Book extends Component {
   }
 
   onClick() {
-    this.props.onAddToCart(this.props.item._id);
+    const {_id, title, genre, author, thumbnail, description, price} = this.props.item;
+    this.props.onAddToCart({productId:_id, title, thumbnail, price});
     console.log("item _id",this.props.item._id);
   }
 
