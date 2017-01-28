@@ -1,10 +1,28 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM } from './types';
+import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_INCREMENT, QUANTITY_DECREMENT  } from './types';
 
 export function onAddToCart(data) {
   return dispatch => {
     return axios.post(`${apiPrefix}/cart`, data);
+  }
+}
+
+export function onIncrement(productId) {
+  return dispatch => {
+    return dispatch({
+        type: QUANTITY_INCREMENT,
+        payload: productId
+      });
+  }
+}
+
+export function onDecrement(productId) {
+  return dispatch => {
+    return dispatch({
+        type: QUANTITY_DECREMENT,
+        payload: productId
+      });
   }
 }
 

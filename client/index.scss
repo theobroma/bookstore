@@ -23,11 +23,18 @@ body {
     display:flex;
     flex-direction: column;
     color:#e3e3e3;
-    border-bottom: solid 1px #e4e4e3;
+    box-shadow: 0 0 20px 0 rgba(155,148,137,.5);
+    border: 1.3px solid rgba(104,97,89,.1);
+    border-radius: 3px;
     padding:10px;
     overflow:hidden;
     align-items:center;
     justify-content:space-between;
+    padding: 15px;
+    margin:10px;
+    &:hover {
+      border: 1px solid #fd6462;
+    }
 }
 .book-title {
     color: #333;
