@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCart } from './actions/shoppingCartActions';
+import { fetchCart, onItemDelete } from './actions/shoppingCartActions';
 import ShoppingCartItem from './ShoppingCartItem';
 import Book from './Book';
 
@@ -15,7 +15,7 @@ class ShoppingCartPage extends React.Component {
 
   render() {
     const cartList = this.props.shoppingCart.map( (item) =>
-      <ShoppingCartItem key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
+      <ShoppingCartItem key={item._id} item={item} onItemDelete={this.props.onItemDelete} />
     );
     return (
       <div>
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchCart })(ShoppingCartPage);
+export default connect(mapStateToProps, { fetchCart, onItemDelete })(ShoppingCartPage);

@@ -42,8 +42,38 @@ router.post('/', authenticate,(req,res)=> {
         { safe: true, upsert: true })
         .then( user => res.json({success:true}) )
         .catch(err => res.status(500).json ({error:err}));
+
+/*      User.findById(decoded.id).elemMatch("cart", {"productId":req.body.productId})
+        .then((data) => {
+          if(Object.keys(data).length == 0) {
+              console.log('Exist');
+          } else {
+            User.findByIdAndUpdate(decoded.id,
+              { $push: { "cart": { productId: req.body.productId } } },
+              { safe: true, upsert: true })
+              .then( user => res.json({success:true}) )
+              .catch(err => res.status(500).json ({error:err}));
+          }
+        });*/
     });
 });
+
+router.delete('/:productId', authenticate,(req,res)=> {
+    const authorizationHeader = req.headers['authorization'];
+    let token;
+
+    if (authorizationHeader) {
+        token = authorizationHeader.split(' ')[1];
+    }
+    jwt.verify(token, config.jwtSecret, (err, decoded) => {
+        User.findByIdAndUpdate(decoded.id,
+        { $pull: { cart : { productId : req.params.productId } } },
+        { safe: true })
+        .then( user => res.json({success:true}) )
+        .catch(err => res.status(500).json ({error:err}));
+    });
+});
+
 
 
 

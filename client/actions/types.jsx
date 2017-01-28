@@ -11,3 +11,4 @@ export const SET_CART = 'SET_CART';
 // PROFILE
 export const SET_PROFILE = 'SET_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';

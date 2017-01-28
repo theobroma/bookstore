@@ -7,10 +7,14 @@ export default class ShoppingCartItem extends Component {
     super(props);
     this.state = {
       quantity:1,
+      chkbox: false
     };
     this.onChange = this.onChange.bind(this);
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.handleChangeChk = this.handleChangeChk.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+
   }
 
   onChange(e) {
@@ -27,10 +31,21 @@ export default class ShoppingCartItem extends Component {
     }
   }
 
+  handleChangeChk () {
+      this.setState({ chkbox: !this.state.chkbox });
+  }
+
+  deleteItem (e) {
+    this.props.onItemDelete(this.props.item.productId);
+  }
+
   render() {
     const { _id, title, thumbnail, price } = this.props.item;
     return (
-      <div className="cartItem">
+      <div className={classnames('cartItem', { 'active': this.state.chkbox })}>
+        <div className="checkBox">
+          <input type="checkbox" checked={this.state.chkbox} onChange={this.handleChangeChk} />
+        </div>
         <img className="cartItem-thumbnail" src={`/images/${thumbnail}`} alt="" />
         <Link className="cartItem-title" to={`/books/${_id}`}>{title}</Link>
         <div className="count">
@@ -44,7 +59,15 @@ export default class ShoppingCartItem extends Component {
           />
           <button className="fa fa-plus-square-o" onClick={this.increment} />
         </div>
-        <span className="cartItem-price">${price}</span>
+        <span className="cartItem-price">Цена:${price}</span>
+        <div>productId : {this.props.item.productId}</div>
+        <button className="button is-danger is-outlined" onClick={this.deleteItem}>
+          <span>Delete</span>
+          <span className="icon is-small">
+            <i className="fa fa-times" />
+          </span>
+        </button>
+        <pre>{JSON.stringify(this.state, "", 4)}</pre>
       </div>
     );
   }
