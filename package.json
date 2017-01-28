@@ -5,7 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.15.3",
-    "babel-cli": "^6.22.2",
     "body-parser": "^1.15.2",
     "bulma": "^0.2.3",
     "classnames": "^2.2.5",
@@ -30,6 +29,7 @@
     "validator": "^6.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -68,10 +68,7 @@
     "url-loader": "^0.5.7"
   },
   "scripts": {
-    "start": "./node_modules/.bin/babel-node server.js",
-    "webpack": "start http://localhost:8080/webpack-dev-server/ & webpack-dev-server",
-    "dev": "nodemon --exec babel-node -- server.js localhost 8080",
-    "server": "supervisor --exec babel-node -- server.js localhost 8080"
+    "start": "nodemon server.js --exec babel-node"
   },
   "repository": {
     "type": "git",
