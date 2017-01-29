@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server.js --exec babel-node",
     "build": "babel ./server.js -d ./dist",
-    "serve": "node dist/server.js"
+    "serve": "node dist/server.js",
+    "babel-version": "babel --version"
   },
   "repository": {
     "type": "git",
