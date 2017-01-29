@@ -3,6 +3,26 @@
   "version": "1.0.0",
   "description": "Приложение для отображения книг",
   "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js --exec babel-node",
+    "build": "babel ./server.js -d ./dist",
+    "serve": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theobroma/BookStore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theobroma/BookStore/issues"
+  },
+  "homepage": "https://github.com/theobroma/BookStore#readme",
+  "engines": {
+    "node": "6.9.4",
+    "npm": "4.1.1"
+  },
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
@@ -66,23 +86,5 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
-  },
-  "scripts": {
-    "start": "nodemon server.js --exec babel-node"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theobroma/BookStore.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theobroma/BookStore/issues"
-  },
-  "homepage": "https://github.com/theobroma/BookStore#readme",
-  "engines": {
-    "node": "6.9.4",
-    "npm": "4.1.1"
   }
 }

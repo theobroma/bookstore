@@ -39,3 +39,5 @@ jspm_packages
 etc/config.json
 # WebStorm
 .idea
+#Config
+.env
