@@ -26,9 +26,16 @@ import profile from './routes/profile';
 import cart from './routes/cart';
 
 var app = express();
-
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+var mongoUri = process.env.MONGOLAB_URI || `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+
+/*mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
+
+mongoose.connect(mongoUri, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
+
 
 var port = 8080;
 app.use(morgan('dev'));
