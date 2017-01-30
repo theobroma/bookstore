@@ -4,7 +4,8 @@
   "description": "Приложение для отображения книг",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node",
+    "start": "node index.js",
+    "dev": "nodemon server.js --exec babel-node",
     "build": "babel ./server.js -d ./dist",
     "serve": "node dist/server.js",
     "babel-version": "babel --version"
@@ -29,6 +30,7 @@
     "body-parser": "^1.15.2",
     "bulma": "^0.2.3",
     "classnames": "^2.2.5",
+    "ejs": "^2.5.5",
     "express": "^4.14.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
