@@ -56,13 +56,10 @@ app.use ('/api/auth',auth);
 app.use ('/api/profile',profile);
 app.use ('/api/cart',cart);
 
+// Redirect all non api requests to the index
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'./views/index.html'));
-/*  console.log(req.cookies);
-  console.log(req.session);*/
 });
-
-
 
 app.listen(app.get('port'), ()=> {
    console.log('Node app is running on port', app.get('port'));
