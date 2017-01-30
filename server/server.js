@@ -8,7 +8,6 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import config from '../etc/config.json';
 import flash from 'connect-flash';
 import passport from 'passport';
 import myFunc from '../etc/passport';
@@ -28,7 +27,7 @@ import cart from './routes/cart';
 var app = express();
 app.set('port', (process.env.PORT || 8080));
 mongoose.Promise = global.Promise;
-var mongoUri = process.env.MONGOLAB_URI || `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
 
 /*mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
 
