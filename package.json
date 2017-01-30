@@ -4,7 +4,7 @@
   "description": "Приложение для отображения книг",
   "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node dist/server.js",
     "dev": "nodemon server.js --exec babel-node",
     "build": "babel ./server -d ./dist",
     "serve": "node dist/server.js",
