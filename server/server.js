@@ -26,6 +26,7 @@ import profile from './routes/profile';
 import cart from './routes/cart';
 
 var app = express();
+app.set('port', (process.env.PORT || 8080));
 mongoose.Promise = global.Promise;
 var mongoUri = process.env.MONGOLAB_URI || `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
 
@@ -36,8 +37,6 @@ mongoose.connect(mongoUri, function (error) {
     else console.log('mongo connected');
 });
 
-
-var port = 8080;
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -78,8 +77,10 @@ app.get('/*', (req, res) => {
   console.log(req.session);*/
 });
 
-app.listen(port, ()=> {
-  console.log(`app listening on port ${port}`);
+
+
+app.listen(app.get('port'), ()=> {
+   console.log('Node app is running on port', app.get('port'));
 });
 
 

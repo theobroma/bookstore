@@ -103,6 +103,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 var app = (0, _express2.default)();
+app.set('port', process.env.PORT || 8080);
 _mongoose2.default.Promise = global.Promise;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://' + _config2.default.db.host + ':' + _config2.default.db.port + '/' + _config2.default.db.name;
 
@@ -112,7 +113,6 @@ _mongoose2.default.connect(mongoUri, function (error) {
   if (error) console.error(error);else console.log('mongo connected');
 });
 
-var port = 8080;
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
@@ -153,8 +153,8 @@ app.get('/*', function (req, res) {
     console.log(req.session);*/
 });
 
-app.listen(port, function () {
-  console.log('app listening on port ' + port);
+app.listen(app.get('port'), function () {
+  console.log('Node app is running on port', app.get('port'));
 });
 
 module.exports = app;
