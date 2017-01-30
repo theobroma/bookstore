@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import classnames from 'classnames';
-import validateInput from '../shared/validations/signup';
+import validateInput from '../server/shared/validations/signup';
 import TextFieldGroup from './common/TextFieldGroup';
 
 export default class SignupForm extends Component {

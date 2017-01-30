@@ -40,7 +40,7 @@ var _cookieParser = require('cookie-parser');
 
 var _cookieParser2 = _interopRequireDefault(_cookieParser);
 
-var _config = require('./etc/config.json');
+var _config = require('../etc/config.json');
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -52,7 +52,7 @@ var _passport = require('passport');
 
 var _passport2 = _interopRequireDefault(_passport);
 
-var _passport3 = require('./etc/passport');
+var _passport3 = require('../etc/passport');
 
 var _passport4 = _interopRequireDefault(_passport3);
 
@@ -135,9 +135,6 @@ _nunjucks2.default.configure('views', {
   express: app
 });
 
-//Mock data
-var file = 'data/data.json';
-var data = _jsonfile2.default.readFileSync(file);
 //All routes in the end
 app.use('/api/books', _books2.default);
 app.use('/api/genres', _genres2.default);

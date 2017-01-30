@@ -8,10 +8,10 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import config from './etc/config.json';
+import config from '../etc/config.json';
 import flash from 'connect-flash';
 import passport from 'passport';
-import myFunc from './etc/passport';
+import myFunc from '../etc/passport';
 myFunc(passport);
 import Product from './models/product';
 import Author from './models/author';
@@ -59,9 +59,6 @@ nunjucks.configure('views', {
   express   : app
 });
 
-//Mock data
-var file = 'data/data.json';
-var data = jsonfile.readFileSync(file);
 //All routes in the end
 app.use ('/api/books',books);
 app.use ('/api/genres',genres);

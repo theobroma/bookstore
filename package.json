@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "dev": "nodemon server.js --exec babel-node",
+    "dev": "nodemon server/server.js --exec babel-node",
     "build": "babel ./server -d ./dist",
     "serve": "node dist/server.js",
     "babel-version": "babel --version"

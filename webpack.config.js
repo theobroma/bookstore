@@ -3,7 +3,7 @@ var path = require("path");
 module.exports = {
     entry: "./client/index",
     output: {
-        path: "./public/js",
+        path: "./server/public/js",
         filename: "bundle.js"
     },
     watch: true,
@@ -20,7 +20,7 @@ module.exports = {
             test: [/\.jsx?$/, /\.es6$/],
             include: [
                 path.join(__dirname, 'client'),
-                path.join(__dirname, 'shared')
+                path.join(__dirname, 'server/shared')
             ],
             exclude: [/node_modules/, /bower_components/],
             /*loaders: ["babel-loader", "eslint-loader"]*/

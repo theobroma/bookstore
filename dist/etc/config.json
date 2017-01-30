@@ -1,9 +1,0 @@
-{
-    "apiPrefix": "https://rocky-wildwood-63572.herokuapp.com/api",
-    "serverPort": "8080",
-    "db":{
-        "name": "bookstore",
-        "host": "localhost",
-        "port": 27017
-    }
-}

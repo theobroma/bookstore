@@ -43150,7 +43150,7 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-		"apiPrefix": "https://rocky-wildwood-63572.herokuapp.com/api",
+		"apiPrefix": "/api",
 		"serverPort": "8080",
 		"db": {
 			"name": "bookstore",
@@ -45186,11 +45186,13 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
+	var _config = __webpack_require__(537);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function userSignupRequest(userData) {
 	  return function (dispatch) {
-	    return _axios2.default.post('/api/users', userData);
+	    return _axios2.default.post(_config.apiPrefix + '/users', userData);
 	  };
 	}
 
