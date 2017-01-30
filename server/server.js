@@ -8,10 +8,6 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import flash from 'connect-flash';
-import passport from 'passport';
-import myFunc from '../etc/passport';
-myFunc(passport);
 import Product from './models/product';
 import Author from './models/author';
 import User from './models/user';
@@ -46,9 +42,6 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 
