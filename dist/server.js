@@ -20,10 +20,6 @@ var _serveFavicon = require('serve-favicon');
 
 var _serveFavicon2 = _interopRequireDefault(_serveFavicon);
 
-var _jsonfile = require('jsonfile');
-
-var _jsonfile2 = _interopRequireDefault(_jsonfile);
-
 var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
@@ -39,30 +35,6 @@ var _expressSession2 = _interopRequireDefault(_expressSession);
 var _cookieParser = require('cookie-parser');
 
 var _cookieParser2 = _interopRequireDefault(_cookieParser);
-
-var _connectFlash = require('connect-flash');
-
-var _connectFlash2 = _interopRequireDefault(_connectFlash);
-
-var _passport = require('passport');
-
-var _passport2 = _interopRequireDefault(_passport);
-
-var _passport3 = require('../etc/passport');
-
-var _passport4 = _interopRequireDefault(_passport3);
-
-var _product = require('./models/product');
-
-var _product2 = _interopRequireDefault(_product);
-
-var _author = require('./models/author');
-
-var _author2 = _interopRequireDefault(_author);
-
-var _user = require('./models/user');
-
-var _user2 = _interopRequireDefault(_user);
 
 var _books = require('./routes/books');
 
@@ -94,11 +66,9 @@ var _cart2 = _interopRequireDefault(_cart);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _passport4.default)(_passport2.default);
+var app = (0, _express2.default)();
 //server routes
 
-
-var app = (0, _express2.default)();
 app.set('port', process.env.PORT || 8080);
 _mongoose2.default.Promise = global.Promise;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
@@ -119,9 +89,6 @@ app.use((0, _expressSession2.default)({
   saveUninitialized: true
 }));
 
-app.use(_passport2.default.initialize());
-app.use(_passport2.default.session());
-app.use((0, _connectFlash2.default)());
 app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, 'public', 'favicon.png')));
 app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
 

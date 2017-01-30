@@ -3,14 +3,10 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
-import jsonfile from 'jsonfile';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import Product from './models/product';
-import Author from './models/author';
-import User from './models/user';
 //server routes
 import books from './routes/books';
 import genres from './routes/genres';
