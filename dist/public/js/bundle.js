@@ -43150,7 +43150,7 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-		"apiPrefix": "http://localhost:8080/api",
+		"apiPrefix": "https://rocky-wildwood-63572.herokuapp.com/api",
 		"serverPort": "8080",
 		"db": {
 			"name": "bookstore",
