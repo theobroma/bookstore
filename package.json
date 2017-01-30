@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon server.js --exec babel-node",
-    "build": "babel ./server.js -d ./dist",
+    "build": "babel ./server -d ./dist",
     "serve": "node dist/server.js",
     "babel-version": "babel --version"
   },
