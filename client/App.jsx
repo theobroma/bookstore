@@ -7,7 +7,7 @@ import { onAddToCart } from './actions/shoppingCartActions';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchProducts();
+    thi.props.fetchProducts();
   }
 
   render() {

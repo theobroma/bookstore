@@ -1,6 +1,9 @@
 var path = require("path");
-var isDevelopment = process.env.NODE_ENV === 'development';
-console.log(process.env.NODE_ENV);
+var webpack = require("webpack");
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const isDevelopment = NODE_ENV ==='development';
+console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
 
 module.exports = {
     entry: "./client/index",
@@ -8,7 +11,7 @@ module.exports = {
         path: "./server/public/js",
         filename: "bundle.js"
     },
-    watch: true,
+    watch: isDevelopment,
     module: {
         loaders: [{
             test: /\.css$/,
@@ -42,5 +45,6 @@ module.exports = {
     node : {
         net: "empty",
         dns: "empty"
-    }
+    },
+    devtool: isDevelopment ? "cheap-module-source-map" : null
 };
