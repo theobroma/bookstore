@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "mywebpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "devpack": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "prodpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "nodemon server/server.js --exec babel-node",
     "build": "babel ./server -d ./dist",
     "serve": "node dist/server.js",

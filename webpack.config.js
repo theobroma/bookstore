@@ -46,5 +46,12 @@ module.exports = {
         net: "empty",
         dns: "empty"
     },
-    devtool: isDevelopment ? "cheap-module-source-map" : null
+    devtool: isDevelopment ? "cheap-module-source-map" : null,
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify(NODE_ENV)
+        }
+      })
+    ]
 };
