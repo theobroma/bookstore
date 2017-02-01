@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
+import decodedId from './middlewares/decodedId';
 //server routes
 import books from './routes/books';
 import genres from './routes/genres';
@@ -31,14 +32,7 @@ mongoose.connect(mongoUri, function (error) {
     else console.log('mongo connected');
 });
 
-var myLogger = function (req, res, next) {
-  console.log('LOGGED');
-  next();
-};
-
-app.use(myLogger);
-
-
+app.use(decodedId);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
