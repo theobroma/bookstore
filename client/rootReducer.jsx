@@ -5,6 +5,7 @@ import flashMessages from './reducers/flashMessages';
 import shoppingCart from './reducers/shoppingCart';
 import auth from './reducers/auth';
 import profile from './reducers/profile';
+import avatar from './reducers/avatar';
 import account from './reducers/account';
 
 export default combineReducers({
@@ -13,6 +14,7 @@ export default combineReducers({
   auth,
   shoppingCart,
   profile,
+  avatar,
   form: formReducer,
   account
 });

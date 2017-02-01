@@ -1,79 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
-import TextFieldGroup from './common/TextFieldGroup';
+import { Field, reduxForm } from 'redux-form';
 import { fetchProfile } from './actions/profileActions';
+import classnames from 'classnames';
 
-class UserProfileForm extends Component {
+class InitializeFromStateForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstname: '',
-      lastname: '',
-      errors: {},
-      isLoading: false
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProfile();
   }
-
-  onSubmit(e) {
-    e.preventDefault();
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
   render() {
-    const { errors, firstname, lastname, isLoading } = this.state;
+    const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <div>
-        <div className= "columns" >
-          <div className= "column is-6 is-offset-3">
-            <h4 className="subtitle">Настройки профиля</h4>
-            <form onSubmit={this.onSubmit}>
-
-            { errors.form && <div className="notification is-danger">{errors.form}</div> }
-
-            <TextFieldGroup
-              field="firstname"
-              label="Имя"
-              value={firstname}
-              error={errors.firstname}
-              onChange={this.onChange}
-            />
-            <TextFieldGroup
-              field="lastname"
-              label="Фамилия"
-              value={lastname}
-              error={errors.lastname}
-              onChange={this.onChange}
-              type="text"
-            />
-            <p className="control">
-              <button className={classnames('button','is-success')} disabled={isLoading}>
-                Сохранить изменения
-              </button>
-           </p>
-          </form>
-          {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
-          {<pre>{JSON.stringify(this.props.profile,"", 4)}</pre>}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>First Name</label>
+          <div>
+            <Field name="firstname" component="input" type="text" placeholder="First Name" className={classnames('input')} />
           </div>
         </div>
-      </div>
-    );
+        <div>
+          <label>Last Name</label>
+          <div>
+            <Field name="lastname" component="input" type="text" placeholder="Last Name" className={classnames('input')} />
+          </div>
+        </div>
+        <div>
+          <label>Username</label>
+          <div>
+            <Field name="username" component="input" type="text" placeholder="Username"/>
+          </div>
+        </div>
+        <div>
+          <button
+            type="submit"
+            disabled={pristine || submitting}
+            className={classnames('button','is-success')}
+          >Submit
+          </button>
+        </div>
+        {<pre>{JSON.stringify(this.props, "", 4)}</pre>}
+      </form>
+    )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    profile: state.profile
-  }
-}
+// Decorate with reduxForm(). It will read the initialValues prop provided by connect()
+InitializeFromStateForm = reduxForm({
+  form: 'initializeFromState'  // a unique identifier for this form
+})(InitializeFromStateForm)
 
-export default connect(mapStateToProps, { fetchProfile })(UserProfileForm);
+// You have to connect() to any reducers that you wish to connect to yourself
+InitializeFromStateForm = connect(
+  state => ({
+    initialValues: state.profile.data // pull initial values from reducer
+  }),
+  { fetchProfile }
+)(InitializeFromStateForm)
+
+export default InitializeFromStateForm

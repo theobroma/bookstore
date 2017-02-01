@@ -2,6 +2,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import config from '../config';
 import User from '../models/user';
+import Avatar from '../models/avatar';
 let router = express.Router();
 
 router.get('/', (req,res)=> {
@@ -36,6 +37,18 @@ router.post('/', (req,res)=> {
     });
 });
 
+router.get('/avatar', (req,res,next)=> {
+    Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
+        res.contentType(doc.img.contentType);
+        res.send(doc.img.data);
+    });
 
+/*
+  Avatar.find(function (err, doc) {
+    if (err) return next(err);
+    res.contentType(doc.img.contentType);
+    res.send(doc.img.data);
+  });*/
+});
 
 export default router;

@@ -16,3 +16,18 @@ export function fetchProfile() {
     });
   };
 }
+
+export function fetchAvatar() {
+  return dispatch => {
+    axios.get(`${apiPrefix}/profile/avatar`)
+    .then(response => {
+      dispatch({
+        type: SET_PROFILE,
+        payload: response.data
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
+}

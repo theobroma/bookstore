@@ -36,6 +36,10 @@ var UserSchema = new Schema({
     type: String,
     default: ""
   },
+  avatar : {
+    type: String,
+    default: "default-avatar.jpg"
+  },
   cart : [cartItemSchema]
 })
 

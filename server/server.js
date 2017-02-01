@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import express from 'express';
 import nunjucks from 'nunjucks';
 import bodyParser from 'body-parser';
@@ -7,6 +8,7 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
 //server routes
 import books from './routes/books';
 import genres from './routes/genres';
@@ -15,6 +17,7 @@ import authors from './routes/authors';
 import auth from './routes/auth';
 import profile from './routes/profile';
 import cart from './routes/cart';
+import avatar from './routes/avatar';
 
 var app = express();
 app.set('port', (process.env.PORT || 8080));
@@ -27,6 +30,14 @@ mongoose.connect(mongoUri, function (error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
+
+var myLogger = function (req, res, next) {
+  console.log('LOGGED');
+  next();
+};
+
+app.use(myLogger);
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -55,6 +66,7 @@ app.use ('/api/authors',authors);
 app.use ('/api/auth',auth);
 app.use ('/api/profile',profile);
 app.use ('/api/cart',cart);
+app.use ('/api/avatar',avatar);
 
 // Redirect all non api requests to the index
 app.get('/*', (req, res) => {
