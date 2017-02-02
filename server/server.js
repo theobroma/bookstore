@@ -1,7 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import express from 'express';
-import nunjucks from 'nunjucks';
 import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
 import mongoose from 'mongoose';
@@ -44,12 +43,6 @@ app.use(session({
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-//Don't remove
-nunjucks.configure('views', {
-  autoescape: true,
-  express   : app
-});
 
 //All routes in the end
 app.use ('/api/books',books);

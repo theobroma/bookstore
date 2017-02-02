@@ -2,12 +2,13 @@ var path = require("path");
 var webpack = require("webpack");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV ==='development';
 console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
 
-module.exports = {
+var configs = {
     entry: "./client/index",
     output: {
         path: "./server/public/js",
@@ -19,21 +20,14 @@ module.exports = {
             test: /\.css$/,
             loader: "style-loader!css-loader",
             exclude: [/node_modules/, /public/]
-        },
-          {
-              test: /\.scss$/,
-              loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-          },
-/*          {
+        },{
             test: /\.scss$/,
-            loaders: ["style-loader", "css-loader", "sass-loader"],
-            exclude: [/node_modules/, /public/]
-          },*/
-          {
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+        },{
             test: [/\.jsx?$/, /\.es6$/],
             include: [
-                path.join(__dirname, 'client'),
-                path.join(__dirname, 'server/shared')
+              path.join(__dirname, 'client'),
+              path.join(__dirname, 'server/shared')
             ],
             exclude: [/node_modules/, /bower_components/],
             /*loaders: ["babel-loader", "eslint-loader"]*/
@@ -48,7 +42,12 @@ module.exports = {
         },{
             test: /\.json$/,
             loader: "json-loader"
-        }]
+        },{
+            test: /\.html$/,
+            loader: 'raw',
+            exclude: /node_modules/
+          }
+        ]
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -65,9 +64,25 @@ module.exports = {
           'NODE_ENV': JSON.stringify(NODE_ENV)
         }
       }),
-      new ExtractTextPlugin("[name].css", {allChunks: true})
+      new ExtractTextPlugin('bundle.css', {
+        disable: isDevelopment
+      })
 /*      new CopyWebpackPlugin([
         { from: 'static',  to: '../' }
       ])*/
     ]
 };
+
+if (!isDevelopment) {
+    configs.plugins.push(
+        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
+            compress: { warnings: false },
+            sourceMap: false
+        })
+    )
+}
+
+module.exports = configs;
