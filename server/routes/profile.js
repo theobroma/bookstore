@@ -22,18 +22,10 @@ router.post('/', (req,res)=> {
 });
 
 router.get('/avatar', (req,res,next)=> {
-/*    Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
-        res.contentType(doc.img.contentType);
-        res.send(doc.img.data);
-    });*/
-  res.send(req.decodedId);
-
-/*
-  Avatar.find(function (err, doc) {
-    if (err) return next(err);
+  Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
     res.contentType(doc.img.contentType);
     res.send(doc.img.data);
-  });*/
+  });
 });
 
 export default router;

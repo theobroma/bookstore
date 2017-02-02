@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV ==='development';
@@ -47,11 +48,15 @@ module.exports = {
         dns: "empty"
     },
     devtool: isDevelopment ? "cheap-module-source-map" : null,
+    context: path.join(__dirname, '/'),
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
           'NODE_ENV': JSON.stringify(NODE_ENV)
         }
-      })
+      }),
+      new CopyWebpackPlugin([
+        { from: 'static',  to: '../' }
+      ])
     ]
 };

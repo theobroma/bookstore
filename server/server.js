@@ -18,7 +18,6 @@ import authors from './routes/authors';
 import auth from './routes/auth';
 import profile from './routes/profile';
 import cart from './routes/cart';
-import avatar from './routes/avatar';
 
 var app = express();
 app.set('port', (process.env.PORT || 8080));
@@ -60,7 +59,6 @@ app.use ('/api/authors',authors);
 app.use ('/api/auth',auth);
 app.use ('/api/profile',profile);
 app.use ('/api/cart',cart);
-app.use ('/api/avatar',avatar);
 
 // Redirect all non api requests to the index
 app.get('/*', (req, res) => {

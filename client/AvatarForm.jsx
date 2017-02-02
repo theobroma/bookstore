@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
+import { fetchAvatar } from './actions/profileActions';
 
-export default class AvatarForm extends Component {
+class AvatarForm extends Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchAvatar();
+  }
+
   render() {
+    const avatar = Buffer.from(this.props.avatar, 'base64');
     return (
       <div>
+        {avatar}
+
         {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
+        }
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    avatar: state.avatar
+  }
+}
+
+export default connect(mapStateToProps, { fetchAvatar })(AvatarForm );

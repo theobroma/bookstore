@@ -9,7 +9,7 @@ export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const SET_CART = 'SET_CART';
 // PROFILE
-export const SET_PROFILE = 'SET_PROFILE';
+export const FETCH_PROFILE = 'FETCH_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
 export const QUANTITY_DECREMENT = 'QUANTITY_DECREMENT';

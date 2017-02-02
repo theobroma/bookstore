@@ -18,9 +18,7 @@ router.get('/', authenticate,(req,res)=> {
   });
 });
 
-
 // Убрать дубли товаров
-
 router.post('/', authenticate,(req,res)=> {
   User.findByIdAndUpdate(req.decodedId,
     { $push: { "cart":{

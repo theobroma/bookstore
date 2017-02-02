@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { SET_PROFILE } from '../actions/types';
+import { FETCH_PROFILE, FETCH_AVATAR } from '../actions/types';
 
 export function fetchProfile() {
   return dispatch => {
     axios.get(`${apiPrefix}/profile`)
     .then(response => {
       dispatch({
-        type: SET_PROFILE,
+        type: FETCH_PROFILE,
         payload: response.data
       });
     })
@@ -22,7 +22,7 @@ export function fetchAvatar() {
     axios.get(`${apiPrefix}/profile/avatar`)
     .then(response => {
       dispatch({
-        type: SET_PROFILE,
+        type: FETCH_AVATAR,
         payload: response.data
       });
     })
