@@ -1,7 +1,12 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
 
 var schema = new Schema({
     title: { type: String, required: true },
@@ -15,4 +20,4 @@ var schema = new Schema({
     price: { type: Number, required: true }
 });
 
-module.exports = mongoose.model('Product', schema);
+module.exports = _mongoose2.default.model('Product', schema);

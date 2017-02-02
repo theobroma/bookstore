@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _express = require('express');
@@ -20,42 +20,37 @@ var _user = require('../models/user');
 
 var _user2 = _interopRequireDefault(_user);
 
+var _avatar = require('../models/avatar');
+
+var _avatar2 = _interopRequireDefault(_avatar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
 
 router.get('/', function (req, res) {
-    var authorizationHeader = req.headers['authorization'];
-    var token = void 0;
-
-    if (authorizationHeader) {
-        token = authorizationHeader.split(' ')[1];
-    }
-    _jsonwebtoken2.default.verify(token, _config2.default.jwtSecret, function (err, decoded) {
-        _user2.default.find({ "_id": decoded.id }).then(function (user) {
-            var username = user[0].username;
-            var firstname = user[0].firstName;
-            var lastname = user[0].lastName;
-            var data = { username: username, firstname: firstname, lastname: lastname };
-            res.send({ data: data });
-        });
-    });
+  _user2.default.find({ "_id": req.decodedId }).then(function (user) {
+    var username = user[0].username;
+    var firstname = user[0].firstName;
+    var lastname = user[0].lastName;
+    var data = { username: username, firstname: firstname, lastname: lastname };
+    res.send({ data: data });
+  });
 });
 
 router.post('/', function (req, res) {
-    var authorizationHeader = req.headers['authorization'];
-    var token = void 0;
+  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { firstName: req.body.firstname, lastName: req.body.lastname } }, { new: true }).then(function (user) {
+    return res.json({ success: true });
+  }).catch(function (err) {
+    return res.status(500).json({ error: err });
+  });
+});
 
-    if (authorizationHeader) {
-        token = authorizationHeader.split(' ')[1];
-    }
-    _jsonwebtoken2.default.verify(token, _config2.default.jwtSecret, function (err, decoded) {
-        _user2.default.findByIdAndUpdate(decoded.id, { $set: { firstName: req.body.firstname, lastName: req.body.lastname } }, { new: true }).then(function (user) {
-            return res.json({ success: true });
-        }).catch(function (err) {
-            return res.status(500).json({ error: err });
-        });
-    });
+router.get('/avatar', function (req, res, next) {
+  _avatar2.default.findById("589262c0a4f2031080aed8dc").then(function (doc) {
+    res.contentType(doc.img.contentType);
+    res.send(doc.img.data);
+  });
 });
 
 exports.default = router;

@@ -4,13 +4,13 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
-
-var _nunjucks = require('nunjucks');
-
-var _nunjucks2 = _interopRequireDefault(_nunjucks);
 
 var _bodyParser = require('body-parser');
 
@@ -35,6 +35,14 @@ var _expressSession2 = _interopRequireDefault(_expressSession);
 var _cookieParser = require('cookie-parser');
 
 var _cookieParser2 = _interopRequireDefault(_cookieParser);
+
+var _multer = require('multer');
+
+var _multer2 = _interopRequireDefault(_multer);
+
+var _decodedId = require('./middlewares/decodedId');
+
+var _decodedId2 = _interopRequireDefault(_decodedId);
 
 var _books = require('./routes/books');
 
@@ -79,6 +87,7 @@ _mongoose2.default.connect(mongoUri, function (error) {
   if (error) console.error(error);else console.log('mongo connected');
 });
 
+app.use(_decodedId2.default);
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
@@ -92,12 +101,6 @@ app.use((0, _expressSession2.default)({
 app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, 'public', 'favicon.png')));
 app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
 
-//Don't remove
-_nunjucks2.default.configure('views', {
-  autoescape: true,
-  express: app
-});
-
 //All routes in the end
 app.use('/api/books', _books2.default);
 app.use('/api/genres', _genres2.default);
@@ -107,10 +110,9 @@ app.use('/api/auth', _auth2.default);
 app.use('/api/profile', _profile2.default);
 app.use('/api/cart', _cart2.default);
 
+// Redirect all non api requests to the index
 app.get('/*', function (req, res) {
   res.sendFile(_path2.default.join(__dirname, './views/index.html'));
-  /*  console.log(req.cookies);
-    console.log(req.session);*/
 });
 
 app.listen(app.get('port'), function () {
