@@ -45369,20 +45369,6 @@
 	          )
 	        ),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'nav-item', to: '/avatar' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'icon' },
-	            _react2.default.createElement('i', { className: 'fa fa-universal-access' })
-	          ),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            '\u0410\u0432\u0430\u0442\u0430\u0440'
-	          )
-	        ),
-	        _react2.default.createElement(
 	          'a',
 	          { href: '#', className: 'nav-item', onClick: this.logout.bind(this) },
 	          _react2.default.createElement(
