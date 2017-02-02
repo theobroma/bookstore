@@ -17,7 +17,7 @@ class AvatarForm extends Component {
     return (
       <div>
         {avatar}
-
+        <p>121141424124123</p>
         {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
         }
       </div>
