@@ -30,7 +30,10 @@ module.exports = {
             ],
             exclude: [/node_modules/, /bower_components/],
             /*loaders: ["babel-loader", "eslint-loader"]*/
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            query: {
+              cacheDirectory: true // включить кэширование
+            }
         },{
             test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/, loader: 'url?limit=10000'
         },{
@@ -48,15 +51,15 @@ module.exports = {
         dns: "empty"
     },
     devtool: isDevelopment ? "cheap-module-source-map" : null,
-    context: path.join(__dirname, '/'),
+    /*context: path.join(__dirname, '/'),*/
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
           'NODE_ENV': JSON.stringify(NODE_ENV)
         }
-      }),
-      new CopyWebpackPlugin([
+      })
+/*      new CopyWebpackPlugin([
         { from: 'static',  to: '../' }
-      ])
+      ])*/
     ]
 };
