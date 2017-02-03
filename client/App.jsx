@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import _chunk from 'lodash/chunk';
+import shortid from 'shortid';
 import Book from './Book';
 
 import { fetchProducts } from './actions/productsActions';
@@ -13,14 +14,10 @@ class App extends React.Component {
 
   render() {
 
-/*    const productsList = this.props.products.map((item, index) => {
-      return <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
-    }
-    );*/
     const rows = _chunk(this.props.products, 4)
 
     const productsList = rows.map((row) => (
-      <div className="columns is-mobile">
+      <div className="columns is-mobile" key={shortid.generate()}>
       {
        row.map((item, index) => (
          <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
@@ -31,9 +28,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <div>
-          {productsList}
-        </div>
+        {productsList}
         {/*<p>this.state</p>
           {<pre>{JSON.stringify(this.state, "", 4)}</pre>}
           <p>this.props</p>

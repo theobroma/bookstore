@@ -45896,6 +45896,10 @@
 
 	var _chunk3 = _interopRequireDefault(_chunk2);
 
+	var _shortid = __webpack_require__(548);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _Book = __webpack_require__(655);
 
 	var _Book2 = _interopRequireDefault(_Book);
@@ -45924,16 +45928,12 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      /*    const productsList = this.props.products.map((item, index) => {
-	            return <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
-	          }
-	          );*/
 	      var rows = (0, _chunk3.default)(this.props.products, 4);
 
 	      var productsList = rows.map(function (row) {
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'columns is-mobile' },
+	          { className: 'columns is-mobile', key: _shortid2.default.generate() },
 	          row.map(function (item, index) {
 	            return _react2.default.createElement(_Book2.default, { key: item._id, item: item, index: index, onAddToCart: _this2.props.onAddToCart });
 	          })
@@ -45943,11 +45943,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          productsList
-	        )
+	        productsList
 	      );
 	    }
 	  }]);
@@ -46057,41 +46053,45 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'column is-12-mobile is-6-tablet is-3-desktop has-text-centered book-item' },
+	        { className: 'column is-12-mobile is-6-tablet is-3-desktop has-text-centered' },
 	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Index:',
-	          this.props.index
-	        ),
-	        _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-title', to: '/books/' + _id },
-	          title
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-author', to: '/authors/' + author.name },
-	          author.name
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/genres/' + genre },
-	          genre
-	        ),
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'book-price' },
-	          '$',
-	          price
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          {
-	            onClick: this.onClick,
-	            className: 'button is-primary' },
-	          '\u041A\u0443\u043F\u0438\u0442\u044C'
+	          'div',
+	          { className: 'book-item' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Index:',
+	            this.props.index
+	          ),
+	          _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'book-title', to: '/books/' + _id },
+	            title
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'book-author', to: '/authors/' + author.name },
+	            author.name
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/genres/' + genre },
+	            genre
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'book-price' },
+	            '$',
+	            price
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            {
+	              onClick: this.onClick,
+	              className: 'button is-primary' },
+	            '\u041A\u0443\u043F\u0438\u0442\u044C'
+	          )
 	        )
 	      );
 	    }
@@ -53996,7 +53996,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  color: #ff6600; }\n\n.main-wrap {\n  padding: 30px 0 30px 0; }\n\n.box {\n  margin-bottom: 20px; }\n\n.book-list {\n  display: flex;\n  flex-direction: row; }\n\n.book-item {\n  display: flex;\n  flex-direction: column;\n  color: #e3e3e3;\n  box-shadow: 0 0 20px 0 rgba(155, 148, 137, 0.5);\n  border: 1.3px solid rgba(104, 97, 89, 0.1);\n  border-radius: 3px;\n  padding: 10px;\n  overflow: hidden;\n  align-items: center;\n  justify-content: space-between;\n  padding: 15px;\n  margin: 10px; }\n  .book-item:hover {\n    border: 1px solid #fd6462; }\n\n.book-title {\n  color: #333;\n  font-weight: 700; }\n\n.book-title:hover {\n  color: #c25c60; }\n\n.book-author {\n  padding-bottom: 1px;\n  border-bottom: 1px solid #d8d8d8;\n  color: #999;\n  font-weight: 400; }\n\n.book-price {\n  color: #ffdd57; }\n\n.book-author:hover {\n  border-bottom-color: #8088b1;\n  color: #5a6499; }\n\n.book-single-title {\n  color: #333;\n  font-weight: 700;\n  line-height: 1.2;\n  font-size: 25px; }\n\n.book-single-item {\n  border: 1px solid #ffdd57;\n  padding: 10px; }\n\n.book-single-info {\n  padding: 10px 0; }\n\n.book-single-description {\n  border: 1px solid #ececec;\n  background-color: #fefbef;\n  padding: 10px; }\n\n.description-title {\n  font-weight: 700;\n  color: #333;\n  font-size: 18px; }\n\n.contributor-info {\n  padding: 20px 0 60px 0;\n  border-bottom: 1px solid #e1e1e1;\n  margin-bottom: 20px;\n  display: flex;\n  flex-flow: row wrap; }\n\n.contributor-title {\n  color: #a0a0a0;\n  font-weight: 700;\n  font-size: 135%;\n  margin-bottom: 0;\n  padding-bottom: 0;\n  padding-top: 15px; }\n\n.continious-list {\n  display: flex;\n  flex-flow: row nowrap; }\n\n.continious-item {\n  display: flex;\n  flex-flow: column nowrap;\n  padding: 0 23px 30px 0; }\n\n.genres-list {\n  display: flex;\n  flex-direction: row; }\n\n.genre-item {\n  border: 1px solid #fff;\n  color: #5e5657;\n  padding: 5px;\n  border-radius: 3px;\n  text-align: center;\n  flex-grow: 1;\n  font-size: 1.3em; }\n\n.cartItemList {\n  margin: 10px;\n  display: flex;\n  flex-flow: column wrap; }\n\n.cartItem {\n  display: flex;\n  flex-flow: row nowrap;\n  border-bottom: solid 2px rgba(104, 97, 89, 0.1);\n  padding: 10px 0; }\n  .cartItem-thumbnail {\n    width: 110px;\n    height: 154px; }\n  .cartItem.active {\n    background: #fff8e1; }\n", ""]);
+	exports.push([module.id, "body {\n  color: #ff6600; }\n\n.main-wrap {\n  padding: 30px 0 30px 0; }\n\n.box {\n  margin-bottom: 20px; }\n\n.book-list {\n  display: flex;\n  flex-direction: row; }\n\n.book-item {\n  display: flex;\n  flex-direction: column;\n  min-height: 100%;\n  color: #e3e3e3;\n  box-shadow: 0 0 20px 0 rgba(155, 148, 137, 0.5);\n  border: 1.3px solid rgba(104, 97, 89, 0.1);\n  border-radius: 3px;\n  overflow: hidden;\n  align-items: center; }\n  .book-item:hover {\n    border: 1px solid #fd6462; }\n\n.book-title {\n  color: #333;\n  font-weight: 700; }\n\n.book-title:hover {\n  color: #c25c60; }\n\n.book-author {\n  padding-bottom: 1px;\n  border-bottom: 1px solid #d8d8d8;\n  color: #999;\n  font-weight: 400; }\n\n.book-price {\n  color: #ffdd57; }\n\n.book-author:hover {\n  border-bottom-color: #8088b1;\n  color: #5a6499; }\n\n.book-single-title {\n  color: #333;\n  font-weight: 700;\n  line-height: 1.2;\n  font-size: 25px; }\n\n.book-single-item {\n  border: 1px solid #ffdd57;\n  padding: 10px; }\n\n.book-single-info {\n  padding: 10px 0; }\n\n.book-single-description {\n  border: 1px solid #ececec;\n  background-color: #fefbef;\n  padding: 10px; }\n\n.description-title {\n  font-weight: 700;\n  color: #333;\n  font-size: 18px; }\n\n.contributor-info {\n  padding: 20px 0 60px 0;\n  border-bottom: 1px solid #e1e1e1;\n  margin-bottom: 20px;\n  display: flex;\n  flex-flow: row wrap; }\n\n.contributor-title {\n  color: #a0a0a0;\n  font-weight: 700;\n  font-size: 135%;\n  margin-bottom: 0;\n  padding-bottom: 0;\n  padding-top: 15px; }\n\n.continious-list {\n  display: flex;\n  flex-flow: row nowrap; }\n\n.continious-item {\n  display: flex;\n  flex-flow: column nowrap;\n  padding: 0 23px 30px 0; }\n\n.genres-list {\n  display: flex;\n  flex-direction: row; }\n\n.genre-item {\n  border: 1px solid #fff;\n  color: #5e5657;\n  padding: 5px;\n  border-radius: 3px;\n  text-align: center;\n  flex-grow: 1;\n  font-size: 1.3em; }\n\n.cartItemList {\n  margin: 10px;\n  display: flex;\n  flex-flow: column wrap; }\n\n.cartItem {\n  display: flex;\n  flex-flow: row nowrap;\n  border-bottom: solid 2px rgba(104, 97, 89, 0.1);\n  padding: 10px 0; }\n  .cartItem-thumbnail {\n    width: 110px;\n    height: 154px; }\n  .cartItem.active {\n    background: #fff8e1; }\n", ""]);
 
 	// exports
 
