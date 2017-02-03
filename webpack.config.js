@@ -27,7 +27,7 @@ module.exports = {
         path.join(__dirname, 'client'),
         path.join(__dirname, 'server/shared')
       ],
-      exclude: [/node_modules/, /bower_components/],
+      exclude: [/node_modules/, /bower_components/, /test/],
       /*loaders: ["babel-loader", "eslint-loader"]*/
       loader: 'babel-loader'
     },{
