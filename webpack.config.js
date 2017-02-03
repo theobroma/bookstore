@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV ==='development';
@@ -27,7 +28,7 @@ module.exports = {
         path.join(__dirname, 'client'),
         path.join(__dirname, 'server/shared')
       ],
-      exclude: [/node_modules/, /bower_components/, /test/],
+      exclude: [/node_modules/, /bower_components/],
       /*loaders: ["babel-loader", "eslint-loader"]*/
       loader: 'babel-loader'
     },{
@@ -53,5 +54,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify(NODE_ENV)
       }
     })
+/*    new StyleLintPlugin({
+      syntax: 'scss'
+    })*/
   ]
 };

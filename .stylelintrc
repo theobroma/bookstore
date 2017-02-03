@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "block-no-empty": null,
+    "color-no-invalid-hex": true,
+    "comment-empty-line-before": [ "always", {
+      "ignore": ["stylelint-command", "after-comment"]
+    } ],
+    "declaration-colon-space-after": "always",
+    "max-empty-lines": 2,
+    "rule-empty-line-before": [ "never"],
+    "unit-whitelist": ["em", "rem", "%", "s", "px"]
+  }
+}

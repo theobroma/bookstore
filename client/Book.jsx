@@ -16,10 +16,9 @@ export default class Book extends Component {
   render() {
     const {_id, title, genre, author, thumbnail, description, price} = this.props.item;
     return (
-      <div className="column is-12-mobile is-6-tablet is-3-desktop has-text-centered">
+      <div className="column is-3 has-text-centered">
         <div className="book-item">
-          <p>Index:{this.props.index}</p>
-          <img src={`/images/${thumbnail}`} alt=""/>
+          <img className="book-thumbnail" src={`/images/${thumbnail}`} alt=""/>
           <Link className="book-title" to={`/books/${_id}`}>{title}</Link>
           <Link className="book-author" to={`/authors/${author.name}`}>{author.name}</Link>
           <Link to={`/genres/${genre}`}>{genre}</Link>

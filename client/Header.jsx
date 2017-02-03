@@ -5,7 +5,9 @@ export default class Header extends Component {
   render() {
     return (
       <div className = "header">
-        <NavigationBar/>
+        <div className = "container">
+          <NavigationBar/>
+        </div>
       </div>
     );
   }

@@ -9,11 +9,9 @@ export default class Layout extends Component {
       <div>
         <Header/>
         <div className="site-content">
-          <div className="container">
-            <div className="section">
-              <FlashMessagesList/>
-              {this.props.children}
-            </div>
+          <div className="section">
+            <FlashMessagesList/>
+            {this.props.children}
           </div>
         </div>
         <Footer/>

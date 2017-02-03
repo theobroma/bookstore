@@ -31,7 +31,7 @@ class ShoppingCartPage extends React.Component {
       />
     );
     return (
-      <div>
+      <div className="container">
         <div className="cartItemList">
           {cartList}
         </div>

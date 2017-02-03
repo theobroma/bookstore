@@ -17,10 +17,10 @@ class App extends React.Component {
     const rows = _chunk(this.props.products, 4)
 
     const productsList = rows.map((row) => (
-      <div className="columns is-mobile" key={shortid.generate()}>
+      <div className="columnss" key={shortid.generate()}>
       {
-       row.map((item, index) => (
-         <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
+       row.map((item) => (
+         <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
        ))
       }
       </div>
