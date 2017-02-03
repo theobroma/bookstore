@@ -27,6 +27,9 @@ module.exports = {
         path.join(__dirname, 'client'),
         path.join(__dirname, 'server/shared')
       ],
+      query: {
+        cacheDirectory: true, // включить кэширование
+      },
       exclude: [/node_modules/, /bower_components/],
       /*loaders: ["babel-loader", "eslint-loader"]*/
       loader: 'babel-loader'
