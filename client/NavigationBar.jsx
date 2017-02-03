@@ -26,12 +26,12 @@ class NavigationBar extends Component {
           </span>
           <span>Профиль</span>
         </Link>
-      {/*<Link className="nav-item" to={'/avatar'}>
+        <Link className="nav-item" to={'/avatar'}>
           <span className="icon">
             <i className="fa fa-universal-access" />
           </span>
           <span>Аватар</span>
-        </Link>*/}
+        </Link>
         <a href="#" className="nav-item" onClick={this.logout.bind(this)}>
           <span className="icon">
             <i className="fa fa-sign-out" />

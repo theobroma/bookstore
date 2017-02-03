@@ -44384,7 +44384,7 @@
 	            { className: 'container' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'main-wrap' },
+	              { className: 'section' },
 	              _react2.default.createElement(_FlashMessagesList2.default, null),
 	              this.props.children
 	            )
@@ -45369,6 +45369,20 @@
 	          )
 	        ),
 	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'nav-item', to: '/avatar' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon' },
+	            _react2.default.createElement('i', { className: 'fa fa-universal-access' })
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            '\u0410\u0432\u0430\u0442\u0430\u0440'
+	          )
+	        ),
+	        _react2.default.createElement(
 	          'a',
 	          { href: '#', className: 'nav-item', onClick: this.logout.bind(this) },
 	          _react2.default.createElement(
@@ -45852,10 +45866,6 @@
 	  value: true
 	});
 
-	var _stringify = __webpack_require__(653);
-
-	var _stringify2 = _interopRequireDefault(_stringify);
-
 	var _getPrototypeOf = __webpack_require__(603);
 
 	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -45881,6 +45891,10 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRedux = __webpack_require__(236);
+
+	var _chunk2 = __webpack_require__(768);
+
+	var _chunk3 = _interopRequireDefault(_chunk2);
 
 	var _Book = __webpack_require__(655);
 
@@ -45910,37 +45924,29 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      var productsList = this.props.products.map(function (item) {
-	        return _react2.default.createElement(_Book2.default, { key: item._id, item: item, onAddToCart: _this2.props.onAddToCart });
+	      /*    const productsList = this.props.products.map((item, index) => {
+	            return <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
+	          }
+	          );*/
+	      var rows = (0, _chunk3.default)(this.props.products, 4);
+
+	      var productsList = rows.map(function (row) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'columns is-mobile' },
+	          row.map(function (item, index) {
+	            return _react2.default.createElement(_Book2.default, { key: item._id, item: item, index: index, onAddToCart: _this2.props.onAddToCart });
+	          })
+	        );
 	      });
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'text-left book-list' },
+	          null,
 	          productsList
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'this.state'
-	        ),
-	        _react2.default.createElement(
-	          'pre',
-	          null,
-	          (0, _stringify2.default)(this.state, "", 4)
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'this.props'
-	        ),
-	        _react2.default.createElement(
-	          'pre',
-	          null,
-	          (0, _stringify2.default)(this.props.products, "", 4)
 	        )
 	      );
 	    }
@@ -46051,7 +46057,13 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'book-item column is-3' },
+	        { className: 'column is-12-mobile is-6-tablet is-3-desktop has-text-centered book-item' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Index:',
+	          this.props.index
+	        ),
 	        _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -53987,6 +53999,99 @@
 	exports.push([module.id, "body {\n  color: #ff6600; }\n\n.main-wrap {\n  padding: 30px 0 30px 0; }\n\n.box {\n  margin-bottom: 20px; }\n\n.book-list {\n  display: flex;\n  flex-direction: row; }\n\n.book-item {\n  display: flex;\n  flex-direction: column;\n  color: #e3e3e3;\n  box-shadow: 0 0 20px 0 rgba(155, 148, 137, 0.5);\n  border: 1.3px solid rgba(104, 97, 89, 0.1);\n  border-radius: 3px;\n  padding: 10px;\n  overflow: hidden;\n  align-items: center;\n  justify-content: space-between;\n  padding: 15px;\n  margin: 10px; }\n  .book-item:hover {\n    border: 1px solid #fd6462; }\n\n.book-title {\n  color: #333;\n  font-weight: 700; }\n\n.book-title:hover {\n  color: #c25c60; }\n\n.book-author {\n  padding-bottom: 1px;\n  border-bottom: 1px solid #d8d8d8;\n  color: #999;\n  font-weight: 400; }\n\n.book-price {\n  color: #ffdd57; }\n\n.book-author:hover {\n  border-bottom-color: #8088b1;\n  color: #5a6499; }\n\n.book-single-title {\n  color: #333;\n  font-weight: 700;\n  line-height: 1.2;\n  font-size: 25px; }\n\n.book-single-item {\n  border: 1px solid #ffdd57;\n  padding: 10px; }\n\n.book-single-info {\n  padding: 10px 0; }\n\n.book-single-description {\n  border: 1px solid #ececec;\n  background-color: #fefbef;\n  padding: 10px; }\n\n.description-title {\n  font-weight: 700;\n  color: #333;\n  font-size: 18px; }\n\n.contributor-info {\n  padding: 20px 0 60px 0;\n  border-bottom: 1px solid #e1e1e1;\n  margin-bottom: 20px;\n  display: flex;\n  flex-flow: row wrap; }\n\n.contributor-title {\n  color: #a0a0a0;\n  font-weight: 700;\n  font-size: 135%;\n  margin-bottom: 0;\n  padding-bottom: 0;\n  padding-top: 15px; }\n\n.continious-list {\n  display: flex;\n  flex-flow: row nowrap; }\n\n.continious-item {\n  display: flex;\n  flex-flow: column nowrap;\n  padding: 0 23px 30px 0; }\n\n.genres-list {\n  display: flex;\n  flex-direction: row; }\n\n.genre-item {\n  border: 1px solid #fff;\n  color: #5e5657;\n  padding: 5px;\n  border-radius: 3px;\n  text-align: center;\n  flex-grow: 1;\n  font-size: 1.3em; }\n\n.cartItemList {\n  margin: 10px;\n  display: flex;\n  flex-flow: column wrap; }\n\n.cartItem {\n  display: flex;\n  flex-flow: row nowrap;\n  border-bottom: solid 2px rgba(104, 97, 89, 0.1);\n  padding: 10px 0; }\n  .cartItem-thumbnail {\n    width: 110px;\n    height: 154px; }\n  .cartItem.active {\n    background: #fff8e1; }\n", ""]);
 
 	// exports
+
+
+/***/ },
+/* 768 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var baseSlice = __webpack_require__(769),
+	    isIterateeCall = __webpack_require__(387),
+	    toInteger = __webpack_require__(559);
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeCeil = Math.ceil,
+	    nativeMax = Math.max;
+
+	/**
+	 * Creates an array of elements split into groups the length of `size`.
+	 * If `array` can't be split evenly, the final chunk will be the remaining
+	 * elements.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 3.0.0
+	 * @category Array
+	 * @param {Array} array The array to process.
+	 * @param {number} [size=1] The length of each chunk
+	 * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+	 * @returns {Array} Returns the new array of chunks.
+	 * @example
+	 *
+	 * _.chunk(['a', 'b', 'c', 'd'], 2);
+	 * // => [['a', 'b'], ['c', 'd']]
+	 *
+	 * _.chunk(['a', 'b', 'c', 'd'], 3);
+	 * // => [['a', 'b', 'c'], ['d']]
+	 */
+	function chunk(array, size, guard) {
+	  if ((guard ? isIterateeCall(array, size, guard) : size === undefined)) {
+	    size = 1;
+	  } else {
+	    size = nativeMax(toInteger(size), 0);
+	  }
+	  var length = array == null ? 0 : array.length;
+	  if (!length || size < 1) {
+	    return [];
+	  }
+	  var index = 0,
+	      resIndex = 0,
+	      result = Array(nativeCeil(length / size));
+
+	  while (index < length) {
+	    result[resIndex++] = baseSlice(array, index, (index += size));
+	  }
+	  return result;
+	}
+
+	module.exports = chunk;
+
+
+/***/ },
+/* 769 */
+/***/ function(module, exports) {
+
+	/**
+	 * The base implementation of `_.slice` without an iteratee call guard.
+	 *
+	 * @private
+	 * @param {Array} array The array to slice.
+	 * @param {number} [start=0] The start position.
+	 * @param {number} [end=array.length] The end position.
+	 * @returns {Array} Returns the slice of `array`.
+	 */
+	function baseSlice(array, start, end) {
+	  var index = -1,
+	      length = array.length;
+
+	  if (start < 0) {
+	    start = -start > length ? 0 : (length + start);
+	  }
+	  end = end > length ? length : end;
+	  if (end < 0) {
+	    end += length;
+	  }
+	  length = start > end ? 0 : ((end - start) >>> 0);
+	  start >>>= 0;
+
+	  var result = Array(length);
+	  while (++index < length) {
+	    result[index] = array[index + start];
+	  }
+	  return result;
+	}
+
+	module.exports = baseSlice;
 
 
 /***/ }

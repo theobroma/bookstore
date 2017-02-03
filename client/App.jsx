@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _chunk from 'lodash/chunk';
 import Book from './Book';
 
 import { fetchProducts } from './actions/productsActions';
@@ -11,19 +12,32 @@ class App extends React.Component {
   }
 
   render() {
-    const productsList = this.props.products.map((item) =>
-      <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
-    );
+
+/*    const productsList = this.props.products.map((item, index) => {
+      return <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
+    }
+    );*/
+    const rows = _chunk(this.props.products, 4)
+
+    const productsList = rows.map((row) => (
+      <div className="columns is-mobile">
+      {
+       row.map((item, index) => (
+         <Book key={item._id} item={item} index={index} onAddToCart={this.props.onAddToCart} />
+       ))
+      }
+      </div>
+    ))
 
     return (
-      <div>
-        <div className="text-left book-list">
+      <div className="container">
+        <div>
           {productsList}
         </div>
-          <p>this.state</p>
+        {/*<p>this.state</p>
           {<pre>{JSON.stringify(this.state, "", 4)}</pre>}
           <p>this.props</p>
-          {<pre>{JSON.stringify(this.props.products, "", 4)}</pre>}
+          {<pre>{JSON.stringify(this.props.products, "", 4)}</pre>}*/}
       </div>
     );
   }
