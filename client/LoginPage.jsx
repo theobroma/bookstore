@@ -6,7 +6,7 @@ import LoginForm from './LoginForm';
 export default class LoginPage extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <LoginForm/>
             </div>
         );

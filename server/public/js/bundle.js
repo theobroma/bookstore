@@ -43998,10 +43998,6 @@
 
 	var _chunk3 = _interopRequireDefault(_chunk2);
 
-	var _shortid = __webpack_require__(494);
-
-	var _shortid2 = _interopRequireDefault(_shortid);
-
 	var _Book = __webpack_require__(554);
 
 	var _Book2 = _interopRequireDefault(_Book);
@@ -44037,22 +44033,17 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      var rows = (0, _chunk3.default)(this.props.products, 4);
-
-	      var productsList = rows.map(function (row) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'columnss', key: _shortid2.default.generate() },
-	          row.map(function (item) {
-	            return _react2.default.createElement(_Book2.default, { key: item._id, item: item, onAddToCart: _this2.props.onAddToCart });
-	          })
-	        );
+	      var productsList = this.props.products.map(function (item) {
+	        return _react2.default.createElement(_Book2.default, { key: item._id, item: item, onAddToCart: _this2.props.onAddToCart });
 	      });
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        productsList
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'columns is-multiline' },
+	          productsList
+	        )
 	      );
 	    }
 	  }]);
@@ -44228,11 +44219,15 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'column is-3 has-text-centered' },
+	        { className: 'column is-12-mobile is-6-tablet is-3-desktop has-text-centered' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'book-item' },
-	          _react2.default.createElement('img', { className: 'book-thumbnail', src: '/images/' + thumbnail, alt: '' }),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/books/' + _id },
+	            _react2.default.createElement('img', { className: 'book-thumbnail', src: '/images/' + thumbnail, alt: '' })
+	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { className: 'book-title', to: '/books/' + _id },
@@ -44453,7 +44448,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'p',
 	          null,
@@ -44657,7 +44652,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contributor-info' },
@@ -44811,7 +44806,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                _react2.default.createElement(
 	                    'ul',
 	                    { className: 'genres-list' },
@@ -44950,7 +44945,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'contributor-info' },
@@ -45103,7 +45098,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                this.state.items.map(function (item, index) {
 	                    return _react2.default.createElement(_AuthorListItem2.default, { key: index, item: item });
 	                }),
@@ -45259,7 +45254,7 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                _react2.default.createElement(_SignupForm2.default, { userSignupRequest: userSignupRequest, addFlashMessage: addFlashMessage })
 	            );
 	        }
@@ -48450,7 +48445,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                _react2.default.createElement(_LoginForm2.default, null)
 	            );
 	        }
@@ -48740,16 +48735,20 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'columns' },
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'column is-6 is-offset-3' },
+	          { className: 'columns' },
 	          _react2.default.createElement(
-	            'h4',
-	            { className: 'subtitle' },
-	            '\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u0440\u043E\u0444\u0438\u043B\u044F'
-	          ),
-	          _react2.default.createElement(_UserProfileForm2.default, { onSubmit: this.handleSubmit })
+	            'div',
+	            { className: 'column is-6 is-offset-3' },
+	            _react2.default.createElement(
+	              'h4',
+	              { className: 'subtitle' },
+	              '\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u0440\u043E\u0444\u0438\u043B\u044F'
+	            ),
+	            _react2.default.createElement(_UserProfileForm2.default, { onSubmit: this.handleSubmit })
+	          )
 	        )
 	      );
 	    }
@@ -51368,7 +51367,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "card" },
+	        { className: "container" },
 	        _react2.default.createElement(
 	          "p",
 	          null,

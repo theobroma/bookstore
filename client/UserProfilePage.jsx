@@ -24,10 +24,12 @@ class UserProfilePage extends Component {
 
   render() {
     return (
-      <div className= "columns" >
-        <div className= "column is-6 is-offset-3">
-          <h4 className="subtitle">Настройки профиля</h4>
-          <InitializeFromStateForm onSubmit={this.handleSubmit} />
+      <div className="container">
+        <div className= "columns" >
+          <div className= "column is-6 is-offset-3">
+            <h4 className="subtitle">Настройки профиля</h4>
+            <InitializeFromStateForm onSubmit={this.handleSubmit} />
+          </div>
         </div>
       </div>
     );

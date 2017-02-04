@@ -17,7 +17,7 @@ export default class BookPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <p>BookPage</p>
         {this.state.items.map((item,index) =>{
           return (<BookPageItem key={index} item={item} /> );

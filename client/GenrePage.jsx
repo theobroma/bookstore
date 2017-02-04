@@ -15,7 +15,7 @@ export default class GenrePage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="contributor-info">
           <h1 className = "contributor-title">Жанр : {this.props.params.genre}</h1>
         </div>

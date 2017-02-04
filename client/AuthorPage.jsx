@@ -22,7 +22,7 @@ export default class AuthorPage extends Component {
   render() {
     const { name, photo } = this.state.author;
     return (
-      <div>
+      <div className="container">
         <div className="contributor-info" >
           <img src={`/images/${photo}`} alt=""/>
           <h1 className = "contributor-title">Автор: {name}</h1>
