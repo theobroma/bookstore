@@ -1,0 +1,23 @@
+/*
+# ===============================================
+# Layout
+# ===============================================
+*/
+.catalog-item {
+    figure {
+        margin:0;
+        @extend %flex;
+        flex-flow: column wrap;
+    }
+}
+.catalog-list {
+    & > .filter {
+        @extend %flex;
+        flex-direction: row;
+        justify-content:center;
+        li {
+            text-align: center;
+            margin: 1rem;
+        }
+    }
+}

@@ -13,8 +13,9 @@ import rootReducer from './rootReducer';
 import { routes } from './routes';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser } from './actions/authActions';
-import './vendor.scss';
-import './index.scss';
+/*import './vendor.scss';
+import './index.scss';*/
+import './sass/main.scss';
 
 const logger = createLogger();
 

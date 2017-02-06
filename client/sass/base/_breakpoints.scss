@@ -1,0 +1,26 @@
+@import "../../../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss";
+@import "../../../node_modules/breakpoint-slicer/stylesheets/_breakpoint-slicer.sass";
+$slicer-breakpoints: 0 768px 1000px 1192px;
+$slicer-breakpoint-names: 'm' 't' 'd' 'w'
+
+
+/*
+https://github.com/lolmaus/breakpoint-slicer
+--------------------------------------------------------------------------------
+ Breakpoint:   0                 400px     600px     800px       1050px
+               ├───────────────────┼─────────┼─────────┼───────────┼─────────>
+ Slice #:                1         ·    2         3          4     ·    5
+               ·                   ·         ·         ·           ·
+               ·                   ·         ·  at(3)  ·           ·
+               ·                   ·         ├─────────┤           ·
+               ·                   ·         ·         ·           ·
+               ·                   ·         · from(3) ·           ·
+               ·                   ·         ├───────────────────────────────>
+               ·                   ·                   ·           ·
+               ·                   ·            to(3)  ·           ·
+               ├───────────────────────────────────────┤           ·
+                                   ·                               ·
+                                   ·         between(2, 4)         ·
+                                   ├───────────────────────────────┤
+--------------------------------------------------------------------------------
+*/

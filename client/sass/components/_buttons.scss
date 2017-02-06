@@ -1,0 +1,27 @@
+.send-button {
+    @include button();
+    color:#fff;
+    background-color:#6995a9;
+    &:hover {
+        background: #4696db;
+    }
+}
+
+
+.btn-default {
+    @include button();
+    border: 1px dashed #ffffff;
+    background: #8DDE24;
+    color: #ffffff;
+    font-family: "Roboto Regular";
+    font-size:em(18);
+    border-radius: 6px;
+    text-align: center;
+    &:hover {
+        background: #9CED9C;
+    }
+}
+.button{
+    display:flex;
+    justify-content:center;
+}
