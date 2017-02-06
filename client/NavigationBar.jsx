@@ -13,26 +13,26 @@ class NavigationBar extends Component {
     const { isAuthenticated } = this.props.auth;
 
     const userLinks = (
-      <div className="nav-right nav-menu">
-        <Link className="nav-item" to={'/cart'}>
-            <span className="icon">
-              <i className="fa fa-shopping-cart" />
-            </span>
-            <span>Корзина</span>
+      <div className="nav-right nav-menu is-active">
+        <Link className="nav-item is-tab" to={'/cart'}>
+          <span className="icon">
+            <i className="fa fa-shopping-cart" />
+          </span>
+          <span>Корзина</span>
         </Link>
-        <Link className="nav-item" to={'/profile'}>
+        <Link className="nav-item is-tab" to={'/profile'}>
           <span className="icon">
             <i className="fa fa-android" />
           </span>
           <span>Профиль</span>
         </Link>
-        <Link className="nav-item" to={'/avatar'}>
+        <Link className="nav-item is-tab" to={'/avatar'}>
           <span className="icon">
             <i className="fa fa-universal-access" />
           </span>
           <span>Аватар</span>
         </Link>
-        <a href="#" className="nav-item" onClick={this.logout.bind(this)}>
+        <a href="#" className="nav-item is-tab" onClick={this.logout.bind(this)}>
           <span className="icon">
             <i className="fa fa-sign-out" />
           </span>
@@ -42,9 +42,9 @@ class NavigationBar extends Component {
     );
 
     const guestLinks = (
-      <div className="nav-right nav-menu">
-        <Link className="nav-item" to={'/signup'}>Signup</Link>
-        <Link className="nav-item" to={'/login'}>
+      <div className="nav-right nav-menu is-active">
+        <Link className="nav-item is-tab" to={'/signup'}>Signup</Link>
+        <Link className="nav-item is-tab" to={'/login'}>
           <span className="icon">
             <i className="fa fa-sign-in" />
           </span>
@@ -56,13 +56,18 @@ class NavigationBar extends Component {
     return (
       <nav className="nav">
         <div className="container">
-            <div className="nav-left nav-menu">
-              <Link className="nav-item" to={`/`}>Главная</Link>
-              <Link className="nav-item" to={`/books`}>Книги</Link>
-              <Link className="nav-item" to={`/authors`}>Авторы</Link>
-              <Link className="nav-item" to={`/genres`}>Жанры</Link>
-            </div>
-            { isAuthenticated ? userLinks : guestLinks }
+          <div className="nav-left nav-menu ">
+            <Link className="nav-item is-tab" to={'/'}>Главная</Link>
+            <Link className="nav-item is-tab" to={'/books'}>Книги</Link>
+            <Link className="nav-item is-tab" to={'/authors'}>Авторы</Link>
+            <Link className="nav-item is-tab" to={'/genres'}>Жанры</Link>
+          </div>
+          <span className="nav-toggle is-active">
+            <span />
+            <span />
+            <span />
+          </span>
+          { isAuthenticated ? userLinks : guestLinks }
         </div>
       </nav>
     );
@@ -71,8 +76,8 @@ class NavigationBar extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth,
+    auth: state.auth
   };
 }
 
-export default connect(mapStateToProps,{ logout })(NavigationBar);
+export default connect(mapStateToProps, { logout })(NavigationBar);

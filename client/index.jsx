@@ -13,7 +13,7 @@ import rootReducer from './rootReducer';
 import { routes } from './routes';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser } from './actions/authActions';
-/*import './vendor.scss';
+/* import './vendor.scss';
 import './index.scss';*/
 import './sass/main.scss';
 
@@ -27,7 +27,7 @@ const store = createStore(
   )
 );
 
-/*store.subscribe(() => {
+/* store.subscribe(() => {
   console.log('Store changed', store.getState());
 });*/
 

@@ -12,15 +12,14 @@ class App extends React.Component {
   }
 
   render() {
-
-    const productsList = this.props.products.map((item) =>
+    const productsList = this.props.products.map(item =>
       <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
     );
     return (
       <div className="container">
         <div className="columns is-multiline">
           {productsList}
-        {/*<p>this.state</p>
+          {/* <p>this.state</p>
           {<pre>{JSON.stringify(this.state, "", 4)}</pre>}
           <p>this.props</p>
           {<pre>{JSON.stringify(this.props.products, "", 4)}</pre>}*/}
@@ -33,7 +32,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     products: state.products
-  }
+  };
 }
 
 export default connect(mapStateToProps, { fetchProducts, onAddToCart })(App);

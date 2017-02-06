@@ -10,8 +10,8 @@ export default class BookPage extends Component {
 
   componentDidMount() {
     const bookID = this.props.params.book;
-    api.bookByID(bookID).then( (result) => {
-      this.setState({ items:result.data });
+    api.bookByID(bookID).then((result) => {
+      this.setState({ items: result.data });
     });
   }
 
@@ -19,9 +19,7 @@ export default class BookPage extends Component {
     return (
       <div className="container">
         <p>BookPage</p>
-        {this.state.items.map((item,index) =>{
-          return (<BookPageItem key={index} item={item} /> );
-        })}
+        {this.state.items.map((item, index) => (<BookPageItem key={index} item={item} />))}
       </div>
     );
   }

@@ -1,6 +1,4 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
-import config from '../config';
 import Product from '../models/product';
 import User from '../models/user';
 import authenticate from '../middlewares/authenticate';

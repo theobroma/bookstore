@@ -7,20 +7,20 @@ import SignupForm from './SignupForm';
 
 
 class SignupPage extends Component {
-    render() {
-        const {userSignupRequest,addFlashMessage} = this.props;
-        return (
-            <div className="container">
-                <SignupForm userSignupRequest = {userSignupRequest} addFlashMessage = {addFlashMessage}/>
-            </div>
-        );
-    }
+  render() {
+    const { userSignupRequest, addFlashMessage } = this.props;
+    return (
+      <div className="container">
+        <SignupForm userSignupRequest={userSignupRequest} addFlashMessage={addFlashMessage} />
+      </div>
+    );
+  }
 }
 
 SignupPage.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired,
   addFlashMessage: React.PropTypes.func.isRequired
-}
+};
 
 
-export default connect( (state) => { return {} }, {userSignupRequest,addFlashMessage})(SignupPage);
+export default connect(state => ({}), { userSignupRequest, addFlashMessage })(SignupPage);

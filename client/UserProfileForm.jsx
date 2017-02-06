@@ -31,27 +31,27 @@ class InitializeFromStateForm extends Component {
         <div>
           <label>Username</label>
           <div>
-            <Field name="username" component="input" type="text" placeholder="Username"/>
+            <Field name="username" component="input" type="text" placeholder="Username" />
           </div>
         </div>
         <div>
           <button
             type="submit"
             disabled={pristine || submitting}
-            className={classnames('button','is-success')}
+            className={classnames('button', 'is-success')}
           >Submit
           </button>
         </div>
-        {<pre>{JSON.stringify(this.props, "", 4)}</pre>}
+        {<pre>{JSON.stringify(this.props, '', 4)}</pre>}
       </form>
-    )
+    );
   }
 }
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
 InitializeFromStateForm = reduxForm({
   form: 'initializeFromState'  // a unique identifier for this form
-})(InitializeFromStateForm)
+})(InitializeFromStateForm);
 
 // You have to connect() to any reducers that you wish to connect to yourself
 InitializeFromStateForm = connect(
@@ -59,6 +59,6 @@ InitializeFromStateForm = connect(
     initialValues: state.profile.data // pull initial values from reducer
   }),
   { fetchProfile }
-)(InitializeFromStateForm)
+)(InitializeFromStateForm);
 
-export default InitializeFromStateForm
+export default InitializeFromStateForm;

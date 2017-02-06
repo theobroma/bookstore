@@ -5,27 +5,25 @@ import api from './api';
 
 export default class GenreList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = { items: [] };
-    }
+  constructor(props) {
+    super(props);
+    this.state = { items: [] };
+  }
 
-    componentDidMount() {
-        api.listGenres().then(result=> {
-            this.setState({items:result.data});
-        });
-    }
+  componentDidMount() {
+    api.listGenres().then((result) => {
+      this.setState({ items: result.data });
+    });
+  }
 
-    render() {
-        return (
-            <div className="container">
-                <ul className="genres-list">
-                    {this.state.items.map((item,index)=>{
-                            return (<GenreListItem key = {index} item = {item} /> )
-                        }
+  render() {
+    return (
+      <div className="container">
+        <ul className="genres-list">
+          {this.state.items.map((item, index) => (<GenreListItem key={index} item={item} />)
                     )}
-                </ul>
-            </div>
-        );
-    }
+        </ul>
+      </div>
+    );
+  }
 }

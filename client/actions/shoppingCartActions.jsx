@@ -1,35 +1,29 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_INCREMENT, QUANTITY_DECREMENT  } from './types';
+import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_INCREMENT, QUANTITY_DECREMENT } from './types';
 
 export function onAddToCart(data) {
-  return dispatch => {
-    return axios.post(`${apiPrefix}/cart`, data);
-  }
+  return dispatch => axios.post(`${apiPrefix}/cart`, data);
 }
 
 export function onIncrement(productId) {
-  return dispatch => {
-    return dispatch({
-        type: QUANTITY_INCREMENT,
-        payload: productId
-      });
-  }
+  return dispatch => dispatch({
+    type: QUANTITY_INCREMENT,
+    payload: productId
+  });
 }
 
 export function onDecrement(productId) {
-  return dispatch => {
-    return dispatch({
-        type: QUANTITY_DECREMENT,
-        payload: productId
-      });
-  }
+  return dispatch => dispatch({
+    type: QUANTITY_DECREMENT,
+    payload: productId
+  });
 }
 
 export function fetchCart() {
-  return function(dispatch) {
+  return function (dispatch) {
     axios.get(`${apiPrefix}/cart`)
-    .then(response => {
+    .then((response) => {
       dispatch({
         type: SET_CART,
         payload: response.data
@@ -37,29 +31,13 @@ export function fetchCart() {
     })
     .catch((error) => {
       console.log(error);
-    })
-  }
-}
-
-export function fetchCartItems() {
-  return function(dispatch) {
-    axios.get(`${apiPrefix}/cartitems`)
-    .then(response => {
-      dispatch({
-        type: SET_CART_ITEMS,
-        payload: response.data
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }
+    });
+  };
 }
 
 export function onItemDelete(productId) {
-  return dispatch => {
-    return axios.delete(`${apiPrefix}/cart/${productId}`)
-    .then(response => {
+  return dispatch => axios.delete(`${apiPrefix}/cart/${productId}`)
+    .then(() => {
       dispatch({
         type: DELETE_CART_ITEM,
         productId
@@ -67,6 +45,5 @@ export function onItemDelete(productId) {
     })
     .catch((error) => {
       console.log(error);
-    })
-  }
+    });
 }

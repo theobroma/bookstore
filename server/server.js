@@ -18,14 +18,14 @@ import auth from './routes/auth';
 import profile from './routes/profile';
 import cart from './routes/cart';
 
-var app = express();
+const app = express();
 app.set('port', (process.env.PORT || 8080));
 mongoose.Promise = global.Promise;
-var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
+const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
 
-/*mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
+/* mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
 
-mongoose.connect(mongoUri, function (error) {
+mongoose.connect(mongoUri, (error) => {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
@@ -45,20 +45,20 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //All routes in the end
-app.use ('/api/books',books);
-app.use ('/api/genres',genres);
-app.use ('/api/users',users);
-app.use ('/api/authors',authors);
-app.use ('/api/auth',auth);
-app.use ('/api/profile',profile);
-app.use ('/api/cart',cart);
+app.use('/api/books', books);
+app.use('/api/genres', genres);
+app.use('/api/users', users);
+app.use('/api/authors', authors);
+app.use('/api/auth', auth);
+app.use('/api/profile', profile);
+app.use('/api/cart', cart);
 
 // Redirect all non api requests to the index
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname,'./views/index.html'));
 });
 
-app.listen(app.get('port'), ()=> {
+app.listen(app.get('port'), () => {
    console.log('Node app is running on port', app.get('port'));
 });
 

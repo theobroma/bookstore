@@ -9,15 +9,15 @@ class UserProfilePage extends Component {
     this.props.submitForm(values).then(
       () => {
         this.props.addFlashMessage({
-          type: "success",
-          text : "Изменения сохранены",
-        })
+          type: 'success',
+          text: 'Изменения сохранены'
+        });
       },
       (err) => {
         this.props.addFlashMessage({
-          type: "error",
-          text : "Ошибка сохранения",
-        })
+          type: 'error',
+          text: 'Ошибка сохранения'
+        });
       }
     );
   }
@@ -25,8 +25,8 @@ class UserProfilePage extends Component {
   render() {
     return (
       <div className="container">
-        <div className= "columns" >
-          <div className= "column is-6 is-offset-3">
+        <div className="columns" >
+          <div className="column is-6 is-offset-3">
             <h4 className="subtitle">Настройки профиля</h4>
             <InitializeFromStateForm onSubmit={this.handleSubmit} />
           </div>

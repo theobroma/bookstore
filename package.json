@@ -12,7 +12,9 @@
     "serve": "node dist/server.js",
     "babel-version": "babel --version",
     "test": "mocha --compilers js:babel-core/register  --require ./test/test_helper.js  --recursive",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "eslint": "./node_modules/.bin/eslint client/**",
+    "eslint:fix": "./node_modules/.bin/eslint --fix client/**"
   },
   "repository": {
     "type": "git",
@@ -105,6 +107,7 @@
     "style-loader": "^0.13.1",
     "stylelint-webpack-plugin": "^0.5.1",
     "url-loader": "^0.5.7",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "webpack-notifier": "^1.5.0"
   }
 }

@@ -18,7 +18,7 @@ class AvatarForm extends Component {
       <div>
         {avatar}
         <p>121141424124123</p>
-        {<pre>{JSON.stringify(this.state,"", 4)}</pre>}
+        {<pre>{JSON.stringify(this.state, '', 4)}</pre>}
         }
       </div>
     );
@@ -28,7 +28,7 @@ class AvatarForm extends Component {
 function mapStateToProps(state) {
   return {
     avatar: state.avatar
-  }
+  };
 }
 
-export default connect(mapStateToProps, { fetchAvatar })(AvatarForm );
+export default connect(mapStateToProps, { fetchAvatar })(AvatarForm);

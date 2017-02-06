@@ -13,20 +13,18 @@ export function setCurrentUser(user) {
 }
 
 export function logout() {
-  return dispatch => {
+  return (dispatch) => {
     localStorage.removeItem('jwtToken');
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
-  }
+  };
 }
 
 export function login(data) {
-  return dispatch => {
-    return axios.post(`${apiPrefix}/auth`, data).then(res => {
-      const token = res.data.token;
-      localStorage.setItem('jwtToken', token);
-      setAuthorizationToken(token);
-      dispatch(setCurrentUser(jwtDecode(token)));
-    });
-  }
+  return dispatch => axios.post(`${apiPrefix}/auth`, data).then((res) => {
+    const token = res.data.token;
+    localStorage.setItem('jwtToken', token);
+    setAuthorizationToken(token);
+    dispatch(setCurrentUser(jwtDecode(token)));
+  });
 }

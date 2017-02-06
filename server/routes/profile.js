@@ -1,6 +1,4 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
-import config from '../config';
 import User from '../models/user';
 import Avatar from '../models/avatar';
 let router = express.Router();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCart, onItemDelete, onIncrement , onDecrement } from './actions/shoppingCartActions';
+import { fetchCart, onItemDelete, onIncrement, onDecrement } from './actions/shoppingCartActions';
 import ShoppingCartItem from './ShoppingCartItem';
 import Book from './Book';
 
@@ -14,14 +14,14 @@ class ShoppingCartPage extends React.Component {
     this.props.fetchCart();
   }
 
-  getTotal () {
-     return this.props.shoppingCart.reduce( (total, elem) =>
-      total + elem.price *elem.quantity,
-      0).toFixed(2)
+  getTotal() {
+    return this.props.shoppingCart.reduce((total, elem) =>
+      total + elem.price * elem.quantity,
+      0).toFixed(2);
   }
 
   render() {
-    const cartList = this.props.shoppingCart.map( (item) =>
+    const cartList = this.props.shoppingCart.map(item =>
       <ShoppingCartItem
         key={item._id}
         item={item}
@@ -41,7 +41,7 @@ class ShoppingCartPage extends React.Component {
             {this.getTotal()}
           </div>
         </div>
-          <pre>{JSON.stringify(this.props.shoppingCart, "", 4)}</pre>
+        <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
       </div>
     );
   }
@@ -50,7 +50,7 @@ class ShoppingCartPage extends React.Component {
 function mapStateToProps(state) {
   return {
     shoppingCart: state.shoppingCart
-  }
+  };
 }
 
-export default connect(mapStateToProps, { fetchCart, onItemDelete, onIncrement , onDecrement})(ShoppingCartPage);
+export default connect(mapStateToProps, { fetchCart, onItemDelete, onIncrement, onDecrement })(ShoppingCartPage);

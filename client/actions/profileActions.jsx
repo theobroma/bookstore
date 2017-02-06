@@ -3,9 +3,9 @@ import { apiPrefix } from '../../etc/config.json';
 import { FETCH_PROFILE, FETCH_AVATAR } from '../actions/types';
 
 export function fetchProfile() {
-  return dispatch => {
+  return (dispatch) => {
     axios.get(`${apiPrefix}/profile`)
-    .then(response => {
+    .then((response) => {
       dispatch({
         type: FETCH_PROFILE,
         payload: response.data
@@ -18,9 +18,9 @@ export function fetchProfile() {
 }
 
 export function fetchAvatar() {
-  return dispatch => {
+  return (dispatch) => {
     axios.get(`${apiPrefix}/profile/avatar`)
-    .then(response => {
+    .then((response) => {
       dispatch({
         type: FETCH_AVATAR,
         payload: response.data

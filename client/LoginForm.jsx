@@ -24,8 +24,8 @@ class LoginForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(
-        (res) => this.context.router.push('/'),
-        (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+        res => this.context.router.push('/'),
+        err => this.setState({ errors: err.response.data.errors, isLoading: false })
       );
     }
   }
@@ -42,17 +42,17 @@ class LoginForm extends Component {
     return isValid;
   }
 
-    render() {
-      const { errors, identifier, password, isLoading } = this.state;
-      return (
-        <div>
-          <div className= "columns" >
-            <div className= "column is-6 is-offset-3">
-              <h4 className="subtitle">Log in</h4>
+  render() {
+    const { errors, identifier, password, isLoading } = this.state;
+    return (
+      <div>
+        <div className="columns" >
+          <div className="column is-6 is-offset-3">
+            <h4 className="subtitle">Log in</h4>
             <form onSubmit={this.onSubmit}>
               <h1>Login</h1>
 
-               { errors.form && <div className="notification is-danger">{errors.form}</div> }
+              { errors.form && <div className="notification is-danger">{errors.form}</div> }
 
               <TextFieldGroup
                 field="identifier"
@@ -70,25 +70,25 @@ class LoginForm extends Component {
                 type="password"
               />
               <p className="control">
-                <button className={classnames('button','is-success')} disabled={isLoading}>
+                <button className={classnames('button', 'is-success')} disabled={isLoading}>
                   Login
                 </button>
-             </p>
+              </p>
             </form>
-            </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 LoginForm.propTypes = {
   login: React.PropTypes.func.isRequired
-}
+};
 
 LoginForm.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 
-export default connect(null,{login})(LoginForm);
+export default connect(null, { login })(LoginForm);
