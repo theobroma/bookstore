@@ -36,10 +36,6 @@ var _cookieParser = require('cookie-parser');
 
 var _cookieParser2 = _interopRequireDefault(_cookieParser);
 
-var _multer = require('multer');
-
-var _multer2 = _interopRequireDefault(_multer);
-
 var _decodedId = require('./middlewares/decodedId');
 
 var _decodedId2 = _interopRequireDefault(_decodedId);
@@ -75,13 +71,13 @@ var _cart2 = _interopRequireDefault(_cart);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
-//server routes
+// server routes
 
 app.set('port', process.env.PORT || 8080);
 _mongoose2.default.Promise = global.Promise;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
 
-/*mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
+/* mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
 
 _mongoose2.default.connect(mongoUri, function (error) {
   if (error) console.error(error);else console.log('mongo connected');
@@ -101,7 +97,7 @@ app.use((0, _expressSession2.default)({
 app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, 'public', 'favicon.png')));
 app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
 
-//All routes in the end
+// All routes in the end
 app.use('/api/books', _books2.default);
 app.use('/api/genres', _genres2.default);
 app.use('/api/users', _users2.default);

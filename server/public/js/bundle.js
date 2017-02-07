@@ -43644,11 +43644,11 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _config = __webpack_require__(537);
-
 	var _jwtDecode = __webpack_require__(178);
 
 	var _jwtDecode2 = _interopRequireDefault(_jwtDecode);
+
+	var _config = __webpack_require__(537);
 
 	var _setAuthorizationToken = __webpack_require__(545);
 
@@ -49281,12 +49281,11 @@
 	    return _possibleConstructorReturn(this, (AvatarForm.__proto__ || Object.getPrototypeOf(AvatarForm)).call(this, props));
 	  }
 
-	  _createClass(AvatarForm, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	  /*  componentDidMount() {
 	      this.props.fetchAvatar();
-	    }
-	  }, {
+	    }*/
+
+	  _createClass(AvatarForm, [{
 	    key: 'render',
 	    value: function render() {
 	      var avatar = Buffer.from(this.props.avatar, 'base64');

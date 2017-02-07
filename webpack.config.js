@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -56,9 +55,5 @@ module.exports = {
       }
     }),
     new WebpackNotifierPlugin()
-
-/*    new StyleLintPlugin({
-      syntax: 'scss'
-    })*/
   ]
 };

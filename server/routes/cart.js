@@ -4,12 +4,12 @@ import User from '../models/user';
 import authenticate from '../middlewares/authenticate';
 let router = express.Router();
 
-router.get('/', authenticate,(req,res)=> {
-  User.find({ "_id": req.decodedId }).then(user => {
+router.get('/', authenticate, (req, res) => {
+  User.find({ '_id': req.decodedId }).then(user => {
     let cart = user[0].cart;
     Product.find()
       .where('_id')
-      .in(["587a68ddb33d051a0c7c03d8","587a68ddb33d051a0c7c03d9"])
+      .in(['587a68ddb33d051a0c7c03d8', '587a68ddb33d051a0c7c03d9'])
       .exec(function (err, records) {
         res.send(cart);
     });

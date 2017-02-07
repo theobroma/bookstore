@@ -8,14 +8,6 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _jsonwebtoken = require('jsonwebtoken');
-
-var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
-
-var _config = require('../config');
-
-var _config2 = _interopRequireDefault(_config);
-
 var _user = require('../models/user');
 
 var _user2 = _interopRequireDefault(_user);
@@ -46,11 +38,11 @@ router.post('/', function (req, res) {
   });
 });
 
-router.get('/avatar', function (req, res, next) {
-  _avatar2.default.findById("589262c0a4f2031080aed8dc").then(function (doc) {
+/*router.get('/avatar', (req,res,next)=> {
+  Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
     res.contentType(doc.img.contentType);
     res.send(doc.img.data);
   });
-});
+});*/
 
 exports.default = router;

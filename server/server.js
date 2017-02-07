@@ -7,9 +7,8 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import multer from 'multer';
 import decodedId from './middlewares/decodedId';
-//server routes
+// server routes
 import books from './routes/books';
 import genres from './routes/genres';
 import users from './routes/users';
@@ -44,7 +43,7 @@ app.use(session({
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//All routes in the end
+// All routes in the end
 app.use('/api/books', books);
 app.use('/api/genres', genres);
 app.use('/api/users', users);
@@ -55,7 +54,7 @@ app.use('/api/cart', cart);
 
 // Redirect all non api requests to the index
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname,'./views/index.html'));
+  res.sendFile(path.join(__dirname, './views/index.html'));
 });
 
 app.listen(app.get('port'), () => {

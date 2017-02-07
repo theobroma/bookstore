@@ -8,9 +8,9 @@ class AvatarForm extends Component {
     super(props);
   }
 
-  componentDidMount() {
+/*  componentDidMount() {
     this.props.fetchAvatar();
-  }
+  }*/
 
   render() {
     const avatar = Buffer.from(this.props.avatar, 'base64');

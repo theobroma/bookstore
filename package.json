@@ -13,8 +13,8 @@
     "babel-version": "babel --version",
     "test": "mocha --compilers js:babel-core/register  --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch",
-    "eslint": "./node_modules/.bin/eslint client/**",
-    "eslint:fix": "./node_modules/.bin/eslint --fix client/**"
+    "eslint": "./node_modules/.bin/eslint client/**/*.jsx",
+    "eslint:fix": "./node_modules/.bin/eslint --fix client/**/*.jsx"
   },
   "repository": {
     "type": "git",

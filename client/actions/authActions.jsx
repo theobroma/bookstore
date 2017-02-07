@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { apiPrefix } from '../../etc/config.json';
 import jwtDecode from 'jwt-decode';
+import { apiPrefix } from '../../etc/config.json';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { SET_CURRENT_USER } from '../actions/types';
 

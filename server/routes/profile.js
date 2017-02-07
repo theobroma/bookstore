@@ -19,11 +19,11 @@ router.post('/', (req,res)=> {
     .catch(err => res.status(500).json ({error:err}));
 });
 
-router.get('/avatar', (req,res,next)=> {
+/*router.get('/avatar', (req,res,next)=> {
   Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
     res.contentType(doc.img.contentType);
     res.send(doc.img.data);
   });
-});
+});*/
 
 export default router;
