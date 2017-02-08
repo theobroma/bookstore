@@ -27,7 +27,7 @@ export default class Book extends Component {
           <span className="book-price">${price}</span>
           <button
             onClick={this.onClick}
-            className="button is-primary"
+            className="button is-primary is-outlined button-buy"
           >Купить
           </button>
         </div>

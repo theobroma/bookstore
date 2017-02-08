@@ -1,9 +1,18 @@
-.cart-item {
+.cartItem {
   justify-content: space-between;
   padding: 10px;
   border: 1px solid #dbdbdb;
   border-radius:5px;
   margin-bottom: 10px;
+  &__thumbnail {
+		max-width: 85px;
+  }
+  &__delete{
+  	span{
+  		margin:0 !important;
+  		padding:0 !important;
+  	}
+  }
 }
 .cart-item__section{
 	display: flex;

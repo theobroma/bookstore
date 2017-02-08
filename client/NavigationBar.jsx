@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 import { logout } from './actions/authActions';
 
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      open: false
+    };
     this.logout = this.logout.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   logout(e) {
@@ -14,11 +19,17 @@ class NavigationBar extends Component {
     this.props.logout();
   }
 
+  handleClick() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
   render() {
     const { isAuthenticated } = this.props.auth;
 
     const userLinks = (
-      <div className="nav-right nav-menu is-active">
+      <div className={classnames('nav-right', 'nav-menu', { 'is-active': this.state.open })} >
         <Link className="nav-item is-tab" to={'/cart'}>
           <span className="icon">
             <i className="fa fa-shopping-cart" />
@@ -47,7 +58,7 @@ class NavigationBar extends Component {
     );
 
     const guestLinks = (
-      <div className="nav-right nav-menu is-active">
+      <div className={classnames('nav-right', 'nav-menu', { 'is-active': this.state.open })} >
         <Link className="nav-item is-tab" to={'/signup'}>Signup</Link>
         <Link className="nav-item is-tab" to={'/login'}>
           <span className="icon">
@@ -67,7 +78,7 @@ class NavigationBar extends Component {
             <Link className="nav-item is-tab" to={'/authors'}>Авторы</Link>
             <Link className="nav-item is-tab" to={'/genres'}>Жанры</Link>
           </div>
-          <span className="nav-toggle is-active">
+          <span className={classnames('nav-toggle', { 'is-active': this.state.open })}  onClick = {this.handleClick} >
             <span />
             <span />
             <span />
