@@ -1,5 +1,6 @@
-import User from '../models/user';
+/* eslint no-loop-func:0 */
 import mongoose from 'mongoose';
+import User from '../models/user';
 
 mongoose.connect('mongodb://localhost/bookstore');
 
@@ -66,15 +67,16 @@ const users = [
   })
 ];
 
+function exit() {
+  mongoose.disconnect();
+}
+
 let done = 0;
 for (let i = 0; i < users.length; i++) {
   users[i].save((err, result) => {
     done++;
-    if (done == users.length) {
+    if (done === users.length) {
       exit();
     }
   });
-}
-function exit() {
-  mongoose.disconnect();
 }

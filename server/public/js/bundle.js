@@ -93,7 +93,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var logger = (0, _reduxLogger2.default)();
-	/*import './vendor.scss';
+	/* import './vendor.scss';
 	import './index.scss';*/
 
 
@@ -41454,11 +41454,11 @@
 	});
 	exports.default = cart;
 
-	var _types = __webpack_require__(492);
-
 	var _findIndex2 = __webpack_require__(503);
 
 	var _findIndex3 = _interopRequireDefault(_findIndex2);
+
+	var _types = __webpack_require__(492);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43470,10 +43470,13 @@
 	var NavigationBar = function (_Component) {
 	  _inherits(NavigationBar, _Component);
 
-	  function NavigationBar() {
+	  function NavigationBar(props) {
 	    _classCallCheck(this, NavigationBar);
 
-	    return _possibleConstructorReturn(this, (NavigationBar.__proto__ || Object.getPrototypeOf(NavigationBar)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (NavigationBar.__proto__ || Object.getPrototypeOf(NavigationBar)).call(this, props));
+
+	    _this.logout = _this.logout.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(NavigationBar, [{
@@ -43535,7 +43538,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'a',
-	          { href: '#', className: 'nav-item is-tab', onClick: this.logout.bind(this) },
+	          { href: '/', className: 'nav-item is-tab', onClick: this.logout },
 	          _react2.default.createElement(
 	            'span',
 	            { className: 'icon' },
@@ -43782,13 +43785,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(236);
+
 	var _FlashMessage = __webpack_require__(548);
 
 	var _FlashMessage2 = _interopRequireDefault(_FlashMessage);
 
 	var _flashMessages = __webpack_require__(550);
-
-	var _reactRedux = __webpack_require__(236);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44406,6 +44409,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _shortid = __webpack_require__(494);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _BookPageItem = __webpack_require__(558);
 
 	var _BookPageItem2 = _interopRequireDefault(_BookPageItem);
@@ -44455,8 +44462,8 @@
 	          null,
 	          'BookPage'
 	        ),
-	        this.state.items.map(function (item, index) {
-	          return _react2.default.createElement(_BookPageItem2.default, { key: index, item: item });
+	        this.state.items.map(function (item) {
+	          return _react2.default.createElement(_BookPageItem2.default, { key: _shortid2.default.generate(), item: item });
 	        })
 	      );
 	    }
@@ -44610,6 +44617,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _shortid = __webpack_require__(494);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _GenrePageItem = __webpack_require__(561);
 
 	var _GenrePageItem2 = _interopRequireDefault(_GenrePageItem);
@@ -44667,8 +44678,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'continious-list' },
-	          this.state.items.map(function (item, index) {
-	            return _react2.default.createElement(_GenrePageItem2.default, { key: index, item: item });
+	          this.state.items.map(function (item) {
+	            return _react2.default.createElement(_GenrePageItem2.default, { key: _shortid2.default.generate(), item: item });
 	          })
 	        )
 	      );
@@ -44765,6 +44776,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _shortid = __webpack_require__(494);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _GenreListItem = __webpack_require__(563);
 
 	var _GenreListItem2 = _interopRequireDefault(_GenreListItem);
@@ -44811,8 +44826,8 @@
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'genres-list' },
-	          this.state.items.map(function (item, index) {
-	            return _react2.default.createElement(_GenreListItem2.default, { key: index, item: item });
+	          this.state.items.map(function (item) {
+	            return _react2.default.createElement(_GenreListItem2.default, { key: _shortid2.default.generate(), item: item });
 	          })
 	        )
 	      );
@@ -44896,6 +44911,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _shortid = __webpack_require__(494);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _AuthorPageItem = __webpack_require__(565);
 
 	var _AuthorPageItem2 = _interopRequireDefault(_AuthorPageItem);
@@ -44961,8 +44980,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'continious-list' },
-	          this.state.items.map(function (item, index) {
-	            return _react2.default.createElement(_AuthorPageItem2.default, { key: index, item: item });
+	          this.state.items.map(function (item) {
+	            return _react2.default.createElement(_AuthorPageItem2.default, { key: _shortid2.default.generate(), item: item });
 	          })
 	        )
 	      );
@@ -45057,6 +45076,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _shortid = __webpack_require__(494);
+
+	var _shortid2 = _interopRequireDefault(_shortid);
+
 	var _AuthorListItem = __webpack_require__(567);
 
 	var _AuthorListItem2 = _interopRequireDefault(_AuthorListItem);
@@ -45100,8 +45123,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        this.state.items.map(function (item, index) {
-	          return _react2.default.createElement(_AuthorListItem2.default, { key: index, item: item });
+	        this.state.items.map(function (item) {
+	          return _react2.default.createElement(_AuthorListItem2.default, { key: _shortid2.default.generate(), item: item });
 	        }),
 	        _react2.default.createElement(
 	          'pre',
@@ -45364,18 +45387,6 @@
 	      this.setState(_defineProperty({}, e.target.name, e.target.value));
 	    }
 	  }, {
-	    key: 'isValid',
-	    value: function isValid() {
-	      var _validateInput = (0, _signup2.default)(this.state),
-	          errors = _validateInput.errors,
-	          isValid = _validateInput.isValid;
-
-	      if (!isValid) {
-	        this.setState({ errors: errors });
-	      }
-	      return isValid;
-	    }
-	  }, {
 	    key: 'onSubmit',
 	    value: function onSubmit(e) {
 	      var _this2 = this;
@@ -45393,6 +45404,18 @@
 	          return _this2.setState({ errors: err.response.data, isLoading: false });
 	        });
 	      }
+	    }
+	  }, {
+	    key: 'isValid',
+	    value: function isValid() {
+	      var _validateInput = (0, _signup2.default)(this.state),
+	          errors = _validateInput.errors,
+	          isValid = _validateInput.isValid;
+
+	      if (!isValid) {
+	        this.setState({ errors: errors });
+	      }
+	      return isValid;
 	    }
 	  }, {
 	    key: 'render',
@@ -48780,11 +48803,11 @@
 
 	var _reduxForm = __webpack_require__(287);
 
-	var _profileActions = __webpack_require__(643);
-
 	var _classnames = __webpack_require__(549);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _profileActions = __webpack_require__(643);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48797,10 +48820,10 @@
 	var InitializeFromStateForm = function (_Component) {
 	  _inherits(InitializeFromStateForm, _Component);
 
-	  function InitializeFromStateForm(props) {
+	  function InitializeFromStateForm() {
 	    _classCallCheck(this, InitializeFromStateForm);
 
-	    return _possibleConstructorReturn(this, (InitializeFromStateForm.__proto__ || Object.getPrototypeOf(InitializeFromStateForm)).call(this, props));
+	    return _possibleConstructorReturn(this, (InitializeFromStateForm.__proto__ || Object.getPrototypeOf(InitializeFromStateForm)).apply(this, arguments));
 	  }
 
 	  _createClass(InitializeFromStateForm, [{
@@ -49065,7 +49088,9 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchCart: _shoppingCartActions.fetchCart, onItemDelete: _shoppingCartActions.onItemDelete, onIncrement: _shoppingCartActions.onIncrement, onDecrement: _shoppingCartActions.onDecrement })(ShoppingCartPage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, {
+	  fetchCart: _shoppingCartActions.fetchCart, onItemDelete: _shoppingCartActions.onItemDelete, onIncrement: _shoppingCartActions.onIncrement, onDecrement: _shoppingCartActions.onDecrement
+		})(ShoppingCartPage);
 
 /***/ },
 /* 645 */
@@ -49280,17 +49305,18 @@
 	var AvatarForm = function (_Component) {
 	  _inherits(AvatarForm, _Component);
 
-	  function AvatarForm(props) {
+	  function AvatarForm() {
 	    _classCallCheck(this, AvatarForm);
 
-	    return _possibleConstructorReturn(this, (AvatarForm.__proto__ || Object.getPrototypeOf(AvatarForm)).call(this, props));
+	    return _possibleConstructorReturn(this, (AvatarForm.__proto__ || Object.getPrototypeOf(AvatarForm)).apply(this, arguments));
 	  }
 
-	  /*  componentDidMount() {
-	      this.props.fetchAvatar();
-	    }*/
-
 	  _createClass(AvatarForm, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.fetchAvatar();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var avatar = Buffer.from(this.props.avatar, 'base64');
@@ -49307,8 +49333,7 @@
 	          'pre',
 	          null,
 	          JSON.stringify(this.state, '', 4)
-	        ),
-	        '}'
+	        )
 	      );
 	    }
 	  }]);

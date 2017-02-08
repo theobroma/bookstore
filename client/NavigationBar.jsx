@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { logout } from './actions/authActions';
 
 class NavigationBar extends Component {
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
+
   logout(e) {
     e.preventDefault();
     this.props.logout();
@@ -32,7 +37,7 @@ class NavigationBar extends Component {
           </span>
           <span>Аватар</span>
         </Link>
-        <a href="#" className="nav-item is-tab" onClick={this.logout.bind(this)}>
+        <a href="/" className="nav-item is-tab" onClick={this.logout}>
           <span className="icon">
             <i className="fa fa-sign-out" />
           </span>

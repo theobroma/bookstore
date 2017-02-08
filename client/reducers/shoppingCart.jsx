@@ -1,5 +1,5 @@
-import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_DECREMENT, QUANTITY_INCREMENT } from '../actions/types';
 import _findIndex from 'lodash/findIndex';
+import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_DECREMENT, QUANTITY_INCREMENT } from '../actions/types';
 
 export default function cart(state = [], action = {}) {
   switch (action.type) {

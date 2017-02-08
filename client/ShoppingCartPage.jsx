@@ -16,7 +16,7 @@ class ShoppingCartPage extends React.Component {
 
   getTotal() {
     return this.props.shoppingCart.reduce((total, elem) =>
-      total + elem.price * elem.quantity,
+      total + (elem.price * elem.quantity),
       0).toFixed(2);
   }
 
@@ -53,4 +53,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchCart, onItemDelete, onIncrement, onDecrement })(ShoppingCartPage);
+export default connect(mapStateToProps, {
+  fetchCart, onItemDelete, onIncrement, onDecrement
+})(ShoppingCartPage);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import AuthorPageItem from './AuthorPageItem';
 import api from './api';
 
@@ -28,7 +29,7 @@ export default class AuthorPage extends Component {
           <h1 className="contributor-title">Автор: {name}</h1>
         </div>
         <div className="continious-list">
-          {this.state.items.map((item, index) => (<AuthorPageItem key={index} item={item} />))}
+          {this.state.items.map(item => (<AuthorPageItem key={shortid.generate()} item={item} />))}
         </div>
       </div>
     );

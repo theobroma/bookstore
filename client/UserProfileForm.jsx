@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { fetchProfile } from './actions/profileActions';
 import classnames from 'classnames';
+import { fetchProfile } from './actions/profileActions';
 
 class InitializeFromStateForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchProfile();
   }

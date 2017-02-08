@@ -1,3 +1,5 @@
+/* eslint max-len:0 */
+/* eslint no-loop-func:0 */
 const Product = require('../models/product');
 const mongoose = require('mongoose');
 
@@ -95,15 +97,16 @@ const products = [
   })
 ];
 
+function exit() {
+  mongoose.disconnect();
+}
+
 let done = 0;
 for (let i = 0; i < products.length; i++) {
   products[i].save((err, result) => {
     done++;
-    if (done == products.length) {
+    if (done === products.length) {
       exit();
     }
   });
-}
-function exit() {
-  mongoose.disconnect();
 }

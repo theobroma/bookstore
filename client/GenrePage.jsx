@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import GenrePageItem from './GenrePageItem';
 import api from './api';
 
@@ -20,7 +21,7 @@ export default class GenrePage extends Component {
           <h1 className="contributor-title">Жанр : {this.props.params.genre}</h1>
         </div>
         <div className="continious-list">
-          {this.state.items.map((item, index) => (<GenrePageItem key={index} item={item} />))}
+          {this.state.items.map(item => (<GenrePageItem key={shortid.generate()} item={item} />))}
         </div>
       </div>
     );

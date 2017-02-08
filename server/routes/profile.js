@@ -1,6 +1,7 @@
 import express from 'express';
 import User from '../models/user';
 import Avatar from '../models/avatar';
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -14,8 +15,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  User.findByIdAndUpdate(req.decodedId, { $set: { firstName: req.body.firstname, lastName: req.body.lastname } }, { new: true })
-    .then(user => res.json({ success: true }))
+  User.findByIdAndUpdate(req.decodedId,
+    { $set: { firstName: req.body.firstname,
+      lastName: req.body.lastname }
+    }, { new: true })
+    .then(() => res.json({ success: true }))
     .catch(err => res.status(500).json({ error: err }));
 });
 

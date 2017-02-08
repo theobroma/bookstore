@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import BookPageItem from './BookPageItem';
 import api from './api';
 
@@ -19,7 +20,7 @@ export default class BookPage extends Component {
     return (
       <div className="container">
         <p>BookPage</p>
-        {this.state.items.map((item, index) => (<BookPageItem key={index} item={item} />))}
+        {this.state.items.map(item => (<BookPageItem key={shortid.generate()} item={item} />))}
       </div>
     );
   }

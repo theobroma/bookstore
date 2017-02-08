@@ -7,9 +7,9 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import decodedId from './middlewares/decodedId';
 import webpack from 'webpack';
 import config from '../webpack.config';
+import decodedId from './middlewares/decodedId';
 // server routes
 import books from './routes/books';
 import genres from './routes/genres';

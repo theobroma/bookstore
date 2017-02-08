@@ -17,7 +17,7 @@ export default (req, res, next) => {
         res.status(401).json({ error: 'Failed to authenticate' });
       } else {
         User.find({ _id: decoded.id }).then((user) => {
-          if (user.length == 0) {
+          if (user.length === 0) {
             res.status(404).json({ error: 'No such user' });
           } else {
             req.currentUser = user;

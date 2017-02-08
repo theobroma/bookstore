@@ -1,7 +1,7 @@
 import express from 'express';
-import User from '../models/user';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import User from '../models/user';
 import config from '../config';
 
 const router = express.Router();
@@ -13,10 +13,10 @@ router.post('/', (req, res) => {
   User.find({ username: identifier }).then((data) => {
     const userId = data[0]._id;
     const userName = data[0].username;
-    const password_digest = data[0].password;
+    const passwordDigest = data[0].password;
 
     if (userName) {
-      if (bcrypt.compareSync(password, password_digest)) {
+      if (bcrypt.compareSync(password, passwordDigest)) {
         const token = jwt.sign({
           id: userId,
           username: userName

@@ -22,14 +22,6 @@ export default class SignupForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  isValid() {
-    const { errors, isValid } = validateInput(this.state);
-    if (!isValid) {
-      this.setState({ errors });
-    }
-    return isValid;
-  }
-
   onSubmit(e) {
     e.preventDefault();
     if (this.isValid()) {
@@ -45,6 +37,14 @@ export default class SignupForm extends Component {
         err => this.setState({ errors: err.response.data, isLoading: false })
       );
     }
+  }
+
+  isValid() {
+    const { errors, isValid } = validateInput(this.state);
+    if (!isValid) {
+      this.setState({ errors });
+    }
+    return isValid;
   }
 
   render() {

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-const Schema = mongoose.Schema;
 
+const Schema = mongoose.Schema;
 const cartItemSchema = new Schema({
   productId: {
     type: String,

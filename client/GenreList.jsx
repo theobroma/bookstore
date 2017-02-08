@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import GenreListItem from './GenreListItem';
 import api from './api';
 
@@ -20,7 +21,7 @@ export default class GenreList extends Component {
     return (
       <div className="container">
         <ul className="genres-list">
-          {this.state.items.map((item, index) => (<GenreListItem key={index} item={item} />)
+          {this.state.items.map(item => (<GenreListItem key={shortid.generate()} item={item} />)
                     )}
         </ul>
       </div>

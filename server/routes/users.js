@@ -1,12 +1,9 @@
 import express from 'express';
-import bcrypt from 'bcryptjs';
 import _isEmpty from 'lodash/isEmpty';
 import commonValidations from '../shared/validations/signup';
-
-const router = express.Router();
-
 import User from '../models/user';
 
+const router = express.Router();
 
 function validateInput(data, otherValidations) {
   const { errors } = otherValidations(data);
@@ -34,7 +31,7 @@ router.post('/', (req, res) => {
         password
       });
       newUser.save()
-                .then(user => res.json({ success: true }))
+                .then(() => res.json({ success: true }))
                 .catch(err => res.status(500).json({ error: err }));
     } else {
       res.status(400).json(errors);
