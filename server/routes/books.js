@@ -1,18 +1,18 @@
 import express from 'express';
 import Product from '../models/product';
-let router = express.Router();
+const router = express.Router();
 
-router.get('/', (req,res)=> {
-    Product.find().then((data) => {
-        res.send(data);
-    });
+router.get('/', (req, res) => {
+  Product.find().then((data) => {
+    res.send(data);
+  });
 });
 
-router.get('/:book', (req,res)=> {
-    let bookID = req.params.book;
-    Product.find({ "_id": bookID }).then((data) => {
-        res.send(data);
-    });
+router.get('/:book', (req, res) => {
+  const bookID = req.params.book;
+  Product.find({ _id: bookID }).then((data) => {
+    res.send(data);
+  });
 });
 
 

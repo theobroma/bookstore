@@ -7,9 +7,9 @@ const isDevelopment = NODE_ENV === 'development';
 console.log(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
 
 module.exports = {
-  entry: './client/index',
+  entry: "./client/index",
   output: {
-    path: './server/public/js',
+    path: path.join(__dirname, './server/public/js'),
     filename: 'bundle.js'
   },
   watch: isDevelopment,
@@ -29,6 +29,7 @@ module.exports = {
         path.join(__dirname, 'server/shared')
       ],
       exclude: [/node_modules/, /bower_components/],
+      /*loaders: ['react-hot-loader', 'babel-loader']*/
       /* loaders: ["babel-loader", "eslint-loader"]*/
       loader: 'babel-loader'
     }, {

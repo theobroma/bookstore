@@ -40,6 +40,14 @@ var _decodedId = require('./middlewares/decodedId');
 
 var _decodedId2 = _interopRequireDefault(_decodedId);
 
+var _webpack = require('webpack');
+
+var _webpack2 = _interopRequireDefault(_webpack);
+
+var _webpack3 = require('../webpack.config');
+
+var _webpack4 = _interopRequireDefault(_webpack3);
+
 var _books = require('./routes/books');
 
 var _books2 = _interopRequireDefault(_books);
@@ -71,8 +79,16 @@ var _cart2 = _interopRequireDefault(_cart);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
-// server routes
+// HMR
+/*const compiler = webpack(config);
 
+app.use(require('webpack-dev-middleware')(compiler, {
+  publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));*/
+
+// server routes
 app.set('port', process.env.PORT || 8080);
 _mongoose2.default.Promise = global.Promise;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';

@@ -93,7 +93,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var logger = (0, _reduxLogger2.default)();
-	/* import './vendor.scss';
+	/*import './vendor.scss';
 	import './index.scss';*/
 
 
@@ -41496,11 +41496,11 @@
 	  value: true
 	});
 
-	var _types = __webpack_require__(492);
-
 	var _isEmpty2 = __webpack_require__(510);
 
 	var _isEmpty3 = _interopRequireDefault(_isEmpty2);
+
+	var _types = __webpack_require__(492);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44051,7 +44051,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'columns is-multiline' },
-	          productsList
+	          productsList,
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Hello222'
+	          )
 	        )
 	      );
 	    }

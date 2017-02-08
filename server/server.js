@@ -8,6 +8,8 @@ import morgan from 'morgan';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import decodedId from './middlewares/decodedId';
+import webpack from 'webpack';
+import config from '../webpack.config';
 // server routes
 import books from './routes/books';
 import genres from './routes/genres';
@@ -18,6 +20,15 @@ import profile from './routes/profile';
 import cart from './routes/cart';
 
 const app = express();
+// HMR
+/* const compiler = webpack(config);
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));*/
+
 app.set('port', (process.env.PORT || 8080));
 mongoose.Promise = global.Promise;
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
@@ -25,8 +36,8 @@ const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstor
 /* mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
 
 mongoose.connect(mongoUri, (error) => {
-    if (error) console.error(error);
-    else console.log('mongo connected');
+  if (error) console.error(error);
+  else console.log('mongo connected');
 });
 
 app.use(decodedId);
@@ -58,7 +69,7 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-   console.log('Node app is running on port', app.get('port'));
+  console.log('Node app is running on port', app.get('port'));
 });
 
 

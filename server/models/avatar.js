@@ -4,9 +4,9 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const schema = new Schema ({
+const schema = new Schema({
   img: { data: Buffer, contentType: String }
 });
 
 
-module.exports = mongoose.model('Avatar',schema);
+module.exports = mongoose.model('Avatar', schema);

@@ -2,14 +2,14 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 const Schema = mongoose.Schema;
 
-var cartItemSchema = new Schema({
+const cartItemSchema = new Schema({
   productId: {
     type: String,
     required: true
   },
-  title : {type: String, required:true},
-  thumbnail : {type: String, required:true},
-  price : {type: Number, required:true},
+  title: { type: String, required: true },
+  thumbnail: { type: String, required: true },
+  price: { type: Number, required: true },
   quantity: {
     type: Number,
     required: true,
@@ -17,38 +17,38 @@ var cartItemSchema = new Schema({
   }
 });
 
-var UserSchema = new Schema({
-  username : {
+const UserSchema = new Schema({
+  username: {
     type: String,
     unique: true,
     required: true
   },
-  password : {
+  password: {
     type: String,
     required: true
   },
   createdAt: { type: Date, default: Date.now },
-  firstName : {
+  firstName: {
     type: String,
-    default: ""
+    default: ''
   },
-  lastName : {
+  lastName: {
     type: String,
-    default: ""
+    default: ''
   },
-  avatar : {
+  avatar: {
     type: String,
-    default: "default-avatar.jpg"
+    default: 'default-avatar.jpg'
   },
-  cart : [cartItemSchema]
-})
+  cart: [cartItemSchema]
+});
 
-UserSchema.pre('save', function(next) {
-  if(this.password) {
-    var salt = bcrypt.genSaltSync(10)
-    this.password  = bcrypt.hashSync(this.password, salt)
+UserSchema.pre('save', function (next) {
+  if (this.password) {
+    const salt = bcrypt.genSaltSync(10);
+    this.password = bcrypt.hashSync(this.password, salt);
   }
-  next()
-})
+  next();
+});
 
 module.exports = mongoose.model('User', UserSchema);

@@ -4,7 +4,7 @@ import User from '../models/user';
 
 
 export default (req, res, next) => {
-  const authorizationHeader = req.headers['authorization'];
+  const authorizationHeader = req.headers.authorization;
   let token;
 
   if (authorizationHeader) {
@@ -16,8 +16,8 @@ export default (req, res, next) => {
       if (err) {
         res.status(401).json({ error: 'Failed to authenticate' });
       } else {
-        User.find({ "_id": decoded.id }).then(user => {
-          if (user.length==0) {
+        User.find({ _id: decoded.id }).then((user) => {
+          if (user.length == 0) {
             res.status(404).json({ error: 'No such user' });
           } else {
             req.currentUser = user;
@@ -31,11 +31,10 @@ export default (req, res, next) => {
       error: 'No token provided'
     });
   }
-}
+};
 
 
-
-/*User.find({ "_id": decoded.id }).then(user => {
+/* User.find({ "_id": decoded.id }).then(user => {
   if (!user) {
     res.status(404).json({ error: 'No such user' });
   } else {

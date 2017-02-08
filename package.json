@@ -13,7 +13,9 @@
     "babel-version": "babel --version",
     "test": "mocha --compilers js:babel-core/register  --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch",
-    "eslint": "./node_modules/.bin/eslint client/**/*.jsx",
+    "eslint": "./node_modules/.bin/eslint client/**/*.jsx   ",
+    "eslint:server": "./node_modules/.bin/eslint server/**/*.js",
+    "eslint:serverfix": "./node_modules/.bin/eslint --fix server/**/*.js",
     "eslint:fix": "./node_modules/.bin/eslint --fix client/**/*.jsx"
   },
   "repository": {
@@ -102,12 +104,15 @@
     "postcss-loader": "^1.2.2",
     "postcss-nested": "^1.0.0",
     "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.3.1",
     "resolve-url-loader": "^1.6.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "stylelint-webpack-plugin": "^0.5.1",
     "url-loader": "^0.5.7",
     "webpack": "1.14.0",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.16.1",
     "webpack-notifier": "^1.5.0"
   }
 }
