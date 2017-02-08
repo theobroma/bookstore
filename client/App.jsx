@@ -19,7 +19,6 @@ class App extends React.Component {
       <div className="container">
         <div className="columns is-multiline">
           {productsList}
-          <p>Hello222</p>
           {/* <p>this.state</p>
           {<pre>{JSON.stringify(this.state, "", 4)}</pre>}
           <p>this.props</p>

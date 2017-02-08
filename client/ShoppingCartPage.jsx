@@ -32,16 +32,18 @@ class ShoppingCartPage extends React.Component {
     );
     return (
       <div className="container">
-        <div className="cartItemList">
-          {cartList}
-        </div>
-        <div className="cartFooter">
-          <h4>Итоговая сумма </h4>
-          <div className="cartTotal">
-            {this.getTotal()}
+        <div className="columns is-multiline">
+          <div className="cartItemList column is-12">
+            {cartList}
           </div>
+          <div className="cartFooter column is-12">
+            <h4>Итоговая сумма </h4>
+            <div className="cartTotal">
+              {this.getTotal()}
+            </div>
+          </div>
+          <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
         </div>
-        <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
       </div>
     );
   }

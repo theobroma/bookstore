@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV === 'development';
@@ -10,7 +11,8 @@ module.exports = {
   entry: "./client/index",
   output: {
     path: path.join(__dirname, './server/public/js'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: './public/'
   },
   watch: isDevelopment,
   module: {
@@ -20,7 +22,8 @@ module.exports = {
       exclude: [/node_modules/, /public/]
     }, {
       test: /\.scss$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
+      /*loaders: ["style", "css", "sass", "resolve-url"],*/
       exclude: [/node_modules/, /public/]
     }, {
       test: [/\.jsx?$/, /\.es6$/],
@@ -55,6 +58,9 @@ module.exports = {
         NODE_ENV: JSON.stringify(NODE_ENV)
       }
     }),
-    new WebpackNotifierPlugin()
+    new WebpackNotifierPlugin(),
+    new ExtractTextPlugin('bundle.css', {
+      disable: false
+    })
   ]
 };

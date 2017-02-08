@@ -1,158 +1,110 @@
-@import "../../../node_modules/bulma/bulma.sass";
+/* @import "../../../node_modules/bulma/bulma.sass"; */
 %clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }
 %list-inline {
-    padding-left: 0;
-    list-style: none;
-    &>li {
-        display: inline-block;
-    }
+		padding-left: 0;
+		list-style: none;
+		&>li {
+				display: inline-block;
+		}
 }
 %abs-center {
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
 }
 
 %flex {
-    @include from(d) {
-        display:flex;
-    }
+		@include from(d) {
+				display:flex;
+		}
 }
 
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-    display: flex;               // Holy Grail Layout
-    min-height: 100vh;           // Holy Grail Layout
-    flex-flow: column nowrap;    // Holy Grail Layout
-    color:#363636;
-    background-color: #f1f2f4;
-    font-family: "Roboto Slab";
-    font-weight: 300;
-    word-wrap: break-word;
-    overflow-y: scroll;
-    overflow-x: hidden !important;
-    /* @include debug-layout; */
+		display: flex;               // Holy Grail Layout
+		min-height: 100vh;           // Holy Grail Layout
+		flex-flow: column nowrap;    // Holy Grail Layout
+		color:#363636;
+		background-color: #f1f2f4;
+		font-family: "Roboto Slab";
+		font-weight: 300;
+		word-wrap: break-word;
+		/* overflow-y: scroll; */
+		overflow-x: hidden !important;
+		/* @include debug-layout; */
 }
 .site-content {
-    display: flex;                // Holy Grail Layout
-    flex-direction: column;       // Holy Grail Layout
+		display: flex;                // Holy Grail Layout
+		flex-direction: column;       // Holy Grail Layout
+		justify-content: center;
 }
-@include from(d) {
-  .site-content {
-    flex-direction: row;          // Holy Grail Layout
-    flex: 1;                      // Holy Grail Layout
-  }
-}
-
-/* container */
-
-.container {
-  position: relative;
-}
-
-@include from(d) {
-  .container {
-    margin: 0 auto;
-    max-width: 960px;
-  }
-  .container.is-fluid {
-    margin: 0 20px;
-    max-width: none;
-  }
-}
-
-@include from(d) {
-  .container {
-    max-width: 1152px;
-  }
-}
-/* end of container */
-.columns.is-multiline {
-    flex-wrap: wrap;
-}
-
-.main-nav {
-    order: -1;
-    background-color: orange;
-}
-.main-content {
-    order: 1;
-    text-align: center;
-}
-
-@include to(t) {
-    .main-content {
-        order: -1;
-    }
-}
-
 img {
-    height: auto;
-    max-width: 100%;
+		height: auto;
+		max-width: 100%;
 }
 input:focus,
 textarea:focus {
-    outline: none;
+		outline: none;
 }
 .break-word {
-        word-wrap: break-word;
+				word-wrap: break-word;
 }
 .center {
-    text-align:center;
+		text-align:center;
 }
 .hidden {
-    display: none !important;
-    visibility: hidden !important;
+		display: none !important;
+		visibility: hidden !important;
 }
 
 
 a {
-    color: #285473;
-    text-decoration: none;
-    transition: all .35s;
+		color: #285473;
+		text-decoration: none;
+		transition: all .35s;
 }
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 ol {
-  counter-reset: list1;
+	counter-reset: list1;
 
-  li:before {
-    counter-increment: list1;
-    content: counter(list1) '. ';
-  }
+	li:before {
+		counter-increment: list1;
+		content: counter(list1) '. ';
+	}
 
-  ol {
-    counter-reset: list2;
+	ol {
+		counter-reset: list2;
 
-    li:before {
-      counter-increment: list2;
-      content: counter(list1) '.' counter(list2) '. ';
-    }
+		li:before {
+			counter-increment: list2;
+			content: counter(list1) '.' counter(list2) '. ';
+		}
 
-    ol {
-      counter-reset: list3;
+		ol {
+			counter-reset: list3;
 
-      li:before {
-        counter-increment: list3;
-        content: counter(list1) '.' counter(list2) '.' counter(list3) '. ';
-      }
-    }
-  }
+			li:before {
+				counter-increment: list3;
+				content: counter(list1) '.' counter(list2) '.' counter(list3) '. ';
+			}
+		}
+	}
 }

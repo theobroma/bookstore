@@ -13,8 +13,30 @@
 	&:hover {
 	 border: 1px solid #fd6462;
 	}
+	& > * {
+		margin-bottom:10px;
+	}
 }
 .button-buy {
 	width:100%;
 	transition: all .2s;
+}
+.book-price {
+	color: #000;
+	font-weight: 700;
+	font-size: rem(18);
+}
+.book-title {
+	font-size: 1rem;
+	font-weight: 500;
+	color:#000;
+}
+.book-author {
+	color: #686259;
+}
+.book-genre {
+	color: #00d1b2;
+}
+.book-thumbnail {
+	max-height: 270px;
 }

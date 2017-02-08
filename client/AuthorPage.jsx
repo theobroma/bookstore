@@ -24,13 +24,13 @@ export default class AuthorPage extends Component {
     const { name, photo } = this.state.author;
     return (
       <div className="container">
-        <div className="contributor-info" >
-          <img src={`/images/${photo}`} alt="" />
-          <h1 className="contributor-title">Автор: {name}</h1>
-        </div>
-        <div className="continious-list">
-          {this.state.items.map(item => (<AuthorPageItem key={shortid.generate()} item={item} />))}
-        </div>
+          <div className="columns contributor-info" >
+            <img src={`/images/${photo}`} alt="" />
+            <h1 className="contributor-title">Автор: {name}</h1>
+          </div>
+          <div className="columns continious-list">
+            {this.state.items.map(item => (<AuthorPageItem key={shortid.generate()} item={item} />))}
+          </div>
       </div>
     );
   }

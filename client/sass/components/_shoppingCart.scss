@@ -29,6 +29,12 @@
    * to have display: inline-block.
    */
   display: flex;
+  input {
+  	height:inherit;
+  }
+  button {
+  	line-height:0;
+  }
 }
 
   .stepperInput__input {
