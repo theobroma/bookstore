@@ -68,7 +68,10 @@
     "serve-favicon": "^2.3.2",
     "shortid": "^2.2.6",
     "validator": "^6.2.1",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.16.1",
+    "webpack-notifier": "^1.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -102,9 +105,6 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "stylelint-webpack-plugin": "^0.5.1",
-    "url-loader": "^0.5.7",
-    "webpack-dev-middleware": "^1.10.0",
-    "webpack-hot-middleware": "^2.16.1",
-    "webpack-notifier": "^1.5.0"
+    "url-loader": "^0.5.7"
   }
 }
