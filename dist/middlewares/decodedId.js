@@ -15,7 +15,7 @@ var _config2 = _interopRequireDefault(_config);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (req, res, next) {
-  var authorizationHeader = req.headers['authorization'];
+  var authorizationHeader = req.headers.authorization;
   var token = void 0;
 
   if (authorizationHeader) {

@@ -8,10 +8,6 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _user = require('../models/user');
-
-var _user2 = _interopRequireDefault(_user);
-
 var _bcryptjs = require('bcryptjs');
 
 var _bcryptjs2 = _interopRequireDefault(_bcryptjs);
@@ -19,6 +15,10 @@ var _bcryptjs2 = _interopRequireDefault(_bcryptjs);
 var _jsonwebtoken = require('jsonwebtoken');
 
 var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
+
+var _user = require('../models/user');
+
+var _user2 = _interopRequireDefault(_user);
 
 var _config = require('../config');
 
@@ -28,20 +28,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = _express2.default.Router();
 
-//Доделать проверку на существование юзера
+// Доделать проверку на существование юзера
 
 router.post('/', function (req, res) {
   var _req$body = req.body,
       identifier = _req$body.identifier,
       password = _req$body.password;
 
-  _user2.default.find({ "username": identifier }).then(function (data) {
+  _user2.default.find({ username: identifier }).then(function (data) {
     var userId = data[0]._id;
     var userName = data[0].username;
-    var password_digest = data[0].password;
+    var passwordDigest = data[0].password;
 
     if (userName) {
-      if (_bcryptjs2.default.compareSync(password, password_digest)) {
+      if (_bcryptjs2.default.compareSync(password, passwordDigest)) {
         var token = _jsonwebtoken2.default.sign({
           id: userId,
           username: userName

@@ -42,12 +42,6 @@ class NavigationBar extends Component {
           </span>
           <span>Профиль</span>
         </Link>
-        <Link className="nav-item is-tab" to={'/avatar'}>
-          <span className="icon">
-            <i className="fa fa-universal-access" />
-          </span>
-          <span>Аватар</span>
-        </Link>
         <a href="/" className="nav-item is-tab" onClick={this.logout}>
           <span className="icon">
             <i className="fa fa-sign-out" />

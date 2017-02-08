@@ -25,22 +25,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 router.get('/', _authenticate2.default, function (req, res) {
-  _user2.default.find({ '_id': req.decodedId }).then(function (user) {
+  _user2.default.find({ _id: req.decodedId }).then(function (user) {
     var cart = user[0].cart;
-    _product2.default.find().where('_id').in(['587a68ddb33d051a0c7c03d8', '587a68ddb33d051a0c7c03d9']).exec(function (err, records) {
-      res.send(cart);
-    });
+    res.send(cart);
+    /*    Product.find()
+          .where('_id')
+          .in(['587a68ddb33d051a0c7c03d8', '587a68ddb33d051a0c7c03d9'])
+          .exec((err, records) => {
+            res.send(cart);
+          });*/
   });
 });
 
 // Убрать дубли товаров
 router.post('/', _authenticate2.default, function (req, res) {
-  _user2.default.findByIdAndUpdate(req.decodedId, { $push: { "cart": {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $push: { cart: {
         productId: req.body.productId,
         title: req.body.title,
         price: req.body.price,
         thumbnail: req.body.thumbnail
-      } } }, { safe: true, upsert: true }).then(function (user) {
+      } } }, { safe: true, upsert: true }).then(function () {
     return res.json({ success: true });
   }).catch(function (err) {
     return res.status(500).json({ error: err });
@@ -48,7 +52,7 @@ router.post('/', _authenticate2.default, function (req, res) {
 });
 
 router.delete('/:productId', _authenticate2.default, function (req, res) {
-  _user2.default.findByIdAndUpdate(req.decodedId, { $pull: { cart: { productId: req.params.productId } } }, { safe: true }).then(function (user) {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $pull: { cart: { productId: req.params.productId } } }, { safe: true }).then(function () {
     return res.json({ success: true });
   }).catch(function (err) {
     return res.status(500).json({ error: err });

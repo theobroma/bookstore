@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _express = require('express');
@@ -17,16 +17,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 router.get('/', function (req, res) {
-    _product2.default.find().distinct("genre").then(function (data) {
-        res.send(data);
-    });
+  _product2.default.find().distinct('genre').then(function (data) {
+    res.send(data);
+  });
 });
 
 router.get('/:genre', function (req, res) {
-    var genre = req.params.genre;
-    _product2.default.find({ "genre": genre }).then(function (data) {
-        res.send(data);
-    });
+  var genre = req.params.genre;
+  _product2.default.find({ genre: genre }).then(function (data) {
+    res.send(data);
+  });
 });
 
 exports.default = router;

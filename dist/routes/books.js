@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _express = require('express');
@@ -17,16 +17,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 router.get('/', function (req, res) {
-    _product2.default.find().then(function (data) {
-        res.send(data);
-    });
+  _product2.default.find().then(function (data) {
+    res.send(data);
+  });
 });
 
 router.get('/:book', function (req, res) {
-    var bookID = req.params.book;
-    _product2.default.find({ "_id": bookID }).then(function (data) {
-        res.send(data);
-    });
+  var bookID = req.params.book;
+  _product2.default.find({ _id: bookID }).then(function (data) {
+    res.send(data);
+  });
 });
 
 exports.default = router;

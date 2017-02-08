@@ -10,7 +10,6 @@ var Schema = _mongoose2.default.Schema; /**
                                          * Created by Sasha on 01.02.2017.
                                          */
 
-
 var schema = new Schema({
   img: { data: Buffer, contentType: String }
 });

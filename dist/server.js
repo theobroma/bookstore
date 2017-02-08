@@ -36,10 +36,6 @@ var _cookieParser = require('cookie-parser');
 
 var _cookieParser2 = _interopRequireDefault(_cookieParser);
 
-var _decodedId = require('./middlewares/decodedId');
-
-var _decodedId2 = _interopRequireDefault(_decodedId);
-
 var _webpack = require('webpack');
 
 var _webpack2 = _interopRequireDefault(_webpack);
@@ -47,6 +43,10 @@ var _webpack2 = _interopRequireDefault(_webpack);
 var _webpack3 = require('../webpack.config');
 
 var _webpack4 = _interopRequireDefault(_webpack3);
+
+var _decodedId = require('./middlewares/decodedId');
+
+var _decodedId2 = _interopRequireDefault(_decodedId);
 
 var _books = require('./routes/books');
 
@@ -80,7 +80,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 // HMR
-/*const compiler = webpack(config);
+/* const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath

@@ -21,7 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 router.get('/', function (req, res) {
-  _user2.default.find({ "_id": req.decodedId }).then(function (user) {
+  _user2.default.find({ _id: req.decodedId }).then(function (user) {
     var username = user[0].username;
     var firstname = user[0].firstName;
     var lastname = user[0].lastName;
@@ -31,14 +31,16 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { firstName: req.body.firstname, lastName: req.body.lastname } }, { new: true }).then(function (user) {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { firstName: req.body.firstname,
+      lastName: req.body.lastname }
+  }, { new: true }).then(function () {
     return res.json({ success: true });
   }).catch(function (err) {
     return res.status(500).json({ error: err });
   });
 });
 
-/*router.get('/avatar', (req,res,next)=> {
+/* router.get('/avatar', (req,res,next)=> {
   Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {
     res.contentType(doc.img.contentType);
     res.send(doc.img.data);

@@ -11,7 +11,6 @@ var _bcryptjs2 = _interopRequireDefault(_bcryptjs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Schema = _mongoose2.default.Schema;
-
 var cartItemSchema = new Schema({
   productId: {
     type: String,
@@ -40,15 +39,15 @@ var UserSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   firstName: {
     type: String,
-    default: ""
+    default: ''
   },
   lastName: {
     type: String,
-    default: ""
+    default: ''
   },
   avatar: {
     type: String,
-    default: "default-avatar.jpg"
+    default: 'default-avatar.jpg'
   },
   cart: [cartItemSchema]
 });
