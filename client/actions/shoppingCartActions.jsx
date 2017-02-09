@@ -47,3 +47,7 @@ export function onItemDelete(productId) {
       console.log(error);
     });
 }
+
+export function addOrder(data) {
+  return dispatch => axios.post(`${apiPrefix}/profile/orders`, data);
+}

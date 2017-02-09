@@ -23,6 +23,24 @@ const users = [
         thumbnail: 'master-i-margarita.jpg',
         price: 9.99
       }
+    ],
+    orders : [
+      {
+        list : [
+          {
+            productId: '587a68ddb33d051a0c7c03d8',
+            title: 'Марсианские хроники',
+            thumbnail: 'marsianskie-khroniki.jpg',
+            price: 9.99
+          },
+          {
+            productId: '587a68ddb33d051a0c7c03d9',
+            title: 'Мастер и Маргарита',
+            thumbnail: 'master-i-margarita.jpg',
+            price: 9.99
+          }
+        ],
+      }
     ]
   }),
   new User({
@@ -43,6 +61,24 @@ const users = [
         thumbnail: 'master-i-margarita.jpg',
         price: 9.99
       }
+    ],
+    orders : [
+      {
+        list : [
+          {
+            productId: '587a68ddb33d051a0c7c03d8',
+            title: 'Марсианские хроники',
+            thumbnail: 'marsianskie-khroniki.jpg',
+            price: 9.99
+          },
+          {
+            productId: '587a68ddb33d051a0c7c03d9',
+            title: 'Мастер и Маргарита',
+            thumbnail: 'master-i-margarita.jpg',
+            price: 9.99
+          }
+        ],
+      }
     ]
   }),
   new User({
@@ -62,6 +98,40 @@ const users = [
         title: 'Мастер и Маргарита',
         thumbnail: 'master-i-margarita.jpg',
         price: 9.99
+      }
+    ],
+    orders : [
+      {
+        list : [
+          {
+            productId: '587a68ddb33d051a0c7c03d8',
+            title: 'Марсианские хроники',
+            thumbnail: 'marsianskie-khroniki.jpg',
+            price: 9.99
+          },
+          {
+            productId: '587a68ddb33d051a0c7c03d9',
+            title: 'Мастер и Маргарита',
+            thumbnail: 'master-i-margarita.jpg',
+            price: 9.99
+          }
+        ],
+      },
+      {
+        list : [
+          {
+            productId: '58950d8155d9cd1b887b4490',
+            title: 'Утраченный символ',
+            thumbnail: 'utrachennyy-simvol.jpg',
+            price: 9.99
+          },
+          {
+            productId: '58950d8155d9cd1b887b4492',
+            title: 'Точка обмана',
+            thumbnail: 'tochka-obmana.jpg',
+            price: 9.99
+          }
+        ],
       }
     ]
   })

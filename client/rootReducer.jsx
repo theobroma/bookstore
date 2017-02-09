@@ -7,6 +7,7 @@ import auth from './reducers/auth';
 import profile from './reducers/profile';
 import avatar from './reducers/avatar';
 import account from './reducers/account';
+import orders from './reducers/orders';
 
 export default combineReducers({
   flashMessages,
@@ -16,5 +17,6 @@ export default combineReducers({
   profile,
   avatar,
   form: formReducer,
-  account
+  account,
+  orders
 });

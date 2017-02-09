@@ -11,6 +11,7 @@ import SignupPage from './SignupPage';
 import LoginPage from './LoginPage';
 import UserProfilePage from './UserProfilePage';
 import ShoppingCartPage from './ShoppingCartPage';
+import OrdersPage from './OrdersPage';
 import NotFound from './NotFound';
 
 import requireAuth from './utils/requireAuth';
@@ -28,6 +29,7 @@ export const routes = (
       <Route path="/signup" component={SignupPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/profile" component={requireAuth(UserProfilePage)} />
+      <Route path="/orders" component={requireAuth(OrdersPage)} />
     </Route>
     {/* для всех остальных роутов: показывай NotFound */}
     <Route path="*" component={NotFound} />

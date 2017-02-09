@@ -17,6 +17,16 @@ const cartItemSchema = new Schema({
   }
 });
 
+const orderSchema = new Schema({
+  orderId: {
+    type: Number,
+    required: true,
+    default: 777
+  },
+  list: [cartItemSchema],
+  date: { type: Date, default: Date.now }
+});
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -36,11 +46,8 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
-  avatar: {
-    type: String,
-    default: 'default-avatar.jpg'
-  },
-  cart: [cartItemSchema]
+  cart: [cartItemSchema],
+  orders: [orderSchema]
 });
 
 UserSchema.pre('save', function (next) {

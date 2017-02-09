@@ -36,6 +36,12 @@ class NavigationBar extends Component {
           </span>
           <span>Корзина</span>
         </Link>
+        <Link className="nav-item is-tab" to={'/orders'}>
+          <span className="icon">
+            <i className="fa fa-list-alt" />
+          </span>
+          <span>Заказы</span>
+        </Link>
         <Link className="nav-item is-tab" to={'/profile'}>
           <span className="icon">
             <i className="fa fa-android" />
@@ -46,7 +52,7 @@ class NavigationBar extends Component {
           <span className="icon">
             <i className="fa fa-sign-out" />
           </span>
-          <span>Logout</span>
+          <span>Выход</span>
         </a>
       </div>
     );
@@ -58,7 +64,7 @@ class NavigationBar extends Component {
           <span className="icon">
             <i className="fa fa-sign-in" />
           </span>
-          <span>Login</span>
+          <span>Вход</span>
         </Link>
       </div>
     );
