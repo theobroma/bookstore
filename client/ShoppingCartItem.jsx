@@ -55,7 +55,7 @@ export default class ShoppingCartItem extends Component {
           </div>
           <div className="column 12-mobile is5-desktop cart-item__section">
             <div className="stepperInput">
-              <button className="button button--addOnLeft" onClick={this.decrement} >-</button>
+              <button className="stepperButton button--addOnLeft" onClick={this.decrement} >-</button>
               <input
                 className="input stepperInput__input"
                 type="text"
@@ -63,7 +63,7 @@ export default class ShoppingCartItem extends Component {
                 value={quantity}
                 onChange={this.onChange}
               />
-              <button className="button button--addOnRight" onClick={this.increment} >+</button>
+              <button className="stepperButton button--addOnRight" onClick={this.increment} >+</button>
             </div>
 
             {/* <div>productId : {this.props.item.productId}</div>*/}

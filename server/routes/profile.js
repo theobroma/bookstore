@@ -41,6 +41,14 @@ router.post('/orders', authenticate, (req, res) => {
     .catch(err => res.status(500).json({ error: err }));
 });
 
+router.delete('/orders', authenticate, (req, res) => {
+  User.findByIdAndUpdate(req.decodedId,
+    { $set: { orders: [] }}
+    )
+  .then(() => res.json({ success: true }))
+  .catch(err => res.status(500).json({ error: err }));
+});
+
 
 /* router.get('/avatar', (req,res,next)=> {
   Avatar.findById("589262c0a4f2031080aed8dc").then((doc) => {

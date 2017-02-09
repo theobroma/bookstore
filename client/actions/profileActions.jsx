@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { FETCH_PROFILE, FETCH_AVATAR, FETCH_ORDERS } from '../actions/types';
+import { FETCH_PROFILE, FETCH_AVATAR, FETCH_ORDERS, DELETE_ORDERS } from '../actions/types';
 
 export function fetchProfile() {
   return (dispatch) => {
@@ -45,4 +45,16 @@ export function fetchAvatar() {
       console.log(error);
     });
   };
+}
+
+export function deleteOrders() {
+  return dispatch => axios.delete(`${apiPrefix}/profile/orders`)
+    .then(() => {
+      dispatch({
+        type: DELETE_ORDERS
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

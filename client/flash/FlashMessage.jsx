@@ -15,9 +15,7 @@ class FlashMessage extends React.Component {
   render() {
     const { id, type, text } = this.props.message;
     return (
-      <div
-        className={classnames('notification', { 'is-success': type === 'success' }, { 'is-danger': type === 'error' })}
-      >
+      <div className={classnames('notification', { 'is-success': type === 'success' }, { 'is-danger': type === 'error' })} >
         <button onClick={this.onClick} className="delete" />
         {text}
       </div>

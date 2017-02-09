@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, QUANTITY_INCREMENT, QUANTITY_DECREMENT } from './types';
+import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, DELETE_CART, QUANTITY_INCREMENT, QUANTITY_DECREMENT } from './types';
 
 export function onAddToCart(data) {
   return dispatch => axios.post(`${apiPrefix}/cart`, data);
@@ -40,6 +40,19 @@ export function onItemDelete(productId) {
     .then(() => {
       dispatch({
         type: DELETE_CART_ITEM,
+        productId
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+export function cartDelete(productId) {
+  return dispatch => axios.delete(`${apiPrefix}/cart`)
+    .then(() => {
+      dispatch({
+        type: DELETE_CART,
         productId
       });
     })

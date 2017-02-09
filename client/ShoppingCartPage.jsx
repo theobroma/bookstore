@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCart, onItemDelete, onIncrement, onDecrement, addOrder } from './actions/shoppingCartActions';
+import { fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, cartDelete } from './actions/shoppingCartActions';
 import ShoppingCartItem from './ShoppingCartItem';
 import { addFlashMessage } from './actions/flashMessages';
 import Book from './Book';
@@ -28,6 +28,7 @@ class ShoppingCartPage extends React.Component {
             type: 'success',
             text: 'Заказ принят'
           });
+          this.props.cartDelete();
         },
         err => this.setState({ errors: err.response.data, isLoading: false })
       );
@@ -43,23 +44,29 @@ class ShoppingCartPage extends React.Component {
         onDecrement={this.props.onDecrement}
       />
     );
+
+    const emptyCart = (<div>У-у-упс! Корзина пуста.</div>);
+    const fullCart = (
+      <div className="columns is-multiline">
+        <div className="cartItemList column is-12">
+          {cartList}
+        </div>
+        <div className="cartFooter column is-12">
+          <h4>Итоговая сумма </h4>
+          <div className="cartTotal">
+            {this.getTotal()}
+          </div>
+          <button className="button is-success is-outlined" onClick= {this.checkout}>
+            Оформить заказ
+          </button>
+        </div>
+        <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
+      </div>
+    );
+
     return (
       <div className="container">
-        <div className="columns is-multiline">
-          <div className="cartItemList column is-12">
-            {cartList}
-          </div>
-          <div className="cartFooter column is-12">
-            <h4>Итоговая сумма </h4>
-            <div className="cartTotal">
-              {this.getTotal()}
-            </div>
-            <button className="button is-success is-outlined" onClick= {this.checkout}>
-              Оформить заказ
-            </button>
-          </div>
-          <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
-        </div>
+        { this.props.shoppingCart.length===0 ? emptyCart : fullCart }
       </div>
     );
   }
@@ -72,5 +79,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, addFlashMessage
+  fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, addFlashMessage, cartDelete
 })(ShoppingCartPage);

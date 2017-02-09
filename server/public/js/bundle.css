@@ -113,81 +113,33 @@ ol {
   font-weight: normal;
   font-style: normal; }
 
-.send-button {
-  /*     border: 0;
-    font-size: 0.875rem;
-    background: none;
-    background-color: #e3b3e3;
-    border-color: #333;
-    cursor: pointer;
-    padding: 0.625em 1em;
-    text-decoration: none;
-    font-weight: 600;
-    text-shadow: none;
-    display: inline-block;
-    outline: none;
-    -webkit-appearance: none;
-    -webkit-font-smoothing: antialiased;
-    border-radius: 0.3125em;
-    box-shadow:
-        inset 0 -1px 0 rgba(#000,.3); */
-  padding: .3em .8em;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #58a linear-gradient(rgba(255, 255, 255, 0.2), transparent);
-  border-radius: .2em;
-  box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
-  color: white;
-  text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
-  font-size: 125%;
-  line-height: 1.5;
-  transition: all .2s;
-  color: #fff;
-  background-color: #6995a9; }
-  .send-button:hover {
-    background: #4696db; }
+/* .send-button {
+    @include button();
+    color:#fff;
+    background-color:#6995a9;
+    &:hover {
+        background: #4696db;
+    }
+}
+
 
 .btn-default {
-  /*     border: 0;
-    font-size: 0.875rem;
-    background: none;
-    background-color: #e3b3e3;
-    border-color: #333;
-    cursor: pointer;
-    padding: 0.625em 1em;
-    text-decoration: none;
-    font-weight: 600;
-    text-shadow: none;
-    display: inline-block;
-    outline: none;
-    -webkit-appearance: none;
-    -webkit-font-smoothing: antialiased;
-    border-radius: 0.3125em;
-    box-shadow:
-        inset 0 -1px 0 rgba(#000,.3); */
-  padding: .3em .8em;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #58a linear-gradient(rgba(255, 255, 255, 0.2), transparent);
-  border-radius: .2em;
-  box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
-  color: white;
-  text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
-  font-size: 125%;
-  line-height: 1.5;
-  transition: all .2s;
-  border: 1px dashed #ffffff;
-  background: #8DDE24;
-  color: #ffffff;
-  font-family: "Roboto Regular";
-  font-size: 1.125em;
-  border-radius: 6px;
-  text-align: center; }
-  .btn-default:hover {
-    background: #9CED9C; }
-
-.button {
-  display: flex;
-  justify-content: center; }
-
+    @include button();
+    border: 1px dashed #ffffff;
+    background: #8DDE24;
+    color: #ffffff;
+    font-family: "Roboto Regular";
+    font-size:em(18);
+    border-radius: 6px;
+    text-align: center;
+    &:hover {
+        background: #9CED9C;
+    }
+}
+.button{
+    display:flex;
+    justify-content:center;
+} */
 .cartItem {
   justify-content: space-between;
   padding: 10px;
@@ -225,7 +177,7 @@ ol {
   width: 60px;
   text-align: center; }
 
-.button {
+.stepperButton {
   cursor: pointer;
   padding: 5px 15px;
   color: #FFFFFF;
@@ -318,6 +270,9 @@ ol {
 # Layout
 # ===============================================
 */
+.message-list {
+  margin-bottom: 2rem; }
+
 .catalog-item figure {
   margin: 0;
   flex-flow: column wrap; }

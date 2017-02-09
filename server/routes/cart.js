@@ -32,6 +32,14 @@ router.post('/', authenticate, (req, res) => {
     .catch(err => res.status(500).json({ error: err }));
 });
 
+router.delete('/', authenticate, (req, res) => {
+  User.findByIdAndUpdate(req.decodedId,
+    { $set: { cart: [] }}
+    )
+  .then(() => res.json({ success: true }))
+  .catch(err => res.status(500).json({ error: err }));
+});
+
 router.delete('/:productId', authenticate, (req, res) => {
   User.findByIdAndUpdate(req.decodedId,
     { $pull: { cart: { productId: req.params.productId } } },
