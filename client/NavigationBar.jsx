@@ -59,7 +59,7 @@ class NavigationBar extends Component {
 
     const guestLinks = (
       <div className={classnames('nav-right', 'nav-menu', { 'is-active': this.state.open })} >
-        <Link className="nav-item is-tab" to={'/signup'}>Signup</Link>
+        <Link className="nav-item is-tab" to={'/signup'}>Регистрация</Link>
         <Link className="nav-item is-tab" to={'/login'}>
           <span className="icon">
             <i className="fa fa-sign-in" />

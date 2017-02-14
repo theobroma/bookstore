@@ -53,7 +53,7 @@ export default class SignupForm extends Component {
       <div>
         <div className="columns" >
           <div className="column is-6 is-offset-3">
-            <h4 className="subtitle">Sign Up</h4>
+            <h4 className="subtitle">Регистрация</h4>
             <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                 field="username"
@@ -81,7 +81,7 @@ export default class SignupForm extends Component {
               />
               <p className="control">
                 <button className={classnames('button', 'is-success', { 'is-loading': this.state.isLoading })}>
-                  Login
+                  Продолжить
                 </button>
               </p>
             </form>
@@ -89,7 +89,7 @@ export default class SignupForm extends Component {
         </div>
         <div className="columns" >
           <div className="column is-6 is-offset-3">
-            {<pre>{JSON.stringify(this.state, '', 4)}</pre>}
+            {/*<pre>{JSON.stringify(this.state, '', 4)}</pre>*/}
           </div>
         </div>
       </div>

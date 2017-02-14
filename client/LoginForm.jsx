@@ -48,9 +48,8 @@ class LoginForm extends Component {
       <div>
         <div className="columns" >
           <div className="column is-6 is-offset-3">
-            <h4 className="subtitle">Log in</h4>
+            <h4 className="subtitle">Вход</h4>
             <form onSubmit={this.onSubmit}>
-              <h1>Login</h1>
 
               { errors.form && <div className="notification is-danger">{errors.form}</div> }
 
@@ -73,7 +72,7 @@ class LoginForm extends Component {
               />
               <p className="control">
                 <button className={classnames('button', 'is-success')} disabled={isLoading}>
-                  Login
+                  Войти
                 </button>
               </p>
             </form>
