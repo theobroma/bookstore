@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -21,9 +22,8 @@ module.exports = {
       loader: 'style-loader!css-loader',
       exclude: [/node_modules/, /public/]
     }, {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
-      /*loaders: ["style", "css", "sass", "resolve-url"],*/
+      test: /\.(scss|sass)$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
       exclude: [/node_modules/, /public/]
     }, {
       test: [/\.jsx?$/, /\.es6$/],
@@ -52,6 +52,12 @@ module.exports = {
     dns: 'empty'
   },
   devtool: isDevelopment ? 'cheap-module-source-map' : null,
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 version']
+    })
+  ],
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
