@@ -11,35 +11,25 @@ class InitializeFromStateForm extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>First Name</label>
-          <div>
+      <div className="column">
+        <form onSubmit={handleSubmit}>
+          <label className="label">First Name</label>
+          <p className="control">
             <Field name="firstname" component="input" type="text" placeholder="First Name" className={classnames('input')} />
-          </div>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <div>
+          </p>
+          <label className="label">Last Name</label>
+          <p className="control">
             <Field name="lastname" component="input" type="text" placeholder="Last Name" className={classnames('input')} />
-          </div>
-        </div>
-        <div>
-          <label>Username</label>
-          <div>
-            <Field name="username" component="input" type="text" placeholder="Username" />
-          </div>
-        </div>
-        <div>
+          </p>
           <button
             type="submit"
             disabled={pristine || submitting}
             className={classnames('button', 'is-success')}
           >Submit
           </button>
-        </div>
-        {<pre>{JSON.stringify(this.props, '', 4)}</pre>}
-      </form>
+        {/*<pre>{JSON.stringify(this.props, '', 4)}</pre>*/}
+        </form>
+      </div>
     );
   }
 }

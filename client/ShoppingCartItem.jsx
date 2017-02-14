@@ -57,7 +57,7 @@ export default class ShoppingCartItem extends Component {
             <div className="stepperInput">
               <button className="stepperButton button--addOnLeft" onClick={this.decrement} >-</button>
               <input
-                className="input stepperInput__input"
+                className="stepperInput__input"
                 type="text"
                 name="quantity"
                 value={quantity}

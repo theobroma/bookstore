@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
 import Layout from './Layout';
 import App from './App';
 import BookPage from './BookPage';
@@ -19,6 +19,7 @@ import requireAuth from './utils/requireAuth';
 export const routes = (
   <div>
     <Route path="/" component={Layout}>
+      <IndexRedirect to="/books" />
       <Route path="/books" component={App} />
       <Route path="/books/:book" component={BookPage} />
       <Route path="/genres" component={GenreList} />

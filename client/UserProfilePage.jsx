@@ -25,13 +25,10 @@ class UserProfilePage extends Component {
   render() {
     return (
       <div className="container">
-        <div className="columns is-multiline" >
-          <div className="column is-12">
+        <div className="columns" >
+          <div className="column is-half is-offset-3">
             <h4 className="subtitle">Настройки профиля</h4>
             <InitializeFromStateForm onSubmit={this.handleSubmit} />
-          </div>
-          <div className="column is-12">
-            gdfg
           </div>
         </div>
       </div>

@@ -16,11 +16,15 @@ var _avatar = require('../models/avatar');
 
 var _avatar2 = _interopRequireDefault(_avatar);
 
+var _authenticate = require('../middlewares/authenticate');
+
+var _authenticate2 = _interopRequireDefault(_authenticate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
 
-router.get('/', function (req, res) {
+router.get('/', _authenticate2.default, function (req, res) {
   _user2.default.find({ _id: req.decodedId }).then(function (user) {
     var username = user[0].username;
     var firstname = user[0].firstName;
@@ -30,10 +34,35 @@ router.get('/', function (req, res) {
   });
 });
 
-router.post('/', function (req, res) {
+router.post('/', _authenticate2.default, function (req, res) {
   _user2.default.findByIdAndUpdate(req.decodedId, { $set: { firstName: req.body.firstname,
       lastName: req.body.lastname }
   }, { new: true }).then(function () {
+    return res.json({ success: true });
+  }).catch(function (err) {
+    return res.status(500).json({ error: err });
+  });
+});
+
+router.get('/orders', _authenticate2.default, function (req, res) {
+  _user2.default.find({ _id: req.decodedId }).then(function (user) {
+    var orders = user[0].orders;
+    res.send(orders);
+  });
+});
+
+router.post('/orders', _authenticate2.default, function (req, res) {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $push: { orders: {
+        list: req.body
+      } } }, { safe: true, upsert: true }).then(function () {
+    return res.json({ success: true });
+  }).catch(function (err) {
+    return res.status(500).json({ error: err });
+  });
+});
+
+router.delete('/orders', _authenticate2.default, function (req, res) {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { orders: [] } }).then(function () {
     return res.json({ success: true });
   }).catch(function (err) {
     return res.status(500).json({ error: err });

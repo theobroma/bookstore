@@ -51,6 +51,14 @@ router.post('/', _authenticate2.default, function (req, res) {
   });
 });
 
+router.delete('/', _authenticate2.default, function (req, res) {
+  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { cart: [] } }).then(function () {
+    return res.json({ success: true });
+  }).catch(function (err) {
+    return res.status(500).json({ error: err });
+  });
+});
+
 router.delete('/:productId', _authenticate2.default, function (req, res) {
   _user2.default.findByIdAndUpdate(req.decodedId, { $pull: { cart: { productId: req.params.productId } } }, { safe: true }).then(function () {
     return res.json({ success: true });

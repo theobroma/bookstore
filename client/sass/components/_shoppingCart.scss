@@ -37,12 +37,16 @@
   }
 }
 
-  .stepperInput__input {
-    border-left: 0;
-    border-right: 0;
-    width: 60px;
-    text-align: center;
-  }
+.stepperInput__input {
+  border-left: 0;
+  border-right: 0;
+  width: 60px;
+  text-align: center;
+  border: 1px solid #D7DBDD;
+  padding: 0 10px;
+  border-radius: 0;
+  box-shadow: none;
+}
 
 .stepperButton {
   cursor: pointer;
@@ -62,11 +66,4 @@
 .button--addOnRight {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.input {
-  border: 1px solid #D7DBDD;
-  padding: 0 10px;
-  border-radius: 0;
-  box-shadow: none;
 }
