@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-const TextFieldGroup = ({ field, value, label, error, type, onChange }) => (
+const TextFieldGroup = ({ field, value, label, error, type, icon, onChange }) => (
   <div>
     <label className="label">{label}</label>
     <p className="control has-icon">
@@ -14,7 +14,7 @@ const TextFieldGroup = ({ field, value, label, error, type, onChange }) => (
         onChange={onChange}
       />
       <span className="icon is-small">
-        <i className="fa fa-envelope" />
+        <i className={`fa ${icon}`} />
       </span>
       { error && <span className="help is-danger">{error}</span>}
     </p>

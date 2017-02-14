@@ -60,6 +60,7 @@ class LoginForm extends Component {
                 value={identifier}
                 error={errors.identifier}
                 onChange={this.onChange}
+                icon="fa-envelope"
               />
               <TextFieldGroup
                 field="password"
@@ -68,6 +69,7 @@ class LoginForm extends Component {
                 error={errors.password}
                 onChange={this.onChange}
                 type="password"
+                icon="fa-lock"
               />
               <p className="control">
                 <button className={classnames('button', 'is-success')} disabled={isLoading}>

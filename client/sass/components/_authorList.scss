@@ -1,4 +1,27 @@
-.contributor-info {
-	border: 1px solid #e3e3e3;
-	background-image: url(images/author_bg.jpg); /* Путь к фоновому изображению */
+.authorDetailHeader {
+	position: relative;
+}
+.authorBg{
+	z-index: 1;
+	height: 100%;
+	left: 0;
+  top: 0;
+  position: absolute;
+  overflow: hidden;
+	&::before {
+		width: 1000%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    content: '';
+    z-index: 2;
+    left: 0;
+    top: 0;
+    position: absolute;
+	}
+	img {
+		width: 100%;
+    filter: blur(10px);
+    transition: all .2s;
+    min-height: 100%;
+	}
 }

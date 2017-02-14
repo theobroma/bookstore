@@ -61,6 +61,7 @@ export default class SignupForm extends Component {
                 value={username}
                 error={errors.username}
                 onChange={this.onChange}
+                icon="fa-envelope"
               />
               <TextFieldGroup
                 field="password"
@@ -68,6 +69,7 @@ export default class SignupForm extends Component {
                 value={password}
                 error={errors.password}
                 onChange={this.onChange}
+                icon="fa-lock"
               />
               <TextFieldGroup
                 field="passwordConfirm"
@@ -75,6 +77,7 @@ export default class SignupForm extends Component {
                 value={passwordConfirm}
                 error={errors.passwordConfirm}
                 onChange={this.onChange}
+                icon="fa-lock"
               />
               <p className="control">
                 <button className={classnames('button', 'is-success', { 'is-loading': this.state.isLoading })}>
