@@ -28,22 +28,6 @@ var _morgan = require('morgan');
 
 var _morgan2 = _interopRequireDefault(_morgan);
 
-var _expressSession = require('express-session');
-
-var _expressSession2 = _interopRequireDefault(_expressSession);
-
-var _cookieParser = require('cookie-parser');
-
-var _cookieParser2 = _interopRequireDefault(_cookieParser);
-
-var _webpack = require('webpack');
-
-var _webpack2 = _interopRequireDefault(_webpack);
-
-var _webpack3 = require('../webpack.config');
-
-var _webpack4 = _interopRequireDefault(_webpack3);
-
 var _decodedId = require('./middlewares/decodedId');
 
 var _decodedId2 = _interopRequireDefault(_decodedId);
@@ -78,6 +62,8 @@ var _cart2 = _interopRequireDefault(_cart);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/*import webpack from 'webpack';
+import config from '../webpack.config';*/
 var app = (0, _express2.default)();
 // HMR
 /* const compiler = webpack(config);
@@ -103,15 +89,9 @@ app.use(_decodedId2.default);
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
-app.use((0, _cookieParser2.default)());
-app.use((0, _expressSession2.default)({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
 
 app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, 'public', 'favicon.png')));
-app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
+app.use(_express2.default.static(_path2.default.join(__dirname, 'public', 'build')));
 
 // All routes in the end
 app.use('/api/books', _books2.default);
@@ -123,8 +103,8 @@ app.use('/api/profile', _profile2.default);
 app.use('/api/cart', _cart2.default);
 
 // Redirect all non api requests to the index
-app.get('/*', function (req, res) {
-  res.sendFile(_path2.default.join(__dirname, './views/index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(_path2.default.join(__dirname, 'public', 'build', 'index.html'));
 });
 
 app.listen(app.get('port'), function () {
