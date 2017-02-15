@@ -8,10 +8,10 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV === 'development';
 console.log(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
 
-module.exports = {
-  entry: "./client/index",
+var configs = {
+  entry: path.resolve(__dirname, 'client/index'),
   output: {
-    path: path.join(__dirname, './server/public/js'),
+    path: path.resolve(__dirname, 'server/public/build'),
     filename: 'bundle.js',
     publicPath: './'
   },
@@ -70,3 +70,17 @@ module.exports = {
     })
   ]
 };
+
+if (!isDevelopment) {
+  configs.plugins.push(
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: false,
+      compress: { warnings: false },
+      sourceMap: false
+    })
+  )
+}
+
+module.exports = configs;

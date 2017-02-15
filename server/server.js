@@ -5,10 +5,8 @@ import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
-import session from 'express-session';
-import cookieParser from 'cookie-parser';
-import webpack from 'webpack';
-import config from '../webpack.config';
+/*import webpack from 'webpack';
+import config from '../webpack.config';*/
 import decodedId from './middlewares/decodedId';
 // server routes
 import books from './routes/books';
@@ -44,15 +42,9 @@ app.use(decodedId);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(session({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public', 'build')));
 
 // All routes in the end
 app.use('/api/books', books);
@@ -64,13 +56,12 @@ app.use('/api/profile', profile);
 app.use('/api/cart', cart);
 
 // Redirect all non api requests to the index
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'build','index.html'));
 });
 
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
-
 
 module.exports = app;
