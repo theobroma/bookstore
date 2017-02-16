@@ -20,3 +20,4 @@ var schema = new Schema({
 });
 
 module.exports = _mongoose2.default.model('Product', schema);
+//# sourceMappingURL=product.js.map

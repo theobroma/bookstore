@@ -15,3 +15,4 @@ var schema = new Schema({
 });
 
 module.exports = _mongoose2.default.model('Avatar', schema);
+//# sourceMappingURL=avatar.js.map

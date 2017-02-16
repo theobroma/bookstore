@@ -30,3 +30,4 @@ router.get('/:genre', function (req, res) {
 });
 
 exports.default = router;
+//# sourceMappingURL=genres.js.map

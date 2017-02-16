@@ -77,3 +77,4 @@ router.delete('/orders', _authenticate2.default, function (req, res) {
 });*/
 
 exports.default = router;
+//# sourceMappingURL=profile.js.map

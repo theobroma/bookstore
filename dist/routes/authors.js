@@ -30,3 +30,4 @@ router.get('/:author', function (req, res) {
 });
 
 exports.default = router;
+//# sourceMappingURL=authors.js.map

@@ -6,3 +6,4 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   jwtSecret: 'somesecretkeyforjsonwebtoken'
 };
+//# sourceMappingURL=config.js.map

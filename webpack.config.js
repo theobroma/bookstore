@@ -1,11 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const WebpackNotifierPlugin = require('webpack-notifier');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var WebpackNotifierPlugin = require('webpack-notifier');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const isDevelopment = NODE_ENV === 'development';
+var NODE_ENV = process.env.NODE_ENV || 'development';
+var isDevelopment = NODE_ENV === 'development';
 console.log(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
 
 var configs = {
@@ -42,6 +43,10 @@ var configs = {
     }, {
       test: /\.json$/,
       loader: 'json-loader'
+    }, {
+        test: /\.html$/,
+        loader: 'raw',
+        exclude: /node_modules/
     }]
   },
   resolve: {
@@ -65,6 +70,10 @@ var configs = {
       }
     }),
     new WebpackNotifierPlugin(),
+    new HtmlWebpackPlugin({
+      template: './static/index.html',
+      inject: 'body'
+    }),
     new ExtractTextPlugin('bundle.css', {
       disable: false
     })

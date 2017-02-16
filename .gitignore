@@ -42,3 +42,5 @@ etc/config.json
 .env
 #Public js folder
 server/public/js
+# Ignore Map Files
+*.map

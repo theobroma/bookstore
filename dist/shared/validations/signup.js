@@ -37,3 +37,4 @@ function validateInput(data) {
     isValid: (0, _isEmpty3.default)(errors)
   };
 }
+//# sourceMappingURL=signup.js.map

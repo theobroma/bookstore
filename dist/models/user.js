@@ -68,3 +68,4 @@ UserSchema.pre('save', function (next) {
 });
 
 module.exports = _mongoose2.default.model('User', UserSchema);
+//# sourceMappingURL=user.js.map
