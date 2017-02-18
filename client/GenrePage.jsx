@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import GenrePageItem from './GenrePageItem';
+import Hero from './common/hero';
 import api from './api';
 
 export default class GenrePage extends Component {
@@ -16,13 +17,15 @@ export default class GenrePage extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div className="contributor-info">
-          <h1 className="contributor-title">Жанр : {this.props.params.genre}</h1>
-        </div>
-        <div className="continious-list">
-          {this.state.items.map(item => (<GenrePageItem key={shortid.generate()} item={item} />))}
-        </div>
+      <div>
+        <Hero>Жанр : {this.props.params.genre}</Hero>
+        <section className="section">
+          <div className="container">
+            <div className="continious-list">
+              {this.state.items.map(item => (<GenrePageItem key={shortid.generate()} item={item} />))}
+            </div>
+          </div>
+        </section>
       </div>
     );
   }

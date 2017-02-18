@@ -25,3 +25,14 @@
     min-height: 100%;
 	}
 }
+.author-list {
+	& .box  {
+		margin-bottom: 2em;
+	}
+	& .image {
+		img {
+			height: 95px;
+			width: 71px;
+		}
+	}
+}

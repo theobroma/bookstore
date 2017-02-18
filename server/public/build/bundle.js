@@ -43016,7 +43016,7 @@
 	          { className: 'site-content' },
 	          _react2.default.createElement(
 	            'section',
-	            { className: 'section' },
+	            { className: 'section is-fullwidth' },
 	            _react2.default.createElement(_FlashMessagesList2.default, null),
 	            this.props.children
 	          )
@@ -43535,12 +43535,16 @@
 	        return _react2.default.createElement(_FlashMessage2.default, { key: message.id, message: message, deleteFlashMessage: _this2.props.deleteFlashMessage });
 	      });
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
+	        'section',
+	        { className: 'section' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'message-list' },
-	          messages
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'message-list' },
+	            messages
+	          )
 	        )
 	      );
 	    }
@@ -44305,6 +44309,10 @@
 
 	var _GenrePageItem2 = _interopRequireDefault(_GenrePageItem);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	var _api = __webpack_require__(554);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -44344,23 +44352,27 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'contributor-info' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'contributor-title' },
-	            '\u0416\u0430\u043D\u0440 : ',
-	            this.props.params.genre
-	          )
+	          _hero2.default,
+	          null,
+	          '\u0416\u0430\u043D\u0440 : ',
+	          this.props.params.genre
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'continious-list' },
-	          this.state.items.map(function (item) {
-	            return _react2.default.createElement(_GenrePageItem2.default, { key: _shortid2.default.generate(), item: item });
-	          })
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'continious-list' },
+	              this.state.items.map(function (item) {
+	                return _react2.default.createElement(_GenrePageItem2.default, { key: _shortid2.default.generate(), item: item });
+	              })
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -44464,6 +44476,10 @@
 
 	var _GenreListItem2 = _interopRequireDefault(_GenreListItem);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	var _api = __webpack_require__(554);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -44502,13 +44518,26 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
+	        null,
 	        _react2.default.createElement(
-	          'ul',
-	          { className: 'genres-list' },
-	          this.state.items.map(function (item) {
-	            return _react2.default.createElement(_GenreListItem2.default, { key: _shortid2.default.generate(), item: item });
-	          })
+	          _hero2.default,
+	          null,
+	          '\u0416\u0430\u043D\u0440\u044B'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              this.state.items.map(function (item) {
+	                return _react2.default.createElement(_GenreListItem2.default, { key: _shortid2.default.generate(), item: item });
+	              })
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -44781,6 +44810,10 @@
 
 	var _AuthorListItem2 = _interopRequireDefault(_AuthorListItem);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	var _api = __webpack_require__(554);
 
 	var _api2 = _interopRequireDefault(_api);
@@ -44819,14 +44852,22 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
-	        this.state.items.map(function (item) {
-	          return _react2.default.createElement(_AuthorListItem2.default, { key: _shortid2.default.generate(), item: item });
-	        }),
+	        null,
 	        _react2.default.createElement(
-	          'pre',
+	          _hero2.default,
 	          null,
-	          JSON.stringify(this.state, '', 4)
+	          '\u0410\u0432\u0442\u043E\u0440\u044B'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section author-list' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            this.state.items.map(function (item) {
+	              return _react2.default.createElement(_AuthorListItem2.default, { key: _shortid2.default.generate(), item: item });
+	            })
+	          )
 	        )
 	      );
 	    }
@@ -44881,10 +44922,10 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'columns' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'box' },
+	          { className: 'box column' },
 	          _react2.default.createElement(
 	            'article',
 	            { className: 'media' },
@@ -44904,9 +44945,17 @@
 	                'div',
 	                { className: 'content' },
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/authors/' + name },
-	                  name
+	                  'p',
+	                  null,
+	                  _react2.default.createElement(
+	                    'strong',
+	                    null,
+	                    _react2.default.createElement(
+	                      _reactRouter.Link,
+	                      { to: '/authors/' + name },
+	                      name
+	                    )
+	                  )
 	                )
 	              )
 	            )
@@ -64336,6 +64385,56 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 757 */,
+/* 758 */,
+/* 759 */,
+/* 760 */,
+/* 761 */,
+/* 762 */,
+/* 763 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(539);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Hero = function Hero(_ref) {
+	  var text = _ref.text,
+	      children = _ref.children;
+	  return _react2.default.createElement(
+	    'section',
+	    { className: 'hero is-light is-bold' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'hero-body' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'h1',
+	          { className: 'title' },
+	          children
+	        )
+	      )
+	    )
+	  );
+	};
+
+		exports.default = Hero;
 
 /***/ }
 /******/ ]);

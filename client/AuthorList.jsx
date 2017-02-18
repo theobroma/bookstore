@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import AuthorListItem from './AuthorListItem';
+import Hero from './common/hero';
 import api from './api';
 
 export default class AuthorList extends Component {
@@ -17,10 +18,13 @@ export default class AuthorList extends Component {
 
   render() {
     return (
-      <div className="container">
-        {this.state.items.map(item => (<AuthorListItem key={shortid.generate()} item={item} />)
-                )}
-        <pre>{JSON.stringify(this.state, '', 4)}</pre>
+      <div>
+        <Hero>Авторы</Hero>
+        <section className="section author-list">
+          <div className="container">
+            {this.state.items.map(item => (<AuthorListItem key={shortid.generate()} item={item} />))}
+          </div>
+        </section>
       </div>
     );
   }

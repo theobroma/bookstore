@@ -6,9 +6,8 @@ export default class AuthorListItem extends Component {
   render() {
     const { name, photo } = this.props.item;
     return (
-      <div>
-        {/* <p>Hello from AuthorListItem</p>*/}
-        <div className="box">
+      <div className="columns">
+        <div className="box column">
           <article className="media">
             <div className="media-left">
               <figure className="image">
@@ -17,7 +16,11 @@ export default class AuthorListItem extends Component {
             </div>
             <div className="media-content">
               <div className="content">
-                <Link to={`/authors/${name}`}>{name}</Link>
+                <p>
+                  <strong>
+                    <Link to={`/authors/${name}`}>{name}</Link>
+                  </strong>
+                </p>
               </div>
             </div>
           </article>
