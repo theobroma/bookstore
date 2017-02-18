@@ -1,26 +1,3 @@
-@charset "UTF-8";
-/* @import "_normalize"; */
-/*
-https://github.com/lolmaus/breakpoint-slicer
---------------------------------------------------------------------------------
- Breakpoint:   0                 400px     600px     800px       1050px
-               ├───────────────────┼─────────┼─────────┼───────────┼─────────>
- Slice #:                1         ·    2         3          4     ·    5
-               ·                   ·         ·         ·           ·
-               ·                   ·         ·  at(3)  ·           ·
-               ·                   ·         ├─────────┤           ·
-               ·                   ·         ·         ·           ·
-               ·                   ·         · from(3) ·           ·
-               ·                   ·         ├───────────────────────────────>
-               ·                   ·                   ·           ·
-               ·                   ·            to(3)  ·           ·
-               ├───────────────────────────────────────┤           ·
-                                   ·                               ·
-                                   ·         between(2, 4)         ·
-                                   ├───────────────────────────────┤
---------------------------------------------------------------------------------
-*/
-/* @import "../../../node_modules/bulma/bulma.sass"; */
 @media (min-width: 1001px) {
   .catalog-item figure, .catalog-list > .filter {
     display: -ms-flexbox;
@@ -99,8 +76,6 @@ ol {
         counter-increment: list3;
         content: counter(list1) "." counter(list2) "." counter(list3) ". "; }
 
-/* $fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome"; */
 @font-face {
   font-family: "Didot Bold";
   src: url(./0ca5d3ce1e4b26b2759ae4e921f8360b.ttf) format("truetype");
@@ -278,6 +253,17 @@ ol {
     transition: all .2s;
     min-height: 100%; }
 
+.author-list .box {
+  margin-bottom: 2em; }
+
+.author-list .image img {
+  height: 95px;
+  width: 71px; }
+
+.genre-item a {
+  color: #495c91;
+  font-size: 1.3rem; }
+
 .profile-order-details {
   border: 1px solid #e0e0e0;
   border-radius: 3px;
@@ -289,6 +275,41 @@ ol {
 .order-title {
   color: #3e77aa;
   font-size: 1.6rem; }
+
+.book-description {
+  background: #fd6462;
+  color: #faf000;
+  padding: 0 30px; }
+
+.book-single-title {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700; }
+
+.bottedLine {
+  height: 13px;
+  border-bottom: dotted 1px rgba(104, 97, 89, 0.3);
+  width: 100%;
+  position: relative;
+  top: -2px; }
+
+.text {
+  color: #000;
+  font-size: 13px;
+  line-height: 20px;
+  margin-right: 4px; }
+
+.leftTD {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -ms-flexbox;
+  display: flex; }
+
+.bookDescrTable {
+  margin: 30px 0; }
+  .bookDescrTable a {
+    color: #495c91;
+    font-size: 1rem; }
 
 .footer {
   background: #fff8e1;
@@ -303,8 +324,10 @@ ol {
 # Layout
 # ===============================================
 */
-.message-list {
-  margin-bottom: 2rem; }
+.center-xs {
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center; }
 
 .catalog-item figure {
   margin: 0;
