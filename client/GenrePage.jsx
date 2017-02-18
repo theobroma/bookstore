@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-import GenrePageItem from './GenrePageItem';
+import Book from './Book';
 import Hero from './common/hero';
 import api from './api';
 
@@ -21,8 +21,8 @@ export default class GenrePage extends Component {
         <Hero>Жанр : {this.props.params.genre}</Hero>
         <section className="section">
           <div className="container">
-            <div className="continious-list">
-              {this.state.items.map(item => (<GenrePageItem key={shortid.generate()} item={item} />))}
+            <div className="columns is-multiline">
+              {this.state.items.map(item => (<Book key={shortid.generate()} item={item} />))}
             </div>
           </div>
         </section>

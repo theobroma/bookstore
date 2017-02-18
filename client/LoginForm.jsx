@@ -48,7 +48,6 @@ class LoginForm extends Component {
       <div>
         <div className="columns" >
           <div className="column is-6 is-offset-3">
-            <h4 className="subtitle">Вход</h4>
             <form onSubmit={this.onSubmit}>
 
               { errors.form && <div className="notification is-danger">{errors.form}</div> }

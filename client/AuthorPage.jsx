@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-import AuthorPageItem from './AuthorPageItem';
+import Book from './Book';
+import AuthorListItem from './AuthorListItem';
 import api from './api';
 
 
@@ -23,25 +24,20 @@ export default class AuthorPage extends Component {
   render() {
     const { name, photo } = this.state.author;
     return (
-      <div>
-        <div className="authorDetailHeader">
-          <div className="authorBg">
-          </div>
+      <section>
+        <section className="section">
           <div className="container">
-            <div className="columns contributor-info" >
-              <img src={`/images/${photo}`} alt="" />
-              <h1 className="contributor-title">Автор: {name}</h1>
+            <AuthorListItem key={shortid.generate()} item={this.state.author} />
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <div className="columns is-multiline">
+              {this.state.items.map(item => (<Book key={shortid.generate()} item={item} />))}
             </div>
           </div>
-        </div>
-        <div className="authorDetailList">
-          <div className="container">
-            <div className="columns continious-list">
-              {this.state.items.map(item => (<AuthorPageItem key={shortid.generate()} item={item} />))}
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </section>
     );
   }
 }

@@ -276,6 +276,11 @@ ol {
   color: #3e77aa;
   font-size: 1.6rem; }
 
+.book-description {
+  background: #fd6462;
+  color: #faf000;
+  padding: 0 30px; }
+
 .footer {
   background: #fff8e1;
   color: #332; }
@@ -289,8 +294,10 @@ ol {
 # Layout
 # ===============================================
 */
-.section.is-fullwidth {
-  padding: 0 !important; }
+.center-xs {
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center; }
 
 .catalog-item figure {
   margin: 0;

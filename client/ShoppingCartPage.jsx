@@ -4,6 +4,7 @@ import { fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, cartDelete
 import ShoppingCartItem from './ShoppingCartItem';
 import { addFlashMessage } from './actions/flashMessages';
 import Book from './Book';
+import Hero from './common/hero';
 
 class ShoppingCartPage extends React.Component {
   constructor(props) {
@@ -65,9 +66,14 @@ class ShoppingCartPage extends React.Component {
     );
 
     return (
-      <div className="container">
-        { this.props.shoppingCart.length===0 ? emptyCart : fullCart }
-      </div>
+      <section>
+        <Hero>Корзина</Hero>
+        <section className="section">
+          <div className="container">
+            { this.props.shoppingCart.length===0 ? emptyCart : fullCart }
+          </div>
+        </section>
+      </section>
     );
   }
 }

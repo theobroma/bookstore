@@ -9,7 +9,7 @@ export default class Layout extends Component {
       <div>
         <Header />
         <div className="site-content">
-          <section className="section is-fullwidth">
+          <section>
             <FlashMessagesList />
             {this.props.children}
           </section>

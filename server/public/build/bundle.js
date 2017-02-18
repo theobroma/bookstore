@@ -43016,7 +43016,7 @@
 	          { className: 'site-content' },
 	          _react2.default.createElement(
 	            'section',
-	            { className: 'section is-fullwidth' },
+	            null,
 	            _react2.default.createElement(_FlashMessagesList2.default, null),
 	            this.props.children
 	          )
@@ -43503,6 +43503,10 @@
 
 	var _reactRedux = __webpack_require__(236);
 
+	var _classnames = __webpack_require__(539);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _FlashMessage = __webpack_require__(544);
 
 	var _FlashMessage2 = _interopRequireDefault(_FlashMessage);
@@ -43536,7 +43540,7 @@
 	      });
 	      return _react2.default.createElement(
 	        'section',
-	        { className: 'section' },
+	        { className: (0, _classnames2.default)({ 'section': this.props.messages.length !== 0 }) },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container' },
@@ -43717,12 +43721,16 @@
 	        return _react2.default.createElement(_Book2.default, { key: item._id, item: item, onAddToCart: _this2.props.onAddToCart });
 	      });
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
+	        'section',
+	        { className: 'section' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'columns is-multiline' },
-	          productsList
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'columns is-multiline' },
+	            productsList
+	          )
 	        )
 	      );
 	    }
@@ -44139,16 +44147,19 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
+	        'section',
+	        null,
 	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'BookPage'
-	        ),
-	        this.state.items.map(function (item) {
-	          return _react2.default.createElement(_BookPageItem2.default, { key: _shortid2.default.generate(), item: item });
-	        })
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            this.state.items.map(function (item) {
+	              return _react2.default.createElement(_BookPageItem2.default, { key: _shortid2.default.generate(), item: item });
+	            })
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -44206,35 +44217,47 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'book-single-item' },
+	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'book-single-info' },
-	          _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
+	          { className: 'columns' },
 	          _react2.default.createElement(
-	            'span',
-	            { className: 'book-single-title' },
-	            title
+	            'div',
+	            { className: 'column' },
+	            _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' })
 	          ),
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { className: 'book-author', to: '/authors/' + author.name },
-	            author.name
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/genres/' + genre },
-	            genre
+	            'div',
+	            { className: 'column' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'book-single-title' },
+	              title
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { className: 'book-single-author', to: '/authors/' + author.name },
+	              author.name
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/genres/' + genre },
+	              genre
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'book-single-description' },
+	          { className: 'columns center-xs' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'description-title' },
+	            { className: 'book-description' },
 	            '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435'
-	          ),
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'columns' },
 	          description
 	        )
 	      );
@@ -44305,9 +44328,9 @@
 
 	var _shortid2 = _interopRequireDefault(_shortid);
 
-	var _GenrePageItem = __webpack_require__(556);
+	var _Book = __webpack_require__(549);
 
-	var _GenrePageItem2 = _interopRequireDefault(_GenrePageItem);
+	var _Book2 = _interopRequireDefault(_Book);
 
 	var _hero = __webpack_require__(763);
 
@@ -44367,9 +44390,9 @@
 	            { className: 'container' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'continious-list' },
+	              { className: 'columns is-multiline' },
 	              this.state.items.map(function (item) {
-	                return _react2.default.createElement(_GenrePageItem2.default, { key: _shortid2.default.generate(), item: item });
+	                return _react2.default.createElement(_Book2.default, { key: _shortid2.default.generate(), item: item });
 	              })
 	            )
 	          )
@@ -44384,75 +44407,7 @@
 		exports.default = GenrePage;
 
 /***/ },
-/* 556 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(181);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var GenrePageItem = function (_Component) {
-	  _inherits(GenrePageItem, _Component);
-
-	  function GenrePageItem() {
-	    _classCallCheck(this, GenrePageItem);
-
-	    return _possibleConstructorReturn(this, (GenrePageItem.__proto__ || Object.getPrototypeOf(GenrePageItem)).apply(this, arguments));
-	  }
-
-	  _createClass(GenrePageItem, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$item = this.props.item,
-	          _id = _props$item._id,
-	          title = _props$item.title,
-	          genre = _props$item.genre,
-	          author = _props$item.author,
-	          thumbnail = _props$item.thumbnail,
-	          description = _props$item.description;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'continious-item' },
-	        _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-title', to: '/books/' + _id },
-	          title
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-author', to: '/authors/' + author.name },
-	          author.name
-	        )
-	      );
-	    }
-	  }]);
-
-	  return GenrePageItem;
-	}(_react.Component);
-
-		exports.default = GenrePageItem;
-
-/***/ },
+/* 556 */,
 /* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44624,9 +44579,13 @@
 
 	var _shortid2 = _interopRequireDefault(_shortid);
 
-	var _AuthorPageItem = __webpack_require__(560);
+	var _Book = __webpack_require__(549);
 
-	var _AuthorPageItem2 = _interopRequireDefault(_AuthorPageItem);
+	var _Book2 = _interopRequireDefault(_Book);
+
+	var _AuthorListItem = __webpack_require__(562);
+
+	var _AuthorListItem2 = _interopRequireDefault(_AuthorListItem);
 
 	var _api = __webpack_require__(554);
 
@@ -44673,39 +44632,28 @@
 	          photo = _state$author.photo;
 
 	      return _react2.default.createElement(
-	        'div',
+	        'section',
 	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'authorDetailHeader' },
-	          _react2.default.createElement('div', { className: 'authorBg' }),
+	          'section',
+	          { className: 'section' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'columns contributor-info' },
-	              _react2.default.createElement('img', { src: '/images/' + photo, alt: '' }),
-	              _react2.default.createElement(
-	                'h1',
-	                { className: 'contributor-title' },
-	                '\u0410\u0432\u0442\u043E\u0440: ',
-	                name
-	              )
-	            )
+	            _react2.default.createElement(_AuthorListItem2.default, { key: _shortid2.default.generate(), item: this.state.author })
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'authorDetailList' },
+	          'section',
+	          { className: 'section' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'container' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'columns continious-list' },
+	              { className: 'columns is-multiline' },
 	              this.state.items.map(function (item) {
-	                return _react2.default.createElement(_AuthorPageItem2.default, { key: _shortid2.default.generate(), item: item });
+	                return _react2.default.createElement(_Book2.default, { key: _shortid2.default.generate(), item: item });
 	              })
 	            )
 	          )
@@ -44720,73 +44668,7 @@
 		exports.default = AuthorPage;
 
 /***/ },
-/* 560 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(181);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var AuthorPageItem = function (_Component) {
-	  _inherits(AuthorPageItem, _Component);
-
-	  function AuthorPageItem() {
-	    _classCallCheck(this, AuthorPageItem);
-
-	    return _possibleConstructorReturn(this, (AuthorPageItem.__proto__ || Object.getPrototypeOf(AuthorPageItem)).apply(this, arguments));
-	  }
-
-	  _createClass(AuthorPageItem, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props$item = this.props.item,
-	          _id = _props$item._id,
-	          title = _props$item.title,
-	          author = _props$item.author,
-	          thumbnail = _props$item.thumbnail;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'continious-item' },
-	        _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' }),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-title', to: '/books/' + _id },
-	          title
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'book-author', to: '/authors/' + author.name },
-	          author.name
-	        )
-	      );
-	    }
-	  }]);
-
-	  return AuthorPageItem;
-	}(_react.Component);
-
-		exports.default = AuthorPageItem;
-
-/***/ },
+/* 560 */,
 /* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44998,6 +44880,10 @@
 
 	var _SignupForm2 = _interopRequireDefault(_SignupForm);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45024,8 +44910,21 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(_SignupForm2.default, { userSignupRequest: userSignupRequest, addFlashMessage: addFlashMessage })
+	        null,
+	        _react2.default.createElement(
+	          _hero2.default,
+	          null,
+	          '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(_SignupForm2.default, { userSignupRequest: userSignupRequest, addFlashMessage: addFlashMessage })
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -45182,11 +45081,6 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'column is-6 is-offset-3' },
-	            _react2.default.createElement(
-	              'h4',
-	              { className: 'subtitle' },
-	              '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F'
-	            ),
 	            _react2.default.createElement(
 	              'form',
 	              { onSubmit: this.onSubmit },
@@ -48189,6 +48083,10 @@
 
 	var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48210,9 +48108,22 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(_LoginForm2.default, null)
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          _hero2.default,
+	          null,
+	          '\u0412\u0445\u043E\u0434'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(_LoginForm2.default, null)
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -48334,11 +48245,6 @@
 	            'div',
 	            { className: 'column is-6 is-offset-3' },
 	            _react2.default.createElement(
-	              'h4',
-	              { className: 'subtitle' },
-	              '\u0412\u0445\u043E\u0434'
-	            ),
-	            _react2.default.createElement(
 	              'form',
 	              { onSubmit: this.onSubmit },
 	              errors.form && _react2.default.createElement(
@@ -48456,6 +48362,10 @@
 
 	var _profile = __webpack_require__(505);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48497,20 +48407,28 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
+	        'section',
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'columns' },
+	          _hero2.default,
+	          null,
+	          '\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u0440\u043E\u0444\u0438\u043B\u044F'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column is-half is-offset-3' },
+	            { className: 'container' },
 	            _react2.default.createElement(
-	              'h4',
-	              { className: 'subtitle' },
-	              '\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u0440\u043E\u0444\u0438\u043B\u044F'
-	            ),
-	            _react2.default.createElement(_UserProfileForm2.default, { onSubmit: this.handleSubmit })
+	              'div',
+	              { className: 'columns' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'column is-half is-offset-3' },
+	                _react2.default.createElement(_UserProfileForm2.default, { onSubmit: this.handleSubmit })
+	              )
+	            )
 	          )
 	        )
 	      );
@@ -48743,6 +48661,10 @@
 
 	var _Book2 = _interopRequireDefault(_Book);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48846,9 +48768,22 @@
 	      );
 
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        this.props.shoppingCart.length === 0 ? emptyCart : fullCart
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          _hero2.default,
+	          null,
+	          '\u041A\u043E\u0440\u0437\u0438\u043D\u0430'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            this.props.shoppingCart.length === 0 ? emptyCart : fullCart
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -49065,6 +49000,10 @@
 
 	var _OrdersPageItem2 = _interopRequireDefault(_OrdersPageItem);
 
+	var _hero = __webpack_require__(763);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
 	var _profileActions = __webpack_require__(638);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49119,15 +49058,6 @@
 	            'div',
 	            { className: 'column' },
 	            _react2.default.createElement(
-	              'h1',
-	              { className: 'title' },
-	              '\u041C\u043E\u0438 \u0437\u0430\u043A\u0430\u0437\u044B'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'column' },
-	            _react2.default.createElement(
 	              'button',
 	              { className: 'button is-warning is-outlined', onClick: this.deleteAll },
 	              _react2.default.createElement(
@@ -49150,9 +49080,22 @@
 	        )
 	      );
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        this.props.orders.length === 0 ? emptyOrders : fullOrders
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          _hero2.default,
+	          null,
+	          '\u041C\u043E\u0438 \u0437\u0430\u043A\u0430\u0437\u044B'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            this.props.orders.length === 0 ? emptyOrders : fullOrders
+	          )
+	        )
 	      );
 	    }
 	  }]);

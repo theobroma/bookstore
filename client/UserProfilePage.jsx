@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addFlashMessage } from './actions/flashMessages';
 import InitializeFromStateForm from './UserProfileForm';
 import { submitForm } from './reducers/profile';
+import Hero from './common/hero';
 
 class UserProfilePage extends Component {
   handleSubmit = (values) => {
@@ -24,14 +25,18 @@ class UserProfilePage extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="columns" >
-          <div className="column is-half is-offset-3">
-            <h4 className="subtitle">Настройки профиля</h4>
-            <InitializeFromStateForm onSubmit={this.handleSubmit} />
+      <section>
+        <Hero>Настройки профиля</Hero>
+        <section className="section">
+          <div className="container">
+            <div className="columns" >
+              <div className="column is-half is-offset-3">
+                <InitializeFromStateForm onSubmit={this.handleSubmit} />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     );
   }
 }

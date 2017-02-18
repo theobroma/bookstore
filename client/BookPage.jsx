@@ -18,10 +18,13 @@ export default class BookPage extends Component {
 
   render() {
     return (
-      <div className="container">
-        <p>BookPage</p>
-        {this.state.items.map(item => (<BookPageItem key={shortid.generate()} item={item} />))}
-      </div>
+      <section>
+        <section className="section">
+          <div className="container">
+            {this.state.items.map(item => (<BookPageItem key={shortid.generate()} item={item} />))}
+          </div>
+        </section>
+      </section>
     );
   }
 }

@@ -5,17 +5,23 @@ export default class BookPageItem extends Component {
   render() {
     const { id, title, genre, author, thumbnail, description } = this.props.item;
     return (
-      <div className="book-single-item">
-        <div className="book-single-info">
+      <div>
+      <div className="columns">
+        <div className="column">
           <img src={`/images/${thumbnail}`} alt="" />
+        </div>
+        <div className="column">
           <span className="book-single-title">{title}</span>
-          <Link className="book-author"to={`/authors/${author.name}`}>{author.name}</Link>
+          <Link className="book-single-author"to={`/authors/${author.name}`}>{author.name}</Link>
           <Link to={`/genres/${genre}`}>{genre}</Link>
         </div>
-        <div className="book-single-description">
-          <div className="description-title">Описание</div>
-          {description}
-        </div>
+      </div>
+      <div className="columns center-xs">
+        <div className="book-description">Описание</div>
+      </div>
+      <div className="columns">
+        {description}
+      </div>
       </div>
     );
   }

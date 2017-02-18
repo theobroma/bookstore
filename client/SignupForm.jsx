@@ -53,7 +53,6 @@ export default class SignupForm extends Component {
       <div>
         <div className="columns" >
           <div className="column is-6 is-offset-3">
-            <h4 className="subtitle">Регистрация</h4>
             <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                 field="username"
