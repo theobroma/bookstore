@@ -44223,26 +44223,74 @@
 	          { className: 'columns' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column' },
+	            { className: 'column is-3' },
 	            _react2.default.createElement('img', { src: '/images/' + thumbnail, alt: '' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'column' },
+	            { className: 'column is-9' },
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'book-single-title' },
 	              title
 	            ),
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'book-single-author', to: '/authors/' + author.name },
-	              author.name
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/genres/' + genre },
-	              genre
+	              'div',
+	              { className: 'bookDescrTable' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'columns is-mobile' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'column is-3' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'leftTD' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'text' },
+	                      '\u0410\u0432\u0442\u043E\u0440'
+	                    ),
+	                    _react2.default.createElement('div', { className: 'bottedLine' })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'column' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { className: 'book-single-author', to: '/authors/' + author.name },
+	                    author.name
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'columns is-mobile' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'column is-3' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'leftTD' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'text' },
+	                      '\u0416\u0430\u043D\u0440'
+	                    ),
+	                    _react2.default.createElement('div', { className: 'bottedLine' })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'column' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/genres/' + genre },
+	                    genre
+	                  )
+	                )
+	              )
 	            )
 	          )
 	        ),

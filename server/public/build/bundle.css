@@ -281,6 +281,36 @@ ol {
   color: #faf000;
   padding: 0 30px; }
 
+.book-single-title {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700; }
+
+.bottedLine {
+  height: 13px;
+  border-bottom: dotted 1px rgba(104, 97, 89, 0.3);
+  width: 100%;
+  position: relative;
+  top: -2px; }
+
+.text {
+  color: #000;
+  font-size: 13px;
+  line-height: 20px;
+  margin-right: 4px; }
+
+.leftTD {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -ms-flexbox;
+  display: flex; }
+
+.bookDescrTable {
+  margin: 30px 0; }
+  .bookDescrTable a {
+    color: #495c91;
+    font-size: 1rem; }
+
 .footer {
   background: #fff8e1;
   color: #332; }
