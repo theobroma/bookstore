@@ -10,7 +10,7 @@ var NODE_ENV = process.env.NODE_ENV || 'development';
 var isDevelopment = NODE_ENV === 'development';
 console.log(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
 
-
+//different output path for production and development
 var outputPath = path.resolve(__dirname, 'server/public/build');
 if (!isDevelopment) {
   outputPath = path.resolve(__dirname, 'dist/public/build');
