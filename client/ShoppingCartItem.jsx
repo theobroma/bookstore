@@ -9,7 +9,6 @@ export default class ShoppingCartItem extends Component {
       chkbox: false
     };
     this.onChange = this.onChange.bind(this);
-    this.handleChangeChk = this.handleChangeChk.bind(this);
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
@@ -17,10 +16,6 @@ export default class ShoppingCartItem extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleChangeChk() {
-    this.setState({ chkbox: !this.state.chkbox });
   }
 
   decrement(e) {
@@ -38,44 +33,44 @@ export default class ShoppingCartItem extends Component {
     const { productId, title, thumbnail, price, quantity } = this.props.item;
     return (
       <div className={classnames('cartItem', { active: this.state.chkbox })}>
-        <div className="columns">
-          <div className="column is-12-mobile is-7-desktop cart-item__section">
-            <div className="checkBox">
-              <input type="checkbox" checked={this.state.chkbox} onChange={this.handleChangeChk} />
-            </div>
-            <div className="thumbnail">
-              <img className="cartItem__thumbnail" src={`/images/${thumbnail}`} alt="" />
-            </div>
-            <div className="link">
-              <Link className="cartItem__title" to={`/books/${productId}`}>{title}</Link>
-            </div>
-            <div className="price">
-              <span className="cartItem__price">Цена:${price}</span>
+        <div className="columns middle-xs center-xs">
+          <div className="column is-6">
+            <div className="columns middle-xs center-xs">
+              <div className="column is-4">
+                <img className="cartItem__thumbnail" src={`/images/${thumbnail}`} alt="" />
+              </div>
+              <div className="column is-4">
+                <Link className="cartItem__title" to={`/books/${productId}`}>{title}</Link>
+              </div>
+              <div className="column is-4">
+                <span className="cartItem__price">Цена:${price}</span>
+              </div>
             </div>
           </div>
-          <div className="column 12-mobile is5-desktop cart-item__section">
-            <div className="stepperInput">
-              <button className="stepperButton button--addOnLeft" onClick={this.decrement} >-</button>
-              <input
-                className="stepperInput__input"
-                type="text"
-                name="quantity"
-                value={quantity}
-                onChange={this.onChange}
-              />
-              <button className="stepperButton button--addOnRight" onClick={this.increment} >+</button>
+        <div className="column is-6">
+          <div className="columns middle-xs center-xs">
+            <div className="column is-6">
+              <div className="stepperInput center-xs">
+                <button className="stepperButton button--addOnLeft" onClick={this.decrement} >-</button>
+                <input
+                  className="stepperInput__input"
+                  type="text"
+                  name="quantity"
+                  value={quantity}
+                  onChange={this.onChange}
+                />
+                <button className="stepperButton button--addOnRight" onClick={this.increment} >+</button>
+              </div>
             </div>
-
-            {/* <div>productId : {this.props.item.productId}</div>*/}
-            <div className="cartItem__delete">
+            <div className="column is-6 cartItem__delete">
               <button className="button is-danger is-outlined" onClick={this.deleteItem}>
                 <span className="icon is-small">
                   <i className="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
-            {/* <pre>{JSON.stringify(this.state, "", 4)}</pre>*/}
-          </div>
+        </div>
+        </div>
         </div>
       </div>
     );
