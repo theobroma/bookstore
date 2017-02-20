@@ -46,3 +46,5 @@ server/public/js
 *.map
 # Ignore Dist folder(it only needs for deploy)
 dist
+# Ignore Public folder(it only needs for development)
+server/public
