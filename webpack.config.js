@@ -3,16 +3,23 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var WebpackNotifierPlugin = require('webpack-notifier');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 var isDevelopment = NODE_ENV === 'development';
 console.log(`process.env.NODE_ENV = ${process.env.NODE_ENV}`);
 
+
+var outputPath = path.resolve(__dirname, 'server/public/build');
+if (!isDevelopment) {
+  outputPath = path.resolve(__dirname, 'dist/public/build');
+}
+
 var configs = {
   entry: path.resolve(__dirname, 'client/index'),
   output: {
-    path: path.resolve(__dirname, 'server/public/build'),
+    path: outputPath,
     filename: 'bundle.js',
     publicPath: './'
   },
@@ -76,7 +83,10 @@ var configs = {
     }),
     new ExtractTextPlugin('bundle.css', {
       disable: false
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'static/assets', to: outputPath  }
+    ])
   ]
 };
 
