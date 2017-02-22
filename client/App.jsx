@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import _chunk from 'lodash/chunk';
 import Book from './Book';
 
-import { fetchProducts } from './actions/productsActions';
+import { fetchProducts, loadProducts } from './actions/productsActions';
 import { onAddToCart } from './actions/shoppingCartActions';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchProducts();
+    this.props.loadProducts();
   }
 
   render() {
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchProducts, onAddToCart })(App);
+export default connect(mapStateToProps, { fetchProducts, loadProducts, onAddToCart })(App);

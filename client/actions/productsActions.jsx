@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { SET_PRODUCTS } from '../actions/types';
+import { SET_PRODUCTS, LOAD } from '../actions/types';
 
 export function fetchProducts() {
   return function (dispatch) {
@@ -15,4 +15,10 @@ export function fetchProducts() {
       console.log(error);
     });
   };
+}
+
+
+// Action Creators
+export function loadProducts() {
+  return {type: LOAD};
 }

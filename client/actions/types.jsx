@@ -18,3 +18,6 @@ export const QUANTITY_INCREMENT = 'QUANTITY_INCREMENT';
 export const FETCH_AVATAR = 'FETCH_AVATAR';
 export const FETCH_ORDERS = 'FETCH_ORDERS';
 export const DELETE_ORDERS = 'DELETE_ORDERS';
+
+export const LOAD = 'LOAD';
+export const FETCH_SUCCEEDED = 'FETCH_SUCCEEDED';

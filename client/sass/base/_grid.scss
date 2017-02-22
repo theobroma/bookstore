@@ -1,25 +1,4 @@
 // @import "../../../node_modules/bulma/bulma.sass";
-%clearfix {
-	&::after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-}
-%list-inline {
-		padding-left: 0;
-		list-style: none;
-		&>li {
-				display: inline-block;
-		}
-}
-%abs-center {
-		position: absolute;
-		top:50%;
-		left:50%;
-		transform: translate(-50%,-50%);
-}
-
 %flex {
 		@include from(d) {
 				display:flex;
