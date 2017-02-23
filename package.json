@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "debug": "node --debug dist/server.js",
-    "dev": "nodemon server/server.js --exec babel-node",
+    "server": "nodemon server/server.js --exec babel-node",
     "build": "npm run clean && babel -d ./dist ./server -s && npm run prodpack",
     "clean": "rimraf ./dist",
     "seed": "babel-node server/seed/product-embedded-seeder.js",
