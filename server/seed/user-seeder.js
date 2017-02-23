@@ -1,8 +1,14 @@
 /* eslint no-loop-func:0 */
 import mongoose from 'mongoose';
 import User from '../models/user';
+import config from '../../etc/config.json';
 
-mongoose.connect('mongodb://localhost/bookstore');
+const mongoUri = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+
+mongoose.connect(mongoUri, (error) => {
+  if (error) console.error(error);
+  else console.log('mongo connected');
+});
 
 const users = [
   new User({

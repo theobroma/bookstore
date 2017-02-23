@@ -3,11 +3,18 @@ import mongoose from 'mongoose';
 import fs from 'fs';
 import path from 'path';
 import Avatar from '../models/avatar';
+import config from '../../etc/config.json';
 
 const imgPath = `${path.resolve(__dirname, '../public/images/')}/default-avatar.jpg`;
 
 
-mongoose.connect('mongodb://localhost/bookstore');
+const mongoUri = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+
+mongoose.connect(mongoUri, (error) => {
+  if (error) console.error(error);
+  else console.log('mongo connected');
+});
+
 
 const avatars = [
   new Avatar({

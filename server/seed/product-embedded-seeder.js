@@ -2,9 +2,15 @@
 /* eslint no-loop-func:0 */
 const Product = require('../models/product');
 const mongoose = require('mongoose');
+import config from '../../etc/config.json';
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/bookstore');
+const mongoUri = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+
+mongoose.connect(mongoUri, (error) => {
+  if (error) console.error(error);
+  else console.log('mongo connected');
+});
 
 const products = [
   new Product({
