@@ -11,7 +11,7 @@ export default class Layout extends Component {
         <div className="site-content">
           <section>
             <FlashMessagesList />
-            {this.props.children}
+            {React.cloneElement(this.props.children,this.props)}
           </section>
         </div>
         <Footer />

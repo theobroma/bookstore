@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import shortid from 'shortid';
 import BookPageItem from './BookPageItem';
 import api from './api';
+import { loadProducts } from './actions/productsActions';
 
-export default class BookPage extends Component {
+class BookPage extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [] };
@@ -11,9 +13,8 @@ export default class BookPage extends Component {
 
   componentDidMount() {
     const bookID = this.props.params.book;
-    api.bookByID(bookID).then((result) => {
-      this.setState({ items: result.data });
-    });
+    const book = this.props.products.filter(item => item._id === bookID);
+    this.setState({ items: book });
   }
 
   render() {
@@ -28,3 +29,12 @@ export default class BookPage extends Component {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    products: state.products
+  };
+}
+
+export default connect(mapStateToProps, { loadProducts })(BookPage);

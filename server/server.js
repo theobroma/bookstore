@@ -5,8 +5,6 @@ import bodyParser from 'body-parser';
 import favicon from 'serve-favicon';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
-/*import webpack from 'webpack';
-import config from '../webpack.config';*/
 import decodedId from './middlewares/decodedId';
 // server routes
 import books from './routes/books';
@@ -16,20 +14,13 @@ import authors from './routes/authors';
 import auth from './routes/auth';
 import profile from './routes/profile';
 import cart from './routes/cart';
+import config from '../etc/config.json';
 
 const app = express();
-// HMR
-/* const compiler = webpack(config);
-
-app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));*/
 
 app.set('port', (process.env.PORT || 8080));
 mongoose.Promise = global.Promise;
-const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookstore';
+const mongoUri = process.env.MONGOLAB_URI || `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
 
 /* mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);*/
 

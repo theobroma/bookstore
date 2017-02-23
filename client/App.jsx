@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import _chunk from 'lodash/chunk';
 import Book from './Book';
 
 import { fetchProducts, loadProducts } from './actions/productsActions';

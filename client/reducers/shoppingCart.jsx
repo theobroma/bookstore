@@ -13,9 +13,7 @@ export default function cart(state = initialState, action = {}) {
     case QUANTITY_DECREMENT:
       return action.payload;
     case QUANTITY_INCREMENT:
-      const myid = _findIndex(state, ['productId', action.payload]);
-      const nequqnt = state[myid].quantity + 1;
-      return [...state, state[0]];
+      return action.payload;
     default: return state;
   }
 }

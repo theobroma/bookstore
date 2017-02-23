@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import jwtDecode from 'jwt-decode';
 import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';

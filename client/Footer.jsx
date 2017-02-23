@@ -5,7 +5,14 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <div className="container">
-          <p>My awesome footer</p>
+          <div className="columns center-xs">
+            <a className = "forkme-link" href="https://github.com/theobroma/bookstore">
+              <span className="icon">
+                <i className="fa fa-github" />
+              </span>
+              Project repository
+            </a>
+          </div>
         </div>
       </div>
     );
