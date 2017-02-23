@@ -1,6 +1,3 @@
-# BookStore
-Приложение для отображения книг. [Демо](https://rocky-wildwood-63572.herokuapp.com/)
-
 # Описание задания
 [Описание задания](task.md). Оригинал взят [отсюда](https://gist.github.com/geksilla/72a0cb882d2b7d8b4336)
 
