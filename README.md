@@ -1,6 +1,3 @@
-# Описание задания
-[Описание задания](task.md). Оригинал взят [отсюда](https://gist.github.com/geksilla/72a0cb882d2b7d8b4336)
-
 ### Getting Started
 1. Clone this repository.
 2. Run `npm install`.
