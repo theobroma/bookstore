@@ -11,6 +11,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import ReactGA from 'react-ga';
 
 import rootReducer from './rootReducer';
 import { routes } from './routes';
@@ -43,9 +44,19 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
 }
 
+//Google Analytics
+ReactGA.initialize('UA-92549843-1');
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+}
+
+
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+    <Router history={browserHistory} routes={routes} onUpdate={logPageView} />
   </Provider>,
   document.getElementById('root')
 );
