@@ -11,9 +11,24 @@ export default function cart(state = initialState, action = {}) {
     case DELETE_CART:
       return initialState;
     case QUANTITY_DECREMENT:
-      return action.payload;
+      let pos = state.map(function(e) { return e.productId===action.productId; }).indexOf(true);
+      let newQuantity=1;
+      if(state[pos].quantity>2){
+        newQuantity = state[pos].quantity-1;
+      }
+      let newArrPrev = state.slice(0,pos);
+      let newArrNext = state.slice(pos+1);
+      let newObj = {...state[pos],quantity:newQuantity};
+      newArrPrev.push(newObj);
+      return  [...newArrPrev, ...newArrNext];
     case QUANTITY_INCREMENT:
-      return action.payload;
+      pos = state.map(function(e) { return e.productId===action.productId; }).indexOf(true);
+      newQuantity = state[pos].quantity+1;
+      newArrPrev = state.slice(0,pos);
+      newArrNext = state.slice(pos+1);
+      newObj = {...state[pos],quantity:newQuantity};
+      newArrPrev.push(newObj);
+      return  [...newArrPrev, ...newArrNext];
     default: return state;
   }
 }

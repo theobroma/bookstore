@@ -9,14 +9,14 @@ export function onAddToCart(data) {
 export function onIncrement(productId) {
   return dispatch => dispatch({
     type: QUANTITY_INCREMENT,
-    payload: productId
+    productId
   });
 }
 
 export function onDecrement(productId) {
   return dispatch => dispatch({
     type: QUANTITY_DECREMENT,
-    payload: productId
+    productId
   });
 }
 
