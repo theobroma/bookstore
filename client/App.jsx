@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   render() {
-    const productsList = this.props.products.map(item =>
+    const productsList = this.props.products.data.map(item =>
       <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
     );
     return (

@@ -1,9 +1,34 @@
-import { SET_PRODUCTS, LOAD, FETCH_SUCCEEDED } from '../actions/types';
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../actions/types';
+const initialState = {
+  data: [],
+  dataFetched: false,
+  isFetching: false,
+  error: false
+}
 
-export default function products(state = [], action = {}) {
+export default function products (state = initialState, action) {
   switch (action.type) {
-    case FETCH_SUCCEEDED:
-      return action.payload;
-    default: return state;
+    case FETCHING_DATA:
+      console.log('Reducer Fetching Data');
+      return {
+        ...state,
+        data: [],
+        isFetching: true
+      }
+    case FETCHING_DATA_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        data: action.data
+      }
+    case FETCHING_DATA_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: true
+      }
+    default:
+      return state
   }
 }
+

@@ -1,24 +1,9 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { SET_PRODUCTS, LOAD } from '../actions/types';
-
-export function fetchProducts() {
-  return function (dispatch) {
-    axios.get(`${apiPrefix}/books`)
-    .then((response) => {
-      dispatch({
-        type: SET_PRODUCTS,
-        payload: response.data
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  };
-}
-
+import { FETCHING_DATA } from '../actions/types';
 
 // Action Creators
 export function loadProducts() {
-  return {type: LOAD};
+  console.log('Action loadProducts');
+  return {type: FETCHING_DATA};
 }
