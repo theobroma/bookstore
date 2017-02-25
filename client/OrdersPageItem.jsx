@@ -8,6 +8,12 @@ export default class OrdersPageItem  extends Component {
     super(props);
   }
 
+  getTotal() {
+    return this.props.item.list.reduce((total, elem) =>
+      total + (elem.price * elem.quantity),
+      0).toFixed(2);
+  }
+
   render() {
     const { _id, orderId, date, list } = this.props.item;
     const goodsList = list.map(item =>
@@ -20,6 +26,9 @@ export default class OrdersPageItem  extends Component {
           <div className="column is-9 profile-order-heading">
             Заказ № {orderId}
             {goodsList}
+            <div className="order-total-sum">
+              Итого к оплате : {this.getTotal()}
+            </div>
           </div>
           <div className=" column is-3 profile-order-status">
             Выполнен {moment(date).format('LLL')}

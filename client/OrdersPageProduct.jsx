@@ -9,7 +9,7 @@ export default class OrdersPageProduct  extends Component {
   render() {
     const { productId, title, thumbnail, price, quantity } = this.props.item;
     return (
-      <div className="column is-12">
+      <div className="column is-12 dashed-bottom">
         <div className="columns">
           <div className="column is-3">
             <Link to={`/books/${productId}`}>
@@ -27,10 +27,10 @@ export default class OrdersPageProduct  extends Component {
                   {price}
                 </div>
                 <div className="column">
-                  {quantity}
+                  {quantity} шт.
                 </div>
                 <div className="column">
-                  {price}
+                  {price*quantity}
                 </div>
             </div>
 

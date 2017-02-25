@@ -32,6 +32,7 @@ router.post('/', authenticate, (req, res) => {
     .catch(err => res.status(500).json({ error: err }));
 });
 
+
 router.delete('/', authenticate, (req, res) => {
   User.findByIdAndUpdate(req.decodedId,
     { $set: { cart: [] }}

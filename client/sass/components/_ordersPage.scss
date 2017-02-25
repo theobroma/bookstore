@@ -2,6 +2,13 @@
 	border: 1px solid #e0e0e0;
 	border-radius:3px;
 	margin-bottom: 1.6em;
+	&:hover {
+		border-color: #a5c8e8;
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, .4);
+	}
+}
+.profile-order-status {
+	border-left: 1px solid #e4e8ea;
 }
 .order-thumbnail {
 	max-width: 70px;
@@ -9,4 +16,7 @@
 .order-title{
 	color: #3e77aa;
 	font-size: 1.6rem;
+}
+.dashed-bottom{
+	border-bottom: 1px dashed #e5e5e5;
 }

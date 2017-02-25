@@ -48,12 +48,11 @@ export function onItemDelete(productId) {
     });
 }
 
-export function cartDelete(productId) {
+export function cartDelete() {
   return dispatch => axios.delete(`${apiPrefix}/cart`)
     .then(() => {
       dispatch({
-        type: DELETE_CART,
-        productId
+        type: DELETE_CART
       });
     })
     .catch((error) => {
