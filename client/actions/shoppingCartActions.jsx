@@ -1,9 +1,16 @@
 import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, DELETE_CART, QUANTITY_INCREMENT, QUANTITY_DECREMENT } from './types';
+import { ADD_TO_CART, SET_CART, DELETE_CART_ITEM, DELETE_CART, QUANTITY_INCREMENT, QUANTITY_DECREMENT, FETCHING_CART } from './types';
 
-export function onAddToCart(data) {
+/*export function onAddToCart(data) {
   return dispatch => axios.post(`${apiPrefix}/cart`, data);
+}*/
+
+export function  onAddToCart(item) {
+  return {
+    type: ADD_TO_CART,
+    item
+  };
 }
 
 export function onIncrement(productId) {
@@ -20,7 +27,7 @@ export function onDecrement(productId) {
   });
 }
 
-export function fetchCart() {
+/*export function fetchCart() {
   return function (dispatch) {
     axios.get(`${apiPrefix}/cart`)
     .then((response) => {
@@ -33,7 +40,14 @@ export function fetchCart() {
       console.log(error);
     });
   };
+}*/
+
+// Action Creators
+export function loadCart() {
+  return {type: FETCHING_CART};
 }
+
+
 
 export function onItemDelete(productId) {
   return dispatch => axios.delete(`${apiPrefix}/cart/${productId}`)

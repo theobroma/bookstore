@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, cartDelete } from './actions/shoppingCartActions';
+import { loadCart, onItemDelete, onIncrement, onDecrement, addOrder, cartDelete } from './actions/shoppingCartActions';
 import ShoppingCartItem from './ShoppingCartItem';
 import { addFlashMessage } from './actions/flashMessages';
 import Book from './Book';
@@ -14,16 +14,16 @@ class ShoppingCartPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCart();
+    this.props.loadCart();
   }
 
   getTotal() {
-    return this.props.shoppingCart.reduce((total, elem) =>
+    return this.props.shoppingCart.data.reduce((total, elem) =>
       total + (elem.price * elem.quantity),
       0).toFixed(2);
   }
   checkout() {
-    this.props.addOrder(this.props.shoppingCart).then(
+    this.props.addOrder(this.props.shoppingCart.data).then(
         () => {
           this.props.addFlashMessage({
             type: 'success',
@@ -36,7 +36,7 @@ class ShoppingCartPage extends React.Component {
   }
 
   render() {
-    const cartList = this.props.shoppingCart.map(item =>
+    const cartList = this.props.shoppingCart.data.map(item =>
       <ShoppingCartItem
         key={item._id}
         item={item}
@@ -61,7 +61,7 @@ class ShoppingCartPage extends React.Component {
             Оформить заказ
           </button>
         </div>
-        <pre>{JSON.stringify(this.props.shoppingCart, '', 4)}</pre>
+        <pre>{/*JSON.stringify(this.props.shoppingCart, '', 4)*/}</pre>
       </div>
     );
 
@@ -85,5 +85,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  fetchCart, onItemDelete, onIncrement, onDecrement, addOrder, addFlashMessage, cartDelete
+  loadCart, onItemDelete, onIncrement, onDecrement, addOrder, addFlashMessage, cartDelete
 })(ShoppingCartPage);

@@ -13,7 +13,7 @@ class BookPage extends Component {
 
   componentDidMount() {
     const bookID = this.props.params.book;
-    const book = this.props.products.filter(item => item._id === bookID);
+    const book = this.props.products.data.filter(item => item._id === bookID);
     this.setState({ items: book });
   }
 

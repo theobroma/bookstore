@@ -19,7 +19,7 @@ router.get('/', authenticate, (req, res) => {
 });
 
 // Убрать дубли товаров
-router.post('/', authenticate, (req, res) => {
+/*router.post('/', authenticate, (req, res) => {
   User.findByIdAndUpdate(req.decodedId,
     { $push: { cart: {
       productId: req.body.productId,
@@ -30,7 +30,17 @@ router.post('/', authenticate, (req, res) => {
     { safe: true, upsert: true })
     .then(() => res.json({ success: true }))
     .catch(err => res.status(500).json({ error: err }));
+});*/
+
+router.post('/', authenticate, (req, res) => {
+  User.findByIdAndUpdate(req.decodedId,
+    { $set: { cart: req.body}},
+    { safe: true, upsert: true })
+    /*.then(() => res.json({ success: true }))*/
+    .then( (data) => res.send(req.body) )
+    .catch(err => res.status(500).json({ error: err }));
 });
+
 
 
 router.delete('/', authenticate, (req, res) => {

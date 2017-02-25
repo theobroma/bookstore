@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import Book from './Book';
 
 import { fetchProducts, loadProducts } from './actions/productsActions';
-import { onAddToCart } from './actions/shoppingCartActions';
+import { onAddToCart, loadCart } from './actions/shoppingCartActions';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.loadProducts();
+    this.props.loadCart();
   }
 
   render() {
@@ -36,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchProducts, loadProducts, onAddToCart })(App);
+export default connect(mapStateToProps, { fetchProducts, loadProducts, onAddToCart, loadCart })(App);

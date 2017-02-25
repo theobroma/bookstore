@@ -9,7 +9,6 @@ const initialState = {
 export default function products (state = initialState, action) {
   switch (action.type) {
     case FETCHING_DATA:
-      console.log('Reducer Fetching Data');
       return {
         ...state,
         data: [],
