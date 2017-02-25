@@ -38,14 +38,24 @@ router.get('/', _authenticate2.default, function (req, res) {
 });
 
 // Убрать дубли товаров
+/*router.post('/', authenticate, (req, res) => {
+  User.findByIdAndUpdate(req.decodedId,
+    { $push: { cart: {
+      productId: req.body.productId,
+      title: req.body.title,
+      price: req.body.price,
+      thumbnail: req.body.thumbnail
+    } } },
+    { safe: true, upsert: true })
+    .then(() => res.json({ success: true }))
+    .catch(err => res.status(500).json({ error: err }));
+});*/
+
 router.post('/', _authenticate2.default, function (req, res) {
-  _user2.default.findByIdAndUpdate(req.decodedId, { $push: { cart: {
-        productId: req.body.productId,
-        title: req.body.title,
-        price: req.body.price,
-        thumbnail: req.body.thumbnail
-      } } }, { safe: true, upsert: true }).then(function () {
-    return res.json({ success: true });
+  _user2.default.findByIdAndUpdate(req.decodedId, { $set: { cart: req.body } }, { safe: true, upsert: true })
+  /*.then(() => res.json({ success: true }))*/
+  .then(function (data) {
+    return res.send(req.body);
   }).catch(function (err) {
     return res.status(500).json({ error: err });
   });
