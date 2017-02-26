@@ -52,10 +52,6 @@ export function* watchSaveCart() {
   yield takeEvery(QUANTITY_INCREMENT, saveCart)
 }
 
-
-
-
-
 // 3. root saga
 // single entry point to start all Sagas at once
 export default function* rootSaga() {

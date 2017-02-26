@@ -66,7 +66,7 @@ export default function products (state = initialState, action) {
     case FETCHING_CART:
       return {
         ...state,
-        data: [],
+/*        data: [],*/
         isFetching: true
       }
     case FETCHING_CART_SUCCESS:
