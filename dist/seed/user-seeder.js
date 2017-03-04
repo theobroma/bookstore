@@ -24,8 +24,8 @@ _mongoose2.default.connect(mongoUri, function (error) {
 var users = [new _user2.default({
   username: 'admin@example.com',
   password: '111',
-  firstName: 'Sasha',
-  lastName: 'Siryj',
+  firstName: '',
+  lastName: '',
   cart: [{
     productId: '587a68ddb33d051a0c7c03d8',
     title: 'Марсианские хроники',

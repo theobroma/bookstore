@@ -44,7 +44,8 @@ router.post('/', function (req, res) {
       if (_bcryptjs2.default.compareSync(password, passwordDigest)) {
         var token = _jsonwebtoken2.default.sign({
           id: userId,
-          username: userName
+          username: userName,
+          role: ["admin", "editor"]
         }, _config2.default.jwtSecret);
         res.json({ token: token });
       } else {
