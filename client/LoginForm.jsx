@@ -24,7 +24,7 @@ class LoginForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(
-        res => this.context.router.push('/'),
+        res => this.context.router.push('/books'),
         err => this.setState({ errors: err.response.data.errors, isLoading: false })
       );
     }
@@ -45,37 +45,35 @@ class LoginForm extends Component {
   render() {
     const { errors, identifier, password, isLoading } = this.state;
     return (
-      <div>
-        <div className="columns" >
-          <div className="column is-6 is-offset-3">
-            <form onSubmit={this.onSubmit}>
+      <div className="columns" >
+        <div className="column is-6 is-offset-3">
+          <form onSubmit={this.onSubmit}>
 
-              { errors.form && <div className="notification is-danger">{errors.form}</div> }
+            { errors.form && <div className="notification is-danger">{errors.form}</div> }
 
-              <TextFieldGroup
-                field="identifier"
-                label="Username / Email"
-                value={identifier}
-                error={errors.identifier}
-                onChange={this.onChange}
-                icon="fa-envelope"
-              />
-              <TextFieldGroup
-                field="password"
-                label="Password"
-                value={password}
-                error={errors.password}
-                onChange={this.onChange}
-                type="password"
-                icon="fa-lock"
-              />
-              <p className="control">
-                <button className={classnames('button', 'is-success')} disabled={isLoading}>
-                  Войти
-                </button>
-              </p>
-            </form>
-          </div>
+            <TextFieldGroup
+              field="identifier"
+              label="Username / Email"
+              value={identifier}
+              error={errors.identifier}
+              onChange={this.onChange}
+              icon="fa-envelope"
+            />
+            <TextFieldGroup
+              field="password"
+              label="Password"
+              value={password}
+              error={errors.password}
+              onChange={this.onChange}
+              type="password"
+              icon="fa-lock"
+            />
+            <p className="control">
+              <button className={classnames('button', 'is-success')} disabled={isLoading}>
+                Войти
+              </button>
+            </p>
+          </form>
         </div>
       </div>
     );

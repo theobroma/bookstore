@@ -19,7 +19,7 @@ import requireAuth from './utils/requireAuth';
 export const routes = (
   <div>
     <Route path="/" component={Layout}>
-      <IndexRedirect to="/books" />
+      <IndexRedirect to="/login" />
       <Route path="/books" component={App} />
       <Route path="/books/:book" component={BookPage} />
       <Route path="/genres" component={GenreList} />
