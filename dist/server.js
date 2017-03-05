@@ -60,14 +60,19 @@ var _cart = require('./routes/cart');
 
 var _cart2 = _interopRequireDefault(_cart);
 
+var _log = require('./routes/log');
+
+var _log2 = _interopRequireDefault(_log);
+
 var _config = require('../etc/config.json');
 
 var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// server routes
 var app = (0, _express2.default)();
+// server routes
+
 
 app.set('port', process.env.PORT || 8080);
 _mongoose2.default.Promise = global.Promise;
@@ -95,6 +100,7 @@ app.use('/api/authors', _authors2.default);
 app.use('/api/auth', _auth2.default);
 app.use('/api/profile', _profile2.default);
 app.use('/api/cart', _cart2.default);
+app.use('/api/log', _log2.default);
 
 // Redirect all non api requests to the index
 app.get('*', function (req, res) {

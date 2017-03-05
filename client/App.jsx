@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addFlashMessage } from './actions/flashMessages';
 import Book from './Book';
 
 import { fetchProducts, loadProducts } from './actions/productsActions';
@@ -13,7 +14,7 @@ class App extends React.Component {
 
   render() {
     const productsList = this.props.products.data.map(item =>
-      <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} />
+      <Book key={item._id} item={item} onAddToCart={this.props.onAddToCart} addFlashMessage={addFlashMessage} />
     );
     return (
       <section className="section">
@@ -37,4 +38,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchProducts, loadProducts, onAddToCart, loadCart })(App);
+export default connect(mapStateToProps, { fetchProducts, loadProducts, onAddToCart, loadCart, addFlashMessage })(App);

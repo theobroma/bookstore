@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+
 export default class Book extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,6 @@ export default class Book extends Component {
   onClick() {
     const { _id, title, genre, author, thumbnail, description, price } = this.props.item;
     this.props.onAddToCart({ productId: _id, title, thumbnail, price });
-    /*console.log('item _id', this.props.item._id);*/
   }
 
   render() {

@@ -20,6 +20,10 @@ var _user = require('../models/user');
 
 var _user2 = _interopRequireDefault(_user);
 
+var _authlog = require('../models/authlog');
+
+var _authlog2 = _interopRequireDefault(_authlog);
+
 var _config = require('../config');
 
 var _config2 = _interopRequireDefault(_config);
@@ -47,6 +51,11 @@ router.post('/', function (req, res) {
           username: userName,
           role: ["admin", "editor"]
         }, _config2.default.jwtSecret);
+        //save auth to authlog
+        var newAuthlog = new _authlog2.default({
+          username: userName
+        });
+        newAuthlog.save();
         res.json({ token: token });
       } else {
         res.status(401).json({ errors: { form: 'Invalid Credentials' } });
