@@ -2,6 +2,7 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/user';
+import Authlog from '../models/authlog';
 import config from '../config';
 
 const router = express.Router();
@@ -22,6 +23,11 @@ router.post('/', (req, res) => {
           username: userName,
           role: ["admin","editor"]
         }, config.jwtSecret);
+        //save auth to authlog
+        const newAuthlog = new Authlog({
+          username: userName
+        });
+        newAuthlog.save();
         res.json({ token });
       } else {
         res.status(401).json({ errors: { form: 'Invalid Credentials' } });

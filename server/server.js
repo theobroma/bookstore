@@ -14,6 +14,7 @@ import authors from './routes/authors';
 import auth from './routes/auth';
 import profile from './routes/profile';
 import cart from './routes/cart';
+import log from './routes/log';
 import config from '../etc/config.json';
 
 const app = express();
@@ -45,6 +46,7 @@ app.use('/api/authors', authors);
 app.use('/api/auth', auth);
 app.use('/api/profile', profile);
 app.use('/api/cart', cart);
+app.use('/api/log', log);
 
 // Redirect all non api requests to the index
 app.get('*', (req, res) => {
