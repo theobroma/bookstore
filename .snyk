@@ -1,0 +1,28 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - stylelint-webpack-plugin > stylelint > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - redux-form > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - html-webpack-plugin > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - mongoose > async > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - redux > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - stylelint-webpack-plugin > stylelint > doiuse > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - stylelint-webpack-plugin > stylelint > postcss-reporter > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - stylelint-webpack-plugin > stylelint > table > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - stylelint-webpack-plugin > stylelint > stylehacks > postcss-reporter > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
+    - stylelint-webpack-plugin > stylelint > colorguard > postcss-reporter > lodash:
+        patched: '2019-07-04T05:26:45.159Z'
