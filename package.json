@@ -17,7 +17,9 @@
     "eslint": "./node_modules/.bin/eslint client/**/*.jsx   ",
     "eslint:server": "./node_modules/.bin/eslint server/**/*.js",
     "eslint:serverfix": "./node_modules/.bin/eslint --fix server/**/*.js",
-    "eslint:fix": "./node_modules/.bin/eslint --fix client/**/*.jsx"
+    "eslint:fix": "./node_modules/.bin/eslint --fix client/**/*.jsx",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -82,7 +84,8 @@
     "webpack": "1.14.0",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
-    "webpack-notifier": "^1.5.0"
+    "webpack-notifier": "^1.5.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -115,5 +118,6 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
-  }
+  },
+  "snyk": true
 }
