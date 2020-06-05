@@ -24,3 +24,5 @@ patch:
         patched: '2020-05-01T05:27:22.225Z'
     - stylelint-webpack-plugin > stylelint > stylehacks > postcss-reporter > lodash:
         patched: '2020-05-01T05:27:22.225Z'
+    - webpack > async > lodash:
+        patched: '2020-06-05T05:26:35.629Z'
